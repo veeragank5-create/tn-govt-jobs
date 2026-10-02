@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TN GOVT JOBS</title>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>🇮🇳 TN GOVT JOBS | Government Job Notifications</title>
+
+<meta name="description"
+content="Tamil Nadu and Central Government Job Notifications including RRB, SSC, Bank, JE, TNPSC, Police and Teacher Jobs.">
 
 <style>
 
@@ -14,105 +20,204 @@
 
 body{
     margin:0;
-    font-family:Arial,sans-serif;
-    background:#f2f2f2;
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
     color:#222;
 }
 
+
+/* HEADER */
+
 header{
-    background:#123c7a;
+    background:linear-gradient(135deg,#123c7a,#1769aa);
     color:white;
     text-align:center;
-    padding:30px 10px;
+    padding:35px 15px;
 }
 
 header h1{
     margin:0;
-    font-size:32px;
+    font-size:34px;
 }
 
+header p{
+    margin:10px 0 0;
+    font-size:17px;
+}
+
+
+/* NAVIGATION */
+
 nav{
-    background:#0b2d5c;
+    background:#08254d;
     text-align:center;
-    padding:12px;
+    padding:14px;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin:8px;
+    margin:0 12px;
     font-weight:bold;
 }
 
+nav a:hover{
+    text-decoration:underline;
+}
+
+
+/* SEARCH */
+
 .search{
     text-align:center;
-    margin:25px 10px;
+    margin:25px 10px 15px;
 }
 
 #searchBox{
-    width:85%;
-    max-width:600px;
-    padding:13px;
+    width:90%;
+    max-width:650px;
+    padding:14px;
     font-size:16px;
     border:1px solid #ccc;
-    border-radius:6px;
+    border-radius:8px;
+    outline:none;
 }
+
+#searchBox:focus{
+    border-color:#123c7a;
+}
+
+
+/* FILTERS */
 
 .filters{
     text-align:center;
-    margin:20px 10px;
+    padding:5px 10px 20px;
 }
 
 .filter-btn{
     background:#123c7a;
     color:white;
     border:none;
-    padding:11px 18px;
+    padding:11px 17px;
     margin:5px;
     border-radius:6px;
     cursor:pointer;
-    font-size:15px;
-}
-
-.filter-btn:hover{
-    background:#0b2d5c;
-}
-
-.job{
-    background:white;
-    width:88%;
-    max-width:900px;
-    margin:20px auto;
-    padding:22px;
-    border-radius:10px;
-    box-shadow:0 3px 12px #ccc;
-}
-
-.job h2{
-    color:#123c7a;
-}
-
-.status{
-    color:green;
+    font-size:14px;
     font-weight:bold;
 }
 
-.official{
-    background:#198754;
-    color:white;
-    border:none;
-    padding:11px 16px;
-    border-radius:6px;
-    cursor:pointer;
+.filter-btn:hover{
+    background:#08254d;
 }
 
+
+/* JOB CARD */
+
+.job{
+    background:white;
+    width:90%;
+    max-width:900px;
+    margin:20px auto;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.10);
+}
+
+.job h2{
+    margin-top:0;
+    color:#123c7a;
+}
+
+.job p{
+    line-height:1.6;
+}
+
+
+/* NEW BADGE */
+
+.badge{
+    display:inline-block;
+    background:#dc3545;
+    color:white;
+    padding:5px 9px;
+    border-radius:5px;
+    font-size:12px;
+    font-weight:bold;
+    margin-left:8px;
+}
+
+
+/* LAST DATE */
+
+.last-date{
+    color:#d63333;
+    font-weight:bold;
+}
+
+
+/* STATUS */
+
+.status{
+    color:#198754;
+    font-weight:bold;
+}
+
+
+/* APPLY BUTTON */
+
+.apply-btn{
+    display:inline-block;
+    background:#198754;
+    color:white;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:7px;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+.apply-btn:hover{
+    background:#146c43;
+}
+
+
+/* ABOUT / CONTACT */
+
+.info-box{
+    background:white;
+    width:90%;
+    max-width:900px;
+    margin:25px auto;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.10);
+}
+
+.info-box h2{
+    color:#123c7a;
+}
+
+
+/* FOOTER */
+
 footer{
-    background:#123c7a;
+    background:#08254d;
     color:white;
     text-align:center;
-    padding:20px;
-    margin-top:30px;
+    padding:25px;
+    margin-top:40px;
 }
+
+footer p{
+    margin:6px;
+}
+
+
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -120,31 +225,40 @@ footer{
         font-size:25px;
     }
 
+    header p{
+        font-size:14px;
+    }
+
     nav a{
-        margin:4px;
+        margin:0 5px;
         font-size:13px;
     }
 
-    #searchBox{
-        width:92%;
+    .job{
+        width:94%;
+        padding:20px;
     }
 
-    .job{
-        width:92%;
+    .info-box{
+        width:94%;
     }
 
     .filter-btn{
-        padding:10px 13px;
-        font-size:14px;
+        padding:9px 12px;
+        font-size:13px;
     }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- HEADER -->
 
 <header id="home">
 
@@ -157,63 +271,82 @@ Tamil Nadu & Central Government Job Notifications
 </header>
 
 
+<!-- NAVIGATION -->
+
 <nav>
 
 <a href="#home">Home</a>
+
 <a href="#jobs">Jobs</a>
+
 <a href="#about">About</a>
+
 <a href="#contact">Contact</a>
 
 </nav>
 
+
+<!-- SEARCH -->
 
 <div class="search">
 
 <input
 id="searchBox"
 type="text"
-placeholder="🔎 Search RRB, SSC, Bank, JE..."
+placeholder="🔎 Search RRB, SSC, Bank, TNPSC..."
 onkeyup="searchJobs()">
 
 </div>
 
 
+<!-- FILTER BUTTONS -->
+
 <div class="filters">
 
-<button class="filter-btn" onclick="filterJobs('all')">
+<button class="filter-btn"
+onclick="filterJobs('all')">
 All Jobs
 </button>
 
-<button class="filter-btn" onclick="filterJobs('10th')">
+<button class="filter-btn"
+onclick="filterJobs('10th')">
 10th
 </button>
 
-<button class="filter-btn" onclick="filterJobs('12th')">
+<button class="filter-btn"
+onclick="filterJobs('12th')">
 12th
 </button>
 
-<button class="filter-btn" onclick="filterJobs('degree')">
+<button class="filter-btn"
+onclick="filterJobs('degree')">
 Degree
 </button>
 
-<button class="filter-btn" onclick="filterJobs('rrb')">
+<button class="filter-btn"
+onclick="filterJobs('rrb')">
 RRB
 </button>
 
-<button class="filter-btn" onclick="filterJobs('ssc')">
+<button class="filter-btn"
+onclick="filterJobs('ssc')">
 SSC
 </button>
 
-<button class="filter-btn" onclick="filterJobs('bank')">
+<button class="filter-btn"
+onclick="filterJobs('bank')">
 Bank
 </button>
 
-<button class="filter-btn" onclick="filterJobs('je')">
+<button class="filter-btn"
+onclick="filterJobs('je')">
 JE
 </button>
 
 </div>
 
+
+<!-- JOBS -->
 
 <div id="jobs">
 
@@ -223,35 +356,40 @@ JE
 <div class="job"
 data-qualification="10th 12th degree rrb">
 
-<h2>🚆 RRB Jobs</h2>
+<h2>
+🚆 RRB Jobs
+<span class="badge">LATEST</span>
+</h2>
 
 <p>
 Railway Recruitment Board Government Jobs
 </p>
 
 <p>
-🎓 Qualification: 10th / 12th / Degree
+🎓 <b>Qualification:</b>
+10th / 12th / Degree
 </p>
 
 <p>
-📋 Vacancy: Check Official Notification
+📋 <b>Vacancy:</b>
+Check Official Notification
 </p>
 
-<p>
-📅 Last Date: Check Official Notification
+<p class="last-date">
+📅 Last Date:
+Check Official Notification
 </p>
 
 <p class="status">
-🟢 Check Official Notification
+🟢 Official recruitment information
 </p>
 
 <a
+class="apply-btn"
 href="https://www.rrbapply.gov.in/"
 target="_blank">
 
-<button class="official">
-📄 RRB Official Website
-</button>
+Apply Now → RRB Official Website
 
 </a>
 
@@ -263,87 +401,81 @@ target="_blank">
 <div class="job"
 data-qualification="12th ssc chsl">
 
-<h2>🏛️ SSC CHSL 2026</h2>
+<h2>
+🏛️ SSC CHSL
+<span class="badge">LATEST</span>
+</h2>
 
 <p>
-Combined Higher Secondary Level Examination
+Staff Selection Commission
+Combined Higher Secondary Level
 </p>
 
 <p>
-🎓 Qualification: 12th Pass
+🎓 <b>Qualification:</b>
+12th Pass
 </p>
 
 <p>
-📋 Tentative Vacancies: 2,536
+📋 <b>Vacancy:</b>
+Check Official Notification
 </p>
 
-<p>
-📅 Application Last Date: 07 October 2026
-</p>
-
-<p>
-📝 Fee Payment Last Date: 08 October 2026
-</p>
-
-<p>
-📅 Correction Window: 14–16 October 2026
-</p>
-
-<p>
-📝 Tier-I: 30 November – 31 December 2026
+<p class="last-date">
+📅 Last Date:
+Check Official Notification
 </p>
 
 <p class="status">
-🟢 Application / Exam Update
+🟢 Check SSC official notification
 </p>
 
 <a
+class="apply-btn"
 href="https://ssc.gov.in/"
 target="_blank">
 
-<button class="official">
-📄 Apply / SSC Official Website
-</button>
+Apply Now → SSC Official Website
 
 </a>
 
 </div>
 
 
-<!-- SSC GENERAL -->
+<!-- SSC -->
 
 <div class="job"
 data-qualification="10th 12th degree ssc">
 
-<h2>🏛️ SSC Jobs</h2>
+<h2>
+🏛️ SSC Jobs
+</h2>
 
 <p>
 Staff Selection Commission Government Jobs
 </p>
 
 <p>
-🎓 Qualification: 10th / 12th / Degree
+🎓 <b>Qualification:</b>
+10th / 12th / Degree
 </p>
 
 <p>
-📋 Vacancy: Check Official Notification
+📋 <b>Vacancy:</b>
+Check Official Notification
 </p>
 
-<p>
-📅 Last Date: Check Official Notification
-</p>
-
-<p class="status">
-🟢 Check Official Notification
+<p class="last-date">
+📅 Last Date:
+Check Official Notification
 </p>
 
 <a
+class="apply-btn"
 href="https://ssc.gov.in/"
 target="_blank">
 
-<button class="official">
-📄 SSC Official Website
-</button>
+Apply Now → SSC Official Website
 
 </a>
 
@@ -355,35 +487,36 @@ target="_blank">
 <div class="job"
 data-qualification="degree bank">
 
-<h2>🏦 Bank Jobs</h2>
+<h2>
+🏦 Bank Jobs
+<span class="badge">LATEST</span>
+</h2>
 
 <p>
 Government & Public Sector Bank Jobs
 </p>
 
 <p>
-🎓 Qualification: Degree
+🎓 <b>Qualification:</b>
+Degree
 </p>
 
 <p>
-📋 Vacancy: Check Official Notification
+📋 <b>Vacancy:</b>
+Check Official Notification
 </p>
 
-<p>
-📅 Last Date: Check Official Notification
-</p>
-
-<p class="status">
-🟢 Check Official Notification
+<p class="last-date">
+📅 Last Date:
+Check Official Notification
 </p>
 
 <a
+class="apply-btn"
 href="https://www.ibps.in/"
 target="_blank">
 
-<button class="official">
-📄 IBPS Official Website
-</button>
+Apply Now → IBPS Official Website
 
 </a>
 
@@ -395,35 +528,36 @@ target="_blank">
 <div class="job"
 data-qualification="diploma degree je">
 
-<h2>🏗️ JE Jobs</h2>
+<h2>
+🏗️ JE Jobs
+<span class="badge">LATEST</span>
+</h2>
 
 <p>
 Junior Engineer Government Jobs
 </p>
 
 <p>
-🎓 Qualification: Diploma / Degree
+🎓 <b>Qualification:</b>
+Diploma / Degree
 </p>
 
 <p>
-📋 Vacancy: Check Official Notification
+📋 <b>Vacancy:</b>
+Check Official Notification
 </p>
 
-<p>
-📅 Last Date: Check Official Notification
-</p>
-
-<p class="status">
-🟢 Check Official Notification
+<p class="last-date">
+📅 Last Date:
+Check Official Notification
 </p>
 
 <a
+class="apply-btn"
 href="https://ssc.gov.in/"
 target="_blank">
 
-<button class="official">
-📄 SSC Official Website
-</button>
+Apply Now → Official Website
 
 </a>
 
@@ -435,35 +569,36 @@ target="_blank">
 <div class="job"
 data-qualification="10th 12th degree tnpsc">
 
-<h2>🏛️ TNPSC Jobs</h2>
+<h2>
+🏛️ TNPSC Jobs
+<span class="badge">TN</span>
+</h2>
 
 <p>
 Tamil Nadu Public Service Commission
 </p>
 
 <p>
-🎓 Qualification: 10th / 12th / Degree
+🎓 <b>Qualification:</b>
+10th / 12th / Degree
 </p>
 
 <p>
-📋 Vacancy: Check Official Notification
+📋 <b>Vacancy:</b>
+Check Official Notification
 </p>
 
-<p>
-📅 Last Date: Check Official Notification
-</p>
-
-<p class="status">
-🟢 Check Official Notification
+<p class="last-date">
+📅 Last Date:
+Check Official Notification
 </p>
 
 <a
+class="apply-btn"
 href="https://www.tnpsc.gov.in/"
 target="_blank">
 
-<button class="official">
-📄 TNPSC Official Website
-</button>
+Apply Now → TNPSC Official Website
 
 </a>
 
@@ -475,35 +610,36 @@ target="_blank">
 <div class="job"
 data-qualification="10th 12th police">
 
-<h2>👮 Police Jobs</h2>
+<h2>
+👮 Police Jobs
+<span class="badge">TN</span>
+</h2>
 
 <p>
 Tamil Nadu Police Recruitment
 </p>
 
 <p>
-🎓 Qualification: 10th / 12th
+🎓 <b>Qualification:</b>
+10th / 12th
 </p>
 
 <p>
-📋 Vacancy: Check Official Notification
+📋 <b>Vacancy:</b>
+Check Official Notification
 </p>
 
-<p>
-📅 Last Date: Check Official Notification
-</p>
-
-<p class="status">
-🟢 Check Official Notification
+<p class="last-date">
+📅 Last Date:
+Check Official Notification
 </p>
 
 <a
+class="apply-btn"
 href="https://www.tnusrb.tn.gov.in/"
 target="_blank">
 
-<button class="official">
-📄 TNUSRB Official Website
-</button>
+Apply Now → TNUSRB Official Website
 
 </a>
 
@@ -515,35 +651,36 @@ target="_blank">
 <div class="job"
 data-qualification="degree teacher">
 
-<h2>👨‍🏫 Teacher Jobs</h2>
+<h2>
+👨‍🏫 Teacher Jobs
+<span class="badge">TN</span>
+</h2>
 
 <p>
 Tamil Nadu Government Teacher Recruitment
 </p>
 
 <p>
-🎓 Qualification: Degree / B.Ed
+🎓 <b>Qualification:</b>
+Degree / B.Ed
 </p>
 
 <p>
-📋 Vacancy: Check Official Notification
+📋 <b>Vacancy:</b>
+Check Official Notification
 </p>
 
-<p>
-📅 Last Date: Check Official Notification
-</p>
-
-<p class="status">
-🟢 Check Official Notification
+<p class="last-date">
+📅 Last Date:
+Check Official Notification
 </p>
 
 <a
+class="apply-btn"
 href="https://www.trb.tn.gov.in/"
 target="_blank">
 
-<button class="official">
-📄 TRB Official Website
-</button>
+Apply Now → TRB Official Website
 
 </a>
 
@@ -555,23 +692,29 @@ target="_blank">
 
 <!-- ABOUT -->
 
-<div id="about" class="job">
+<div
+id="about"
+class="info-box">
 
-<h2>ℹ️ About TN Govt Jobs</h2>
+<h2>
+ℹ️ About TN Govt Jobs
+</h2>
 
 <p>
 TN Govt Jobs provides information about
-Tamil Nadu and Central Government job opportunities.
+Tamil Nadu and Central Government
+job opportunities.
 </p>
 
 <p>
-Categories include RRB, SSC, Bank, JE,
-TNPSC, Police and Teacher jobs.
+Categories include RRB, SSC, Bank,
+JE, TNPSC, Police and Teacher jobs.
 </p>
 
 <p>
-⚠️ Always check the official recruitment
-website before applying.
+⚠️ Always verify the notification,
+eligibility, fee and last date on the
+official recruitment website before applying.
 </p>
 
 </div>
@@ -579,25 +722,36 @@ website before applying.
 
 <!-- CONTACT -->
 
-<div id="contact" class="job">
+<div
+id="contact"
+class="info-box">
 
-<h2>📞 Contact Us</h2>
+<h2>
+📞 Contact Us
+</h2>
 
 <p>
 Government Job Updates and Notifications
 </p>
 
+<p>
+For official application, always use the
+official recruitment website.
+</p>
+
 </div>
 
+
+<!-- FOOTER -->
 
 <footer>
 
 <p>
-© 2026 TN Govt Jobs
+🇮🇳 © 2026 TN GOVT JOBS
 </p>
 
 <p>
-Government Job Updates
+Government Job Notifications
 </p>
 
 </footer>
@@ -605,19 +759,28 @@ Government Job Updates
 
 <script>
 
+
+/* FILTER */
+
 function filterJobs(type){
 
     let jobs =
-    document.querySelectorAll(".job[data-qualification]");
+    document.querySelectorAll(
+        "#jobs .job[data-qualification]"
+    );
 
     jobs.forEach(function(job){
 
         let qualification =
-        job.getAttribute("data-qualification").toLowerCase();
+        job.getAttribute(
+            "data-qualification"
+        ).toLowerCase();
 
         if(
             type === "all" ||
-            qualification.indexOf(type.toLowerCase()) !== -1
+            qualification.includes(
+                type.toLowerCase()
+            )
         ){
 
             job.style.display = "block";
@@ -633,22 +796,29 @@ function filterJobs(type){
 }
 
 
+/* SEARCH */
+
 function searchJobs(){
 
     let search =
-    document.getElementById("searchBox")
+    document
+    .getElementById("searchBox")
     .value
     .toLowerCase();
 
     let jobs =
-    document.querySelectorAll(".job[data-qualification]");
+    document.querySelectorAll(
+        "#jobs .job[data-qualification]"
+    );
 
     jobs.forEach(function(job){
 
         let text =
         job.innerText.toLowerCase();
 
-        if(text.indexOf(search) !== -1){
+        if(
+            text.includes(search)
+        ){
 
             job.style.display = "block";
 
