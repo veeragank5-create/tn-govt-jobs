@@ -1000,6 +1000,15 @@ function topFunction() {
         behavior: "smooth"
     });
 }
+  function toggleMenu(){
+    let menu = document.getElementById("menuLinks");
+
+    if(menu.style.display === "block"){
+        menu.style.display = "none";
+    }else{
+        menu.style.display = "block";
+    }
+}
 </script>
 
 <button onclick="topFunction()" id="topBtn" title="Go to top">
