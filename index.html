@@ -149,7 +149,8 @@
         onkeyup="searchJobs()"
     >
 </div>
-    <!-- FILTER BUTTONS -->
+
+<!-- FILTER BUTTONS -->
 <div class="filters">
     <button type="button" onclick="filterJobs('all')">All Jobs</button>
     <button type="button" onclick="filterJobs('10th')">10th</button>
@@ -164,9 +165,7 @@
         <h2>TNPSC Jobs</h2>
 
         <p>Government jobs through TNPSC</p>
-
         <p>Qualification: 10th / 12th / Degree</p>
-
         <p>📅 Last Date: Check Official Notification</p>
 
         <p class="status">
@@ -192,13 +191,11 @@
         </a>
     </div>
 
-
     <!-- POLICE -->
     <div class="job" data-qualification="10th 12th">
         <h2>Police Jobs</h2>
 
         <p>Tamil Nadu Police Recruitment</p>
-
         <p>Qualification: 10th / 12th</p>
 
         <a href="https://www.tnusrb.tn.gov.in/" target="_blank">
@@ -216,13 +213,11 @@
         </a>
     </div>
 
-
     <!-- TEACHER -->
     <div class="job" data-qualification="degree">
         <h2>Teacher Jobs</h2>
 
         <p>Government Teacher Recruitment</p>
-
         <p>Qualification: Degree / B.Ed</p>
 
         <a href="https://www.trb.tn.gov.in/" target="_blank">
@@ -242,7 +237,6 @@
 
 </div>
 
-
 <!-- LATEST JOBS -->
 <div class="job">
     <h2>📢 Latest Job Notifications</h2>
@@ -251,15 +245,11 @@
     <p>🔹 Tamil Nadu Police Jobs</p>
     <p>🔹 Government Teacher Jobs</p>
 
-    <p>
-        📌 Always check the official website before applying.
-    </p>
+    <p>📌 Always check the official website before applying.</p>
 </div>
-
 
 <!-- ABOUT -->
 <div id="about" class="job">
-
     <h2>ℹ️ About TN Govt Jobs</h2>
 
     <p>
@@ -271,58 +261,47 @@
         Always check the official recruitment website
         before applying.
     </p>
-
 </div>
-
 
 <!-- CONTACT -->
 <div id="contact" class="job">
-
     <h2>📞 Contact Us</h2>
 
-    <p>
-        For TN Govt Job updates and notifications
-    </p>
-
-    <p>
-        📧 Email: tngovtjobs@example.com
-    </p>
-
+    <p>For TN Govt Job updates and notifications</p>
+    <p>📧 Email: tngovtjobs@example.com</p>
 </div>
 
-
-<!-- BACK TO TOP -->
 <div style="text-align:center; margin:20px;">
-
     <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         ⬆️ Back to Top
     </button>
-
 </div>
 
-
 <footer>
-
     <p>© 2026 TN Govt Jobs</p>
-
     <p>Tamil Nadu Government Job Updates</p>
-
 </footer>
-
 
 <script>
 
 function filterJobs(type) {
-    let jobs = document.querySelectorAll("#jobs .job");
+
+    let jobs = document.querySelectorAll("#jobs > .job");
 
     jobs.forEach(function(job) {
-        let qualification = job.getAttribute("data-qualification");
 
-        if (type === "all" || qualification.includes(type)) {
+        let qualification =
+            job.getAttribute("data-qualification") || "";
+
+        if (
+            type === "all" ||
+            qualification.toLowerCase().includes(type.toLowerCase())
+        ) {
             job.style.display = "block";
         } else {
             job.style.display = "none";
         }
+
     });
 }
 
@@ -335,7 +314,7 @@ function searchJobs() {
         .toLowerCase();
 
     let jobs =
-        document.querySelectorAll("#jobs .job");
+        document.querySelectorAll("#jobs > .job");
 
     jobs.forEach(function(job) {
 
@@ -343,17 +322,12 @@ function searchJobs() {
             job.innerText.toLowerCase();
 
         if (text.includes(search)) {
-
             job.style.display = "block";
-
         } else {
-
             job.style.display = "none";
-
         }
 
     });
-
 }
 
 
