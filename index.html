@@ -243,18 +243,16 @@ function filterJobs(type) {
 
 function searchJobs() {
 
-    let search =
-        document.getElementById("searchBox")
+    let search = document
+        .getElementById("searchBox")
         .value
         .toLowerCase();
 
-    let jobs =
-        document.querySelectorAll("#jobs .job");
+    let jobs = document.querySelectorAll("#jobs .job");
 
     jobs.forEach(function(job) {
 
-        let text =
-            job.innerText.toLowerCase();
+        let text = job.innerText.toLowerCase();
 
         if (text.includes(search)) {
             job.style.display = "block";
