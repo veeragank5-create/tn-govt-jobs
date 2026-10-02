@@ -1,10 +1,318 @@
-<!-- RRB JOBS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🇮🇳 TN GOVT JOBS | Government Job Notifications</title>
+
+<meta name="description"
+content="Tamil Nadu and Central Government Job Notifications including RRB, SSC, Bank, JE, TNPSC, Police and Teacher Jobs.">
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f6f9;
+color:#222;
+}
+
+header{
+background:linear-gradient(135deg,#123c7a,#1769aa);
+color:white;
+text-align:center;
+padding:35px 15px;
+}
+
+header h1{
+margin:0;
+font-size:34px;
+}
+
+header p{
+margin:10px 0 0;
+font-size:17px;
+}
+
+nav{
+background:#08254d;
+text-align:center;
+padding:14px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 12px;
+font-weight:bold;
+}
+
+nav a:hover{
+text-decoration:underline;
+}
+
+.search{
+text-align:center;
+margin:25px 10px 15px;
+}
+
+#searchBox{
+width:90%;
+max-width:650px;
+padding:14px;
+font-size:16px;
+border:1px solid #ccc;
+border-radius:8px;
+outline:none;
+}
+
+#searchBox:focus{
+border-color:#123c7a;
+}
+
+.filters{
+text-align:center;
+padding:5px 10px 20px;
+}
+
+.filter-btn{
+background:#123c7a;
+color:white;
+border:none;
+padding:11px 17px;
+margin:5px;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+font-weight:bold;
+}
+
+.filter-btn:hover{
+background:#08254d;
+}
+
+.latest-title{
+text-align:center;
+color:#123c7a;
+margin:30px 10px 10px;
+}
+
+.job{
+background:white;
+width:90%;
+max-width:900px;
+margin:20px auto;
+padding:25px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.10);
+}
+
+.job h2{
+margin-top:0;
+color:#123c7a;
+}
+
+.job p{
+line-height:1.6;
+}
+
+.badge{
+display:inline-block;
+background:#dc3545;
+color:white;
+padding:5px 9px;
+border-radius:5px;
+font-size:12px;
+font-weight:bold;
+margin-left:8px;
+}
+
+.last-date{
+color:#d63333;
+font-weight:bold;
+}
+
+.status{
+color:#198754;
+font-weight:bold;
+}
+
+.apply-btn{
+display:inline-block;
+background:#198754;
+color:white;
+text-decoration:none;
+padding:12px 18px;
+border-radius:7px;
+font-weight:bold;
+margin-top:8px;
+}
+
+.apply-btn:hover{
+background:#146c43;
+}
+
+.info-box{
+background:white;
+width:90%;
+max-width:900px;
+margin:25px auto;
+padding:25px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.10);
+}
+
+.info-box h2{
+color:#123c7a;
+}
+
+footer{
+background:#08254d;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:40px;
+}
+
+footer p{
+margin:6px;
+}
+
+@media(max-width:600px){
+
+header h1{
+font-size:25px;
+}
+
+header p{
+font-size:14px;
+}
+
+nav a{
+margin:0 5px;
+font-size:13px;
+}
+
+.job{
+width:94%;
+padding:20px;
+}
+
+.info-box{
+width:94%;
+}
+
+.filter-btn{
+padding:9px 12px;
+font-size:13px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="home">
+
+<h1>🇮🇳 TN GOVT JOBS</h1>
+
+<p>
+Tamil Nadu & Central Government Job Notifications
+</p>
+
+</header>
+
+
+<nav>
+
+<a href="#home">Home</a>
+<a href="#jobs">Jobs</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+
+<div class="search">
+
+<input
+id="searchBox"
+type="text"
+placeholder="🔎 Search RRB, SSC, Bank, TNPSC..."
+onkeyup="searchJobs()">
+
+</div>
+
+
+<div class="filters">
+
+<button class="filter-btn"
+onclick="filterJobs('all')">
+All Jobs
+</button>
+
+<button class="filter-btn"
+onclick="filterJobs('10th')">
+10th
+</button>
+
+<button class="filter-btn"
+onclick="filterJobs('12th')">
+12th
+</button>
+
+<button class="filter-btn"
+onclick="filterJobs('degree')">
+Degree
+</button>
+
+<button class="filter-btn"
+onclick="filterJobs('rrb')">
+RRB
+</button>
+
+<button class="filter-btn"
+onclick="filterJobs('ssc')">
+SSC
+</button>
+
+<button class="filter-btn"
+onclick="filterJobs('bank')">
+Bank
+</button>
+
+<button class="filter-btn"
+onclick="filterJobs('je')">
+JE
+</button>
+
+</div>
+
+
+<h2 class="latest-title">
+🔥 Latest Government Jobs
+</h2>
+
+
+<div id="jobs">
+
 
 <div class="job"
 data-qualification="10th 12th degree rrb">
 
 <h2>
-🚆 RRB Recruitment 2026
+🚆 RRB Jobs
 <span class="badge">LATEST</span>
 </h2>
 
@@ -12,158 +320,419 @@ data-qualification="10th 12th degree rrb">
 Railway Recruitment Board Government Jobs
 </p>
 
-<div class="details">
-
-<p>🏢 <b>Department:</b> Indian Railways</p>
-
-<p>🎓 <b>Qualification:</b> Check Official Notification</p>
-
-<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
-
-<p>💰 <b>Salary:</b> As per Post & Pay Level</p>
-
-<p>📋 <b>Vacancy:</b> Check Official Notification</p>
-
-<p class="last-date">
-📅 <b>Last Date:</b> Check Official Notification
+<p>
+🎓 <b>Qualification:</b>
+10th / 12th / Degree
 </p>
 
-</div>
+<p>
+📋 <b>Vacancy:</b>
+Check Official Notification
+</p>
 
-<div class="buttons">
+<p class="last-date">
+📅 Last Date: Check Official Notification
+</p>
+
+<p class="status">
+🟢 Official recruitment information
+</p>
 
 <a
 class="apply-btn"
 href="https://www.rrbapply.gov.in/"
 target="_blank">
 
-Apply Now
-
-</a>
-
-<a
-class="notification-btn"
-href="https://www.rrbapply.gov.in/"
-target="_blank">
-
-📄 Official Notification
+Apply Now → RRB Official Website
 
 </a>
 
 </div>
 
-</div>
-
-
-<!-- RRB NTPC -->
 
 <div class="job"
-data-qualification="12th degree rrb ntpc">
+data-qualification="12th ssc chsl">
 
 <h2>
-🚆 RRB NTPC 2026
+🏛️ SSC CHSL
 <span class="badge">LATEST</span>
 </h2>
 
 <p>
-Railway Recruitment Board – Non-Technical Popular Categories
+Staff Selection Commission Combined Higher Secondary Level
 </p>
 
-<div class="details">
+<p>
+🎓 <b>Qualification:</b>
+12th Pass
+</p>
 
-<p>🏢 <b>Department:</b> Indian Railways</p>
-
-<p>🎓 <b>Qualification:</b> 12th / Degree depending on post</p>
-
-<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
-
-<p>💰 <b>Salary:</b> As per Post & Pay Level</p>
-
-<p>📋 <b>Vacancy:</b> Check Official Notification</p>
+<p>
+📋 <b>Vacancy:</b>
+Check Official Notification
+</p>
 
 <p class="last-date">
-📅 <b>Last Date:</b> Check Official Notification
+📅 Last Date: Check Official Notification
 </p>
 
-</div>
-
-<div class="buttons">
+<p class="status">
+🟢 Check SSC official notification
+</p>
 
 <a
 class="apply-btn"
-href="https://www.rrbapply.gov.in/"
+href="https://ssc.gov.in/"
 target="_blank">
 
-Apply Now
-
-</a>
-
-<a
-class="notification-btn"
-href="https://www.rrbapply.gov.in/"
-target="_blank">
-
-📄 Official Notification
+Apply Now → SSC Official Website
 
 </a>
 
 </div>
 
-</div>
-
-
-<!-- RRB PARAMEDICAL -->
 
 <div class="job"
-data-qualification="degree rrb paramedical">
+data-qualification="10th 12th degree ssc">
 
 <h2>
-🏥 RRB Paramedical
+🏛️ SSC Jobs
+</h2>
+
+<p>
+Staff Selection Commission Government Jobs
+</p>
+
+<p>
+🎓 <b>Qualification:</b>
+10th / 12th / Degree
+</p>
+
+<p>
+📋 <b>Vacancy:</b>
+Check Official Notification
+</p>
+
+<p class="last-date">
+📅 Last Date: Check Official Notification
+</p>
+
+<a
+class="apply-btn"
+href="https://ssc.gov.in/"
+target="_blank">
+
+Apply Now → SSC Official Website
+
+</a>
+
+</div>
+
+
+<div class="job"
+data-qualification="degree bank">
+
+<h2>
+🏦 Bank Jobs
 <span class="badge">LATEST</span>
 </h2>
 
 <p>
-Railway Recruitment Board Paramedical Recruitment
+Government & Public Sector Bank Jobs
 </p>
 
-<div class="details">
+<p>
+🎓 <b>Qualification:</b>
+Degree
+</p>
 
-<p>🏢 <b>Department:</b> Indian Railways</p>
-
-<p>🎓 <b>Qualification:</b> Post-wise qualification</p>
-
-<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
-
-<p>💰 <b>Salary:</b> As per Post & Pay Level</p>
-
-<p>📋 <b>Vacancy:</b> Check Official Notification</p>
+<p>
+📋 <b>Vacancy:</b>
+Check Official Notification
+</p>
 
 <p class="last-date">
-📅 <b>Last Date:</b> Check Official Notification
+📅 Last Date: Check Official Notification
 </p>
-
-</div>
-
-<div class="buttons">
 
 <a
 class="apply-btn"
-href="https://www.rrbapply.gov.in/"
+href="https://www.ibps.in/"
 target="_blank">
 
-Apply Now
+Apply Now → IBPS Official Website
 
 </a>
+
+</div>
+
+
+<div class="job"
+data-qualification="diploma degree je">
+
+<h2>
+🏗️ JE Jobs
+<span class="badge">LATEST</span>
+</h2>
+
+<p>
+Junior Engineer Government Jobs
+</p>
+
+<p>
+🎓 <b>Qualification:</b>
+Diploma / Degree
+</p>
+
+<p>
+📋 <b>Vacancy:</b>
+Check Official Notification
+</p>
+
+<p class="last-date">
+📅 Last Date: Check Official Notification
+</p>
 
 <a
-class="notification-btn"
-href="https://www.rrbapply.gov.in/"
+class="apply-btn"
+href="https://ssc.gov.in/"
 target="_blank">
 
-📄 Official Notification
+Apply Now → Official Website
 
 </a>
 
 </div>
 
+
+<div class="job"
+data-qualification="10th 12th degree tnpsc">
+
+<h2>
+🏛️ TNPSC Jobs
+<span class="badge">TN</span>
+</h2>
+
+<p>
+Tamil Nadu Public Service Commission
+</p>
+
+<p>
+🎓 <b>Qualification:</b>
+10th / 12th / Degree
+</p>
+
+<p>
+📋 <b>Vacancy:</b>
+Check Official Notification
+</p>
+
+<p class="last-date">
+📅 Last Date: Check Official Notification
+</p>
+
+<a
+class="apply-btn"
+href="https://www.tnpsc.gov.in/"
+target="_blank">
+
+Apply Now → TNPSC Official Website
+
+</a>
+
 </div>
+
+
+<div class="job"
+data-qualification="10th 12th police">
+
+<h2>
+👮 Police Jobs
+<span class="badge">TN</span>
+</h2>
+
+<p>
+Tamil Nadu Police Recruitment
+</p>
+
+<p>
+🎓 <b>Qualification:</b>
+10th / 12th
+</p>
+
+<p>
+📋 <b>Vacancy:</b>
+Check Official Notification
+</p>
+
+<p class="last-date">
+📅 Last Date: Check Official Notification
+</p>
+
+<a
+class="apply-btn"
+href="https://www.tnusrb.tn.gov.in/"
+target="_blank">
+
+Apply Now → TNUSRB Official Website
+
+</a>
+
+</div>
+
+
+<div class="job"
+data-qualification="degree teacher">
+
+<h2>
+👨‍🏫 Teacher Jobs
+<span class="badge">TN</span>
+</h2>
+
+<p>
+Tamil Nadu Government Teacher Recruitment
+</p>
+
+<p>
+🎓 <b>Qualification:</b>
+Degree / B.Ed
+</p>
+
+<p>
+📋 <b>Vacancy:</b>
+Check Official Notification
+</p>
+
+<p class="last-date">
+📅 Last Date: Check Official Notification
+</p>
+
+<a
+class="apply-btn"
+href="https://www.trb.tn.gov.in/"
+target="_blank">
+
+Apply Now → TRB Official Website
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<div id="about" class="info-box">
+
+<h2>ℹ️ About TN Govt Jobs</h2>
+
+<p>
+TN Govt Jobs provides information about
+Tamil Nadu and Central Government job opportunities.
+</p>
+
+<p>
+Categories include RRB, SSC, Bank, JE,
+TNPSC, Police and Teacher jobs.
+</p>
+
+<p>
+⚠️ Always verify the notification, eligibility,
+fee and last date on the official recruitment
+website before applying.
+</p>
+
+</div>
+
+
+<div id="contact" class="info-box">
+
+<h2>📞 Contact Us</h2>
+
+<p>
+Government Job Updates and Notifications
+</p>
+
+<p>
+For official application, always use the
+official recruitment website.
+</p>
+
+</div>
+
+
+<footer>
+
+<p>🇮🇳 © 2026 TN GOVT JOBS</p>
+
+<p>Government Job Notifications</p>
+
+</footer>
+
+
+<script>
+
+function filterJobs(type){
+
+let jobs=document.querySelectorAll(
+"#jobs .job[data-qualification]"
+);
+
+jobs.forEach(function(job){
+
+let qualification=
+job.getAttribute("data-qualification")
+.toLowerCase();
+
+if(
+type==="all" ||
+qualification.includes(type.toLowerCase())
+){
+
+job.style.display="block";
+
+}else{
+
+job.style.display="none";
+
+}
+
+});
+
+}
+
+
+function searchJobs(){
+
+let search=
+document.getElementById("searchBox")
+.value
+.toLowerCase();
+
+let jobs=document.querySelectorAll(
+"#jobs .job[data-qualification]"
+);
+
+jobs.forEach(function(job){
+
+let text=
+job.innerText.toLowerCase();
+
+if(text.includes(search)){
+
+job.style.display="block";
+
+}else{
+
+job.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
