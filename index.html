@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🇮🇳 TN Govt Jobs - Tamil Nadu Government Jobs</title>
+
+    <style>button {
+    background: #123c7a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f2f2f2;
+        }
+
+        header {
+            background: #123c7a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .search {
+            text-align: center;
+            margin: 25px;
+        }
+
+        input {
+            width: 70%;
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        .job {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            border-radius: 10px;
+        }
+   footer {
+    background: #123c7a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+@media (max-width: 600px) {
+    input {
+        width: 85%;
+    }
+
+    .job {
+        width: 85%;
+    }
+
+    button {
+        margin: 5px;
+    }
+}   
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇮🇳 TN GOVT JOBS</h1>
+    <p>Tamil Nadu Government Job Notifications</p>
+</header>
+<div style="text-align:center; margin:20px;">
+    <button onclick="filterJobs('all')">All Jobs</button>
+    <button onclick="filterJobs('10th')">10th Pass</button>
+    <button onclick="filterJobs('12th')">12th Pass</button>
+    <button onclick="filterJobs('degree')">Degree</button>
+</div>
+<div class="job">
+    <h2>📢 Latest Job Notifications</h2>
+    <p>🔹 TNPSC Government Jobs</p>
+    <p>🔹 Tamil Nadu Police Jobs</p>
+    <p>🔹 Government Teacher Jobs</p>
+</div>
+<div class="search">
+    <input id="searchBox" type="text"
+           placeholder="Search Jobs..."
+           onkeyup="searchJobs()">
+<div class="job">
+    <h2>TNPSC Jobs</h2>
+    <p>Government jobs through TNPSC</p>
+    <p>Qualification: 10th / 12th / Degree</p>
+<p>📅 Last Date: Check Official Notification</p>
+<p>🟢 Status: Applications Open</p>
+    <button onclick="showMessage()">
+        View Details
+    </button><a href="https://www.tnpsc.gov.in/" target="_blank">
+    <button>Apply Now</button>
+    <p>📌 Official Source: TNPSC</p>
+
+<a href="https://www.tnpsc.gov.in/" target="_blank">
+    <button>Official TNPSC Website</button>
+<p>📌 Official Source: TNPSC</p>
+
+<a href="https://www.tnpsc.gov.in/" target="_blank">
+    <button>Official TNPSC Website</button>
+</a>
+</a>
+</div>
+
+<div class="job">
+    <h2>Police Jobs</h2>
+    <p>Tamil Nadu Police Recruitment</p>
+    <p>Qualification: 10th / 12th</p><a href="#" target="_blank">
+        <p>📌 Official Source: TNUSRB</p>
+
+<a href="https://www.tnusrb.tn.gov.in/" target="_blank">
+    <button>Official Police Recruitment</button>
+</a>
+    <button>Apply Now</button>
+</a>
+</div>
+
+<div class="job">
+    <h2>Teacher Jobs</h2>
+    <p>Government Teacher Recruitment</p>
+    <p>Qualification: Degree / B.Ed</p><a href="#" target="_blank">
+        <p>📌 Official Source: TRB</p>
+
+<a href="https://www.trb.tn.gov.in/" target="_blank">
+    <button>Official Teacher Recruitment</button>
+</a>
+    <button>Apply Now</button>
+</a>
+</div>
+
+<script>function showMessage() {
+   function filterJobs(type) {
+    let jobs = document.querySelectorAll(".job");
+
+    jobs.forEach(function(job) {
+        let text = job.innerText.toLowerCase();
+
+        if (type === "all" || text.includes(type)) {
+            job.style.display = "block";
+        } else {
+            job.style.display = "none";
+        }
+    });
+} alert("TNPSC Jobs\n\nQualification: 10th / 12th / Degree\nAge Limit: As per notification\nSelection: Written Exam / Interview");
+}<p>📅 Last Date: Check Official Notification</p>
+<p>🟢 Status: Applications Open</p>
+function searchJobs() {
+
+    let search = document
+        .getElementById("searchBox")
+        .value
+        .toLowerCase();
+
+    let jobs = document.querySelectorAll(".job");
+
+    jobs.forEach(function(job) {
+
+        let text = job.innerText.toLowerCase();
+
+        if (text.includes(search)) {
+            job.style.display = "block";
+        } else {
+            job.style.display = "none";
+        }
+
+    });
+}
+</script>
+<footer>
+    <p>© 2026 TN Govt Jobs | Tamil Nadu Government Job Updates</p>
+</footer>
+<footer>
+    <p>© 2026 TN Govt Jobs</p>
+    <p>Tamil Nadu Government Job Updates</p>
+</footer>
+<div class="job">
+    <h2>📞 Contact Us</h2>
+    <p>For TN Govt Job updates and notifications</p>
+    <p>📧 Email: tngovtjobs@example.com</p>
+</div>
+<div class="job">
+    <h2>ℹ️ About TN Govt Jobs</h2>
+    <p>
+        TN Govt Jobs website provides information about
+        Tamil Nadu Government job opportunities.
+    </p>
+    <p>
+        Always check the official recruitment website
+        before applying.
+    </p>
+</div>
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ⬆️ Back to Top
+</button>
+</body>
+</html>
