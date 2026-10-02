@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>🇮🇳 TN GOVT JOBS | Government Job Notifications</title>
+<title>TN GOVT JOBS | Government Job Notifications</title>
 
 <meta name="description"
-content="Tamil Nadu and Central Government Job Notifications including RRB, SSC, Bank, JE, TNPSC, Police and Teacher Jobs.">
+content="Tamil Nadu and Central Government Job Notifications - RRB, SSC, Bank, JE, TNPSC, Police and Teacher Jobs.">
 
 <style>
 
@@ -41,7 +41,7 @@ header p{
     font-size:17px;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 nav{
     background:#08254d;
@@ -77,11 +77,6 @@ nav a:hover{
     font-size:16px;
     border:1px solid #ccc;
     border-radius:8px;
-    outline:none;
-}
-
-#searchBox:focus{
-    border-color:#123c7a;
 }
 
 /* FILTERS */
@@ -107,12 +102,12 @@ nav a:hover{
     background:#08254d;
 }
 
-/* LATEST TITLE */
+/* TITLE */
 
 .latest-title{
     text-align:center;
     color:#123c7a;
-    margin:30px 10px 10px;
+    margin:30px 10px;
 }
 
 /* JOB CARD */
@@ -147,6 +142,19 @@ nav a:hover{
     margin-left:8px;
 }
 
+/* DETAILS */
+
+.details{
+    background:#f8f9fa;
+    border-radius:8px;
+    padding:15px;
+    margin:15px 0;
+}
+
+.details p{
+    margin:8px 0;
+}
+
 .last-date{
     color:#d63333;
     font-weight:bold;
@@ -157,19 +165,37 @@ nav a:hover{
     font-weight:bold;
 }
 
-.apply-btn{
+/* BUTTONS */
+
+.buttons{
+    margin-top:15px;
+}
+
+.apply-btn,
+.notification-btn{
     display:inline-block;
-    background:#198754;
     color:white;
     text-decoration:none;
     padding:12px 18px;
     border-radius:7px;
     font-weight:bold;
-    margin-top:8px;
+    margin:5px 5px 5px 0;
+}
+
+.apply-btn{
+    background:#198754;
 }
 
 .apply-btn:hover{
     background:#146c43;
+}
+
+.notification-btn{
+    background:#123c7a;
+}
+
+.notification-btn:hover{
+    background:#08254d;
 }
 
 /* INFO */
@@ -207,7 +233,7 @@ footer p{
 @media(max-width:600px){
 
     header h1{
-        font-size:25px;
+        font-size:26px;
     }
 
     header p{
@@ -233,15 +259,19 @@ footer p{
         font-size:13px;
     }
 
+    .apply-btn,
+    .notification-btn{
+        display:block;
+        text-align:center;
+        margin-top:8px;
+    }
+
 }
 
 </style>
 </head>
 
-
 <body>
-
-<!-- HEADER -->
 
 <header id="home">
 
@@ -254,22 +284,15 @@ Tamil Nadu & Central Government Job Notifications
 </header>
 
 
-<!-- NAVIGATION -->
-
 <nav>
 
 <a href="#home">Home</a>
-
 <a href="#jobs">Jobs</a>
-
 <a href="#about">About</a>
-
 <a href="#contact">Contact</a>
 
 </nav>
 
-
-<!-- SEARCH -->
 
 <div class="search">
 
@@ -281,8 +304,6 @@ onkeyup="searchJobs()">
 
 </div>
 
-
-<!-- FILTER BUTTONS -->
 
 <div class="filters">
 
@@ -329,14 +350,10 @@ JE
 </div>
 
 
-<!-- LATEST JOBS -->
-
 <h2 class="latest-title">
 🔥 Latest Government Jobs
 </h2>
 
-
-<!-- JOBS -->
 
 <div id="jobs">
 
@@ -355,32 +372,49 @@ data-qualification="10th 12th degree rrb">
 Railway Recruitment Board Government Jobs
 </p>
 
-<p>
-🎓 <b>Qualification:</b>
-10th / 12th / Degree
-</p>
+<div class="details">
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
+<p>🏢 <b>Department:</b> Indian Railways</p>
+
+<p>🎓 <b>Qualification:</b> 10th / 12th / Degree</p>
+
+<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
+
+<p>💰 <b>Salary:</b> As per Post & Pay Level</p>
+
+<p>📋 <b>Vacancy:</b> Check Official Notification</p>
 
 <p class="last-date">
-📅 Last Date: Check Official Notification
+📅 <b>Last Date:</b> Check Official Notification
 </p>
 
 <p class="status">
-🟢 Official recruitment information
+🟢 Check Official Recruitment Notification
 </p>
+
+</div>
+
+<div class="buttons">
 
 <a
 class="apply-btn"
 href="https://www.rrbapply.gov.in/"
 target="_blank">
 
-Apply Now → RRB Official Website
+Apply Now
 
 </a>
+
+<a
+class="notification-btn"
+href="https://www.rrbapply.gov.in/"
+target="_blank">
+
+📄 Official Notification
+
+</a>
+
+</div>
 
 </div>
 
@@ -399,32 +433,45 @@ data-qualification="12th ssc chsl">
 Staff Selection Commission Combined Higher Secondary Level
 </p>
 
-<p>
-🎓 <b>Qualification:</b>
-12th Pass
-</p>
+<div class="details">
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
+<p>🏢 <b>Department:</b> Staff Selection Commission</p>
+
+<p>🎓 <b>Qualification:</b> 12th Pass</p>
+
+<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
+
+<p>💰 <b>Salary:</b> As per Post & Pay Level</p>
+
+<p>📋 <b>Vacancy:</b> Check Official Notification</p>
 
 <p class="last-date">
-📅 Last Date: Check Official Notification
+📅 <b>Last Date:</b> Check Official Notification
 </p>
 
-<p class="status">
-🟢 Check SSC official notification
-</p>
+</div>
+
+<div class="buttons">
 
 <a
 class="apply-btn"
 href="https://ssc.gov.in/"
 target="_blank">
 
-Apply Now → SSC Official Website
+Apply Now
 
 </a>
+
+<a
+class="notification-btn"
+href="https://ssc.gov.in/"
+target="_blank">
+
+📄 Official Notification
+
+</a>
+
+</div>
 
 </div>
 
@@ -442,28 +489,45 @@ data-qualification="10th 12th degree ssc">
 Staff Selection Commission Government Jobs
 </p>
 
-<p>
-🎓 <b>Qualification:</b>
-10th / 12th / Degree
-</p>
+<div class="details">
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
+<p>🏢 <b>Department:</b> Staff Selection Commission</p>
+
+<p>🎓 <b>Qualification:</b> 10th / 12th / Degree</p>
+
+<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
+
+<p>💰 <b>Salary:</b> As per Post & Pay Level</p>
+
+<p>📋 <b>Vacancy:</b> Check Official Notification</p>
 
 <p class="last-date">
-📅 Last Date: Check Official Notification
+📅 <b>Last Date:</b> Check Official Notification
 </p>
+
+</div>
+
+<div class="buttons">
 
 <a
 class="apply-btn"
 href="https://ssc.gov.in/"
 target="_blank">
 
-Apply Now → SSC Official Website
+Apply Now
 
 </a>
+
+<a
+class="notification-btn"
+href="https://ssc.gov.in/"
+target="_blank">
+
+📄 Official Notification
+
+</a>
+
+</div>
 
 </div>
 
@@ -482,28 +546,45 @@ data-qualification="degree bank">
 Government & Public Sector Bank Jobs
 </p>
 
-<p>
-🎓 <b>Qualification:</b>
-Degree
-</p>
+<div class="details">
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
+<p>🏢 <b>Department:</b> Public Sector Banking</p>
+
+<p>🎓 <b>Qualification:</b> Degree</p>
+
+<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
+
+<p>💰 <b>Salary:</b> As per Post</p>
+
+<p>📋 <b>Vacancy:</b> Check Official Notification</p>
 
 <p class="last-date">
-📅 Last Date: Check Official Notification
+📅 <b>Last Date:</b> Check Official Notification
 </p>
+
+</div>
+
+<div class="buttons">
 
 <a
 class="apply-btn"
 href="https://www.ibps.in/"
 target="_blank">
 
-Apply Now → IBPS Official Website
+Apply Now
 
 </a>
+
+<a
+class="notification-btn"
+href="https://www.ibps.in/"
+target="_blank">
+
+📄 Official Notification
+
+</a>
+
+</div>
 
 </div>
 
@@ -522,28 +603,45 @@ data-qualification="diploma degree je">
 Junior Engineer Government Jobs
 </p>
 
-<p>
-🎓 <b>Qualification:</b>
-Diploma / Degree
-</p>
+<div class="details">
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
+<p>🏢 <b>Department:</b> Government Engineering Departments</p>
+
+<p>🎓 <b>Qualification:</b> Diploma / Degree</p>
+
+<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
+
+<p>💰 <b>Salary:</b> As per Post & Pay Level</p>
+
+<p>📋 <b>Vacancy:</b> Check Official Notification</p>
 
 <p class="last-date">
-📅 Last Date: Check Official Notification
+📅 <b>Last Date:</b> Check Official Notification
 </p>
+
+</div>
+
+<div class="buttons">
 
 <a
 class="apply-btn"
 href="https://ssc.gov.in/"
 target="_blank">
 
-Apply Now → Official Website
+Apply Now
 
 </a>
+
+<a
+class="notification-btn"
+href="https://ssc.gov.in/"
+target="_blank">
+
+📄 Official Notification
+
+</a>
+
+</div>
 
 </div>
 
@@ -562,28 +660,45 @@ data-qualification="10th 12th degree tnpsc">
 Tamil Nadu Public Service Commission
 </p>
 
-<p>
-🎓 <b>Qualification:</b>
-10th / 12th / Degree
-</p>
+<div class="details">
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
+<p>🏢 <b>Department:</b> Tamil Nadu Government</p>
+
+<p>🎓 <b>Qualification:</b> 10th / 12th / Degree</p>
+
+<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
+
+<p>💰 <b>Salary:</b> As per Post</p>
+
+<p>📋 <b>Vacancy:</b> Check Official Notification</p>
 
 <p class="last-date">
-📅 Last Date: Check Official Notification
+📅 <b>Last Date:</b> Check Official Notification
 </p>
+
+</div>
+
+<div class="buttons">
 
 <a
 class="apply-btn"
 href="https://www.tnpsc.gov.in/"
 target="_blank">
 
-Apply Now → TNPSC Official Website
+Apply Now
 
 </a>
+
+<a
+class="notification-btn"
+href="https://www.tnpsc.gov.in/"
+target="_blank">
+
+📄 Official Notification
+
+</a>
+
+</div>
 
 </div>
 
@@ -602,28 +717,45 @@ data-qualification="10th 12th police">
 Tamil Nadu Police Recruitment
 </p>
 
-<p>
-🎓 <b>Qualification:</b>
-10th / 12th
-</p>
+<div class="details">
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
+<p>🏢 <b>Department:</b> Tamil Nadu Police</p>
+
+<p>🎓 <b>Qualification:</b> 10th / 12th</p>
+
+<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
+
+<p>💰 <b>Salary:</b> As per Post</p>
+
+<p>📋 <b>Vacancy:</b> Check Official Notification</p>
 
 <p class="last-date">
-📅 Last Date: Check Official Notification
+📅 <b>Last Date:</b> Check Official Notification
 </p>
+
+</div>
+
+<div class="buttons">
 
 <a
 class="apply-btn"
 href="https://www.tnusrb.tn.gov.in/"
 target="_blank">
 
-Apply Now → TNUSRB Official Website
+Apply Now
 
 </a>
+
+<a
+class="notification-btn"
+href="https://www.tnusrb.tn.gov.in/"
+target="_blank">
+
+📄 Official Notification
+
+</a>
+
+</div>
 
 </div>
 
@@ -642,28 +774,45 @@ data-qualification="degree teacher">
 Tamil Nadu Government Teacher Recruitment
 </p>
 
-<p>
-🎓 <b>Qualification:</b>
-Degree / B.Ed
-</p>
+<div class="details">
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
+<p>🏢 <b>Department:</b> Tamil Nadu Government Schools</p>
+
+<p>🎓 <b>Qualification:</b> Degree / B.Ed</p>
+
+<p>🎂 <b>Age Limit:</b> Check Official Notification</p>
+
+<p>💰 <b>Salary:</b> As per Post</p>
+
+<p>📋 <b>Vacancy:</b> Check Official Notification</p>
 
 <p class="last-date">
-📅 Last Date: Check Official Notification
+📅 <b>Last Date:</b> Check Official Notification
 </p>
+
+</div>
+
+<div class="buttons">
 
 <a
 class="apply-btn"
 href="https://www.trb.tn.gov.in/"
 target="_blank">
 
-Apply Now → TRB Official Website
+Apply Now
 
 </a>
+
+<a
+class="notification-btn"
+href="https://www.trb.tn.gov.in/"
+target="_blank">
+
+📄 Official Notification
+
+</a>
+
+</div>
 
 </div>
 
@@ -673,12 +822,9 @@ Apply Now → TRB Official Website
 
 <!-- ABOUT -->
 
-<div id="about"
-class="info-box">
+<div id="about" class="info-box">
 
-<h2>
-ℹ️ About TN Govt Jobs
-</h2>
+<h2>ℹ️ About TN Govt Jobs</h2>
 
 <p>
 TN Govt Jobs provides information about
@@ -691,9 +837,9 @@ TNPSC, Police and Teacher jobs.
 </p>
 
 <p>
-⚠️ Always verify the notification,
-eligibility, fee and last date on the official
-recruitment website before applying.
+⚠️ Always verify eligibility, vacancy,
+fee, salary and last date from the official
+recruitment notification before applying.
 </p>
 
 </div>
@@ -701,20 +847,17 @@ recruitment website before applying.
 
 <!-- CONTACT -->
 
-<div id="contact"
-class="info-box">
+<div id="contact" class="info-box">
 
-<h2>
-📞 Contact Us
-</h2>
+<h2>📞 Contact Us</h2>
 
 <p>
 Government Job Updates and Notifications
 </p>
 
 <p>
-For official application, always use the
-official recruitment website.
+For applications, always use the official
+recruitment website.
 </p>
 
 </div>
@@ -724,18 +867,12 @@ official recruitment website.
 
 <footer>
 
-<p>
-🇮🇳 © 2026 TN GOVT JOBS
-</p>
+<p>🇮🇳 © 2026 TN GOVT JOBS</p>
 
-<p>
-Government Job Notifications
-</p>
+<p>Government Job Notifications</p>
 
 </footer>
 
-
-<!-- JAVASCRIPT -->
 
 <script>
 
@@ -754,9 +891,7 @@ function filterJobs(type){
 
         if(
             type === "all" ||
-            qualification.includes(
-                type.toLowerCase()
-            )
+            qualification.includes(type.toLowerCase())
         ){
 
             job.style.display="block";
@@ -804,7 +939,6 @@ function searchJobs(){
 }
 
 </script>
-
 
 </body>
 </html>
