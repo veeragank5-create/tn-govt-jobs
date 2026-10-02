@@ -845,7 +845,22 @@ alert("Website link copied!");
 }
 
 }
+window.onscroll = function() {
+    let btn = document.getElementById("topBtn");
 
+    if (document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
+
+function topFunction() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 </script>
 
 <button onclick="topFunction()" id="topBtn" title="Go to top">
