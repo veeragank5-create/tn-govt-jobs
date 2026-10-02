@@ -1067,11 +1067,8 @@ function filterJobs(type){
 
 function searchJobs(){
 
-    let searchBox =
-        document.getElementById("searchBox");
-
     let search =
-        searchBox.value.toLowerCase();
+        document.getElementById("searchBox").value.toLowerCase().trim();
 
     let jobs =
         document.querySelectorAll("#jobs .job");
@@ -1081,7 +1078,13 @@ function searchJobs(){
         let text =
             job.innerText.toLowerCase();
 
-        if(text.includes(search)){
+        let qualification =
+            job.getAttribute("data-qualification") || "";
+
+        if(
+            text.includes(search) ||
+            qualification.toLowerCase().includes(search)
+        ){
 
             job.style.display = "block";
 
@@ -1094,7 +1097,6 @@ function searchJobs(){
     });
 
     updateJobCount();
-
 }
 
 
