@@ -936,11 +936,15 @@ function filterJobs(type){
     let jobs = document.querySelectorAll("#jobs .job");
 
     jobs.forEach(function(job){
-        let qualification = job.getAttribute("data-qualification").toLowerCase();
+        let qualification = job.getAttribute("data-qualification") || "";
 
-        if(type === "all" || qualification.includes(type.toLowerCase())){
+        if(type === "all"){
             job.style.display = "block";
-        }else{
+        }
+        else if(qualification.toLowerCase().includes(type.toLowerCase())){
+            job.style.display = "block";
+        }
+        else{
             job.style.display = "none";
         }
     });
