@@ -420,8 +420,8 @@ will be updated here.
 </h2>
     <h2 class="latest-title">🔥 Latest Government Jobs</h2>
 
-<p style="text-align:center;font-weight:bold;color:#123c7a;">
-📋 Total Jobs: 9
+<p id="jobCount" style="text-align:center;font-weight:bold;color:#123c7a;">
+📋 Total Jobs: 0
 </p>
 
 
@@ -1028,6 +1028,8 @@ function topFunction() {
         document.getElementById("menuLinks").style.display = "none";
     });
 });
+let totalJobs = document.querySelectorAll("#jobs .job").length;
+document.getElementById("jobCount").innerText = "📋 Total Jobs: " + totalJobs;
 </script>
 
 <button onclick="topFunction()" id="topBtn" title="Go to top">
