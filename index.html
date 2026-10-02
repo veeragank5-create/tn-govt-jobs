@@ -220,23 +220,19 @@
 <script>
 
 function filterJobs(type) {
-
     let jobs = document.querySelectorAll("#jobs .job");
 
     jobs.forEach(function(job) {
+        let qualification = job.getAttribute("data-qualification") || "";
 
-        let qualification =
-            job.getAttribute("data-qualification") || "";
+        qualification = qualification.toLowerCase();
+        type = type.toLowerCase();
 
-        if (
-            type === "all" ||
-            qualification.toLowerCase().includes(type.toLowerCase())
-        ) {
+        if (type === "all" || qualification.includes(type)) {
             job.style.display = "block";
         } else {
             job.style.display = "none";
         }
-
     });
 }
 
