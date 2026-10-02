@@ -933,21 +933,28 @@ official recruitment website.
 <script>
 
 function filterJobs(type){
-  function toggleMenu(){
-    let links = document.querySelectorAll("nav a");
+    let jobs = document.querySelectorAll("#jobs .job");
 
-    links.forEach(function(link){
-        if(link.style.display === "block"){
-            link.style.display = "none";
+    jobs.forEach(function(job){
+        let qualification = job.getAttribute("data-qualification").toLowerCase();
+
+        if(type === "all" || qualification.includes(type.toLowerCase())){
+            job.style.display = "block";
         }else{
-            link.style.display = "block";
+            job.style.display = "none";
         }
     });
 }
 
-let jobs=document.querySelectorAll(
-"#jobs .job[data-qualification]"
-);
+function toggleMenu(){
+    let menu = document.getElementById("menuLinks");
+
+    if(menu.style.display === "block"){
+        menu.style.display = "none";
+    }else{
+        menu.style.display = "block";
+    }
+}
 
 jobs.forEach(function(job){
 
