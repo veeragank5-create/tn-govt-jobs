@@ -100,6 +100,26 @@ font-weight:bold;
 background:#08254d;
 }
 
+.share-box{
+text-align:center;
+margin:5px 10px 25px;
+}
+
+.share-btn{
+background:#198754;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:7px;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.share-btn:hover{
+background:#146c43;
+}
+
 .latest-title{
 text-align:center;
 color:#123c7a;
@@ -216,12 +236,18 @@ padding:9px 12px;
 font-size:13px;
 }
 
+.share-btn{
+width:90%;
+max-width:300px;
+}
+
 }
 
 </style>
 </head>
 
 <body>
+
 
 <header id="home">
 
@@ -300,6 +326,21 @@ JE
 </div>
 
 
+<!-- SHARE BUTTON -->
+
+<div class="share-box">
+
+<button
+class="share-btn"
+onclick="shareWebsite()">
+
+📤 Share TN Govt Jobs
+
+</button>
+
+</div>
+
+
 <h2 class="latest-title">
 🔥 Latest Government Jobs
 </h2>
@@ -307,6 +348,8 @@ JE
 
 <div id="jobs">
 
+
+<!-- RRB -->
 
 <div class="job"
 data-qualification="10th 12th degree rrb">
@@ -350,6 +393,8 @@ Apply Now → RRB Official Website
 </div>
 
 
+<!-- SSC CHSL -->
+
 <div class="job"
 data-qualification="12th ssc chsl">
 
@@ -392,6 +437,8 @@ Apply Now → SSC Official Website
 </div>
 
 
+<!-- SSC -->
+
 <div class="job"
 data-qualification="10th 12th degree ssc">
 
@@ -428,6 +475,8 @@ Apply Now → SSC Official Website
 
 </div>
 
+
+<!-- BANK -->
 
 <div class="job"
 data-qualification="degree bank">
@@ -467,6 +516,8 @@ Apply Now → IBPS Official Website
 </div>
 
 
+<!-- JE -->
+
 <div class="job"
 data-qualification="diploma degree je">
 
@@ -504,6 +555,8 @@ Apply Now → Official Website
 
 </div>
 
+
+<!-- TNPSC -->
 
 <div class="job"
 data-qualification="10th 12th degree tnpsc">
@@ -543,6 +596,8 @@ Apply Now → TNPSC Official Website
 </div>
 
 
+<!-- POLICE -->
+
 <div class="job"
 data-qualification="10th 12th police">
 
@@ -580,6 +635,8 @@ Apply Now → TNUSRB Official Website
 
 </div>
 
+
+<!-- TEACHER -->
 
 <div class="job"
 data-qualification="degree teacher">
@@ -732,7 +789,35 @@ job.style.display="none";
 
 }
 
+
+function shareWebsite(){
+
+if(navigator.share){
+
+navigator.share({
+
+title:"TN GOVT JOBS",
+
+text:"Tamil Nadu & Central Government Job Notifications",
+
+url:"https://veeragank5-create.github.io/tn-govt-jobs/"
+
+});
+
+}else{
+
+navigator.clipboard.writeText(
+"https://veeragank5-create.github.io/tn-govt-jobs/"
+);
+
+alert("Website link copied!");
+
+}
+
+}
+
 </script>
+
 
 </body>
 </html>
