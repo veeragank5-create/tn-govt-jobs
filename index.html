@@ -911,33 +911,28 @@ job.style.display="none";
 
 
 function searchJobs(){
+  let search = document.getElementById("searchBox").value.toLowerCase();
+  let jobs = document.querySelectorAll("#jobs .job[data-qualification]");
+  let found = 0;
 
-let search=
-document.getElementById("searchBox")
-.value
-.toLowerCase();
+  jobs.forEach(function(job){
+    let text = job.innerText.toLowerCase();
 
-let jobs=document.querySelectorAll(
-"#jobs .job[data-qualification]"
-);
+    if(text.includes(search)){
+      job.style.display = "block";
+      found++;
+    }else{
+      job.style.display = "none";
+    }
+  });
 
-jobs.forEach(function(job){
+  let message = document.getElementById("noJobs");
 
-let text=
-job.innerText.toLowerCase();
-
-if(text.includes(search)){
-
-job.style.display="block";
-
-}else{
-
-job.style.display="none";
-
-}
-
-});
-
+  if(found === 0 && search !== ""){
+    message.style.display = "block";
+  }else{
+    message.style.display = "none";
+  }
 }
 
 
