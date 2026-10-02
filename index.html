@@ -41,6 +41,8 @@
             padding: 20px;
             width: 80%;
             border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+transition: 0.3s;
         }
    footer {
     background: #123c7a;
@@ -62,14 +64,43 @@
         margin: 5px;
     }
 }   
-    </style>
+ nav {
+    background: #0b2d5c;
+    text-align: center;
+    padding: 12px;
+    position: sticky;
+top: 0;
+z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}  
+   </style>
 </head>
 
 <body>
 
 <header>
-    <h1>🇮🇳 TN GOVT JOBS</h1>
+    <nav>
+<nav>
+    <a href="#home"><Home</a>
+    <a href="#jobs">Jobs</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+    <a href="#home">Home</a>
+    <a href="#jobs">Jobs</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+  <div id="home"></div>  
+<h1>🇮🇳 TN GOVT JOBS</h1>
     <p>Tamil Nadu Government Job Notifications</p>
+    <p>🔔 Latest Government Job Notifications</p>
 </header>
 <div style="text-align:center; margin:20px;">
     <button onclick="filterJobs('all')">All Jobs</button>
@@ -87,7 +118,7 @@
     <input id="searchBox" type="text"
            placeholder="Search Jobs..."
            onkeyup="searchJobs()">
-<div class="job">
+<<div id="jobs" class="job">
     <h2>TNPSC Jobs</h2>
     <p>Government jobs through TNPSC</p>
     <p>Qualification: 10th / 12th / Degree</p>
@@ -180,12 +211,12 @@ function searchJobs() {
     <p>© 2026 TN Govt Jobs</p>
     <p>Tamil Nadu Government Job Updates</p>
 </footer>
-<div class="job">
+<div id="contact" class="job"></div>
     <h2>📞 Contact Us</h2>
     <p>For TN Govt Job updates and notifications</p>
     <p>📧 Email: tngovtjobs@example.com</p>
 </div>
-<div class="job">
+<div id="about" class="job"></div>
     <h2>ℹ️ About TN Govt Jobs</h2>
     <p>
         TN Govt Jobs website provides information about
