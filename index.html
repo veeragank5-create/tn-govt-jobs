@@ -149,25 +149,6 @@
         onkeyup="searchJobs()"
     >
 </div>
-
-<!-- FILTER BUTTONS -->
-<div class="filters">
-    <button onclick="filterJobs('all')">All Jobs</button>
-    function filterJobs(type) {
-    let jobs = document.querySelectorAll(".job");
-
-    jobs.forEach(function(job) {
-        let qualification = job.getAttribute("data-qualification") || "";
-
-        if (type === "all") {
-            job.style.display = "block";
-        } else if (qualification.toLowerCase().includes(type.toLowerCase())) {
-            job.style.display = "block";
-        } else {
-            job.style.display = "none";
-        }
-    });
-}
     <!-- FILTER BUTTONS -->
 <div class="filters">
     <button type="button" onclick="filterJobs('all')">All Jobs</button>
