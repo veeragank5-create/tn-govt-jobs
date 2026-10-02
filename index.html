@@ -1009,6 +1009,11 @@ function topFunction() {
         menu.style.display = "block";
     }
 }
+  document.querySelectorAll("#menuLinks a").forEach(function(link){
+    link.addEventListener("click", function(){
+        document.getElementById("menuLinks").style.display = "none";
+    });
+});
 </script>
 
 <button onclick="topFunction()" id="topBtn" title="Go to top">
