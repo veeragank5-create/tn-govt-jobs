@@ -135,8 +135,14 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
 </nav>
+<div style="text-align:center; margin:20px;">
+    <button onclick="filterJobs('all')">All Jobs</button>
+    <button onclick="filterJobs('10th')">10th</button>
+    <button onclick="filterJobs('12th')">12th</button>
+    <button onclick="filterJobs('degree')">Degree</button>
+</div>
 
-<div class="search">
+    <div class="search">
     <input
         id="searchBox"
         type="text"
@@ -248,8 +254,25 @@
 </footer>
 
 <script>
+function filterJobs(type) {
+    let jobs = document.querySelectorAll(".job");
 
-function searchJobs() {
+    jobs.forEach(function(job) {
+        let text = job.innerText.toLowerCase();
+
+        if (type === "all") {
+            job.style.display = "block";
+        } 
+        else if (text.includes(type)) {
+            job.style.display = "block";
+        } 
+        else {
+            job.style.display = "none";
+        }
+    });
+}
+
+    function searchJobs() {
     let search = document
         .getElementById("searchBox")
         .value
