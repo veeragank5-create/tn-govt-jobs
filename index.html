@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>🇮🇳 TN GOVT JOBS - Tamil Nadu Government Jobs</title>
+    <title>🇮🇳 TN GOVT JOBS</title>
 
     <style>
         body {
@@ -26,10 +26,6 @@
             font-size: 32px;
         }
 
-        header p {
-            margin: 8px 0;
-        }
-
         nav {
             background: #0b2d5c;
             text-align: center;
@@ -44,10 +40,6 @@
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
         }
 
         .search {
@@ -68,20 +60,6 @@
             margin: 20px;
         }
 
-        .job {
-            background: white;
-            margin: 20px auto;
-            padding: 20px;
-            width: 80%;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: 0.3s;
-        }
-
-        .job:hover {
-            transform: translateY(-5px);
-        }
-
         button {
             background: #123c7a;
             color: white;
@@ -94,6 +72,19 @@
 
         button:hover {
             background: #0b2d5c;
+        }
+
+        .job {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .job:hover {
+            transform: translateY(-3px);
         }
 
         .status {
@@ -130,9 +121,7 @@
 
 <header id="home">
     <h1>🇮🇳 TN GOVT JOBS</h1>
-    <p>TEST VERSION 123</p>
     <p>Tamil Nadu Government Job Notifications</p>
-    <p>🔔 Latest Government Job Notifications</p>
 </header>
 
 <nav>
@@ -151,51 +140,36 @@
     >
 </div>
 
-<!-- FILTER BUTTONS -->
+<!-- FILTERS -->
 <div class="filters">
     <button type="button" onclick="filterJobs('all')">All Jobs</button>
-    <button type="button" onclick="alert('10th OK')">10th</button>
+    <button type="button" onclick="filterJobs('10th')">10th</button>
     <button type="button" onclick="filterJobs('12th')">12th</button>
     <button type="button" onclick="filterJobs('degree')">Degree</button>
 </div>
 
+<!-- JOBS -->
 <div id="jobs">
 
-    <!-- TNPSC -->
     <div class="job" data-qualification="10th 12th degree">
         <h2>TNPSC Jobs</h2>
-
         <p>Government jobs through TNPSC</p>
         <p>Qualification: 10th / 12th / Degree</p>
         <p>📅 Last Date: Check Official Notification</p>
 
-        <p class="status">
-            🟢 Check Official Notification
-        </p>
+        <p class="status">🟢 Check Official Notification</p>
 
-        <button onclick="showMessage()">
-            View Details
-        </button>
+        <button onclick="showMessage()">View Details</button>
 
         <a href="https://www.tnpsc.gov.in/" target="_blank">
             <button>Apply Now</button>
         </a>
 
         <p>📌 Official Source: TNPSC</p>
-
-        <a href="https://www.tnpsc.gov.in/" target="_blank">
-            <button>Official TNPSC Website</button>
-        </a>
-
-        <a href="https://www.tnpsc.gov.in/English/Notification.aspx" target="_blank">
-            <button>🔗 View Latest Notifications</button>
-        </a>
     </div>
 
-    <!-- POLICE -->
     <div class="job" data-qualification="10th 12th">
         <h2>Police Jobs</h2>
-
         <p>Tamil Nadu Police Recruitment</p>
         <p>Qualification: 10th / 12th</p>
 
@@ -204,20 +178,10 @@
         </a>
 
         <p>📌 Official Source: TNUSRB</p>
-
-        <a href="https://www.tnusrb.tn.gov.in/" target="_blank">
-            <button>Official Police Recruitment</button>
-        </a>
-
-        <a href="https://www.tnusrb.tn.gov.in/" target="_blank">
-            <button>🔗 View Latest Notifications</button>
-        </a>
     </div>
 
-    <!-- TEACHER -->
     <div class="job" data-qualification="degree">
         <h2>Teacher Jobs</h2>
-
         <p>Government Teacher Recruitment</p>
         <p>Qualification: Degree / B.Ed</p>
 
@@ -226,56 +190,26 @@
         </a>
 
         <p>📌 Official Source: TRB</p>
-
-        <a href="https://www.trb.tn.gov.in/" target="_blank">
-            <button>Official Teacher Recruitment</button>
-        </a>
-
-        <a href="https://www.trb.tn.gov.in/" target="_blank">
-            <button>🔗 View Latest Notifications</button>
-        </a>
     </div>
 
-</div>
-
-<!-- LATEST JOBS -->
-<div class="job">
-    <h2>📢 Latest Job Notifications</h2>
-
-    <p>🔹 TNPSC Government Jobs</p>
-    <p>🔹 Tamil Nadu Police Jobs</p>
-    <p>🔹 Government Teacher Jobs</p>
-
-    <p>📌 Always check the official website before applying.</p>
 </div>
 
 <!-- ABOUT -->
 <div id="about" class="job">
     <h2>ℹ️ About TN Govt Jobs</h2>
-
     <p>
         TN Govt Jobs website provides information about
         Tamil Nadu Government job opportunities.
     </p>
-
     <p>
-        Always check the official recruitment website
-        before applying.
+        Always check the official recruitment website before applying.
     </p>
 </div>
 
 <!-- CONTACT -->
 <div id="contact" class="job">
     <h2>📞 Contact Us</h2>
-
     <p>For TN Govt Job updates and notifications</p>
-    <p>📧 Email: tngovtjobs@example.com</p>
-</div>
-
-<div style="text-align:center; margin:20px;">
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        ⬆️ Back to Top
-    </button>
 </div>
 
 <footer>
@@ -287,7 +221,7 @@
 
 function filterJobs(type) {
 
-    let jobs = document.querySelectorAll("#jobs > .job");
+    let jobs = document.querySelectorAll("#jobs .job");
 
     jobs.forEach(function(job) {
 
@@ -315,7 +249,7 @@ function searchJobs() {
         .toLowerCase();
 
     let jobs =
-        document.querySelectorAll("#jobs > .job");
+        document.querySelectorAll("#jobs .job");
 
     jobs.forEach(function(job) {
 
