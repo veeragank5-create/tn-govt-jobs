@@ -301,6 +301,19 @@ function showMessage() {
 }
 
 </script>
+    function filterJobs(type) {
+    let jobs = document.querySelectorAll(".job");
+
+    jobs.forEach(function(job) {
+        let qualification = job.getAttribute("data-qualification") || "";
+
+        if (type === "all" || qualification.includes(type)) {
+            job.style.display = "block";
+        } else {
+            job.style.display = "none";
+        }
+    });
+}
 
 </body>
 </html>
