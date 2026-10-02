@@ -302,6 +302,20 @@ function showMessage() {
 
 </script>
     function filterJobs(type) {
+    let jobs = document.querySelectorAll("#jobs .job");
+
+    jobs.forEach(function(job) {
+        let qualification = job.getAttribute("data-qualification") || "";
+
+        if (type === "all") {
+            job.style.display = "block";
+        } else if (qualification.includes(type)) {
+            job.style.display = "block";
+        } else {
+            job.style.display = "none";
+        }
+    });
+}
     let jobs = document.querySelectorAll(".job");
 
     jobs.forEach(function(job) {
