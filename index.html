@@ -5,8 +5,7 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>TN GOVT JOBS | Tamil Nadu Government Jobs | RRB SSC Bank</title>
 
@@ -20,20 +19,16 @@ content="TN Govt Jobs, Tamil Nadu Government Jobs, RRB Jobs, SSC Jobs, Bank Jobs
 
 <style>
 
-/* ================= GENERAL ================= */
-
 *{
 box-sizing:border-box;
 }
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:#f4f7fb;
 color:#222;
 }
-
-/* ================= HEADER ================= */
 
 header{
 background:linear-gradient(135deg,#06265c,#1769aa);
@@ -51,8 +46,6 @@ header p{
 margin:8px 0 0;
 font-size:16px;
 }
-
-/* ================= NAV ================= */
 
 nav{
 background:#08254d;
@@ -92,8 +85,6 @@ cursor:pointer;
 display:block;
 }
 
-/* ================= HERO ================= */
-
 .hero{
 background:white;
 padding:25px 15px;
@@ -107,11 +98,9 @@ margin-bottom:10px;
 
 .hero p{
 max-width:900px;
-margin:10px auto;
+margin:10px auto 25px;
 line-height:1.7;
 }
-
-/* ================= SEARCH ================= */
 
 .search-box{
 text-align:center;
@@ -128,8 +117,6 @@ border-radius:8px;
 font-size:16px;
 outline:none;
 }
-
-/* ================= FILTER ================= */
 
 .filters{
 text-align:center;
@@ -152,8 +139,6 @@ font-weight:bold;
 background:#08254d;
 }
 
-/* ================= JOB AREA ================= */
-
 .jobs-container{
 max-width:1000px;
 margin:auto;
@@ -164,8 +149,6 @@ padding:20px 15px;
 text-align:center;
 color:#123c7a;
 }
-
-/* ================= JOB CARD ================= */
 
 .job{
 background:white;
@@ -226,16 +209,12 @@ color:#d32f2f;
 font-weight:bold;
 }
 
-/* ================= JOB COUNT ================= */
-
 #jobCount{
 text-align:center;
 font-weight:bold;
 color:#123c7a;
 font-size:17px;
 }
-
-/* ================= LATEST UPDATES ================= */
 
 .updates{
 max-width:900px;
@@ -251,8 +230,6 @@ margin-top:0;
 color:#9a6500;
 }
 
-/* ================= ABOUT ================= */
-
 .section{
 background:white;
 margin-top:20px;
@@ -265,8 +242,6 @@ max-width:900px;
 margin:auto;
 line-height:1.7;
 }
-
-/* ================= SHARE ================= */
 
 .share-area{
 text-align:center;
@@ -288,8 +263,6 @@ margin:5px;
 background:#25D366;
 }
 
-/* ================= FOOTER ================= */
-
 footer{
 background:#08254d;
 color:white;
@@ -301,9 +274,12 @@ margin-top:30px;
 footer a{
 color:white;
 margin:0 8px;
+text-decoration:none;
 }
 
-/* ================= MOBILE ================= */
+footer a:hover{
+color:#ffd700;
+}
 
 @media(max-width:600px){
 
@@ -346,8 +322,6 @@ font-size:20px;
 
 }
 
-/* ================= DESKTOP ================= */
-
 @media(min-width:601px){
 
 #menuLinks{
@@ -364,8 +338,6 @@ display:block !important;
 <body>
 
 
-<!-- ================= HEADER ================= -->
-
 <header id="home">
 
 <h1>🇮🇳 TN GOVT JOBS</h1>
@@ -376,8 +348,6 @@ Tamil Nadu & Central Government Job Notifications
 
 </header>
 
-
-<!-- ================= NAVIGATION ================= -->
 
 <nav>
 
@@ -404,8 +374,6 @@ onclick="toggleMenu()">
 </nav>
 
 
-<!-- ================= HERO ================= -->
-
 <section class="hero">
 
 <h2 class="latest-title">
@@ -421,8 +389,6 @@ Police Jobs and Teacher Jobs with official application links.
 </section>
 
 
-<!-- ================= SEARCH ================= -->
-
 <div class="search-box">
 
 <input
@@ -433,8 +399,6 @@ onkeyup="searchJobs()">
 
 </div>
 
-
-<!-- ================= FILTERS ================= -->
 
 <div class="filters">
 
@@ -473,14 +437,10 @@ JE
 </div>
 
 
-<!-- ================= JOB COUNT ================= -->
-
 <p id="jobCount">
 📋 Total Jobs: 0
 </p>
 
-
-<!-- ================= LATEST UPDATES ================= -->
 
 <div class="updates">
 
@@ -488,29 +448,17 @@ JE
 🔔 Latest Updates
 </h2>
 
-<p>
-✔ TNPSC Jobs
-</p>
+<p>✔ TNPSC Jobs</p>
 
-<p>
-✔ RRB Jobs
-</p>
+<p>✔ RRB Jobs</p>
 
-<p>
-✔ SSC Jobs
-</p>
+<p>✔ SSC Jobs</p>
 
-<p>
-✔ Bank Jobs
-</p>
+<p>✔ Bank Jobs</p>
 
-<p>
-✔ JE Jobs
-</p>
+<p>✔ JE Jobs</p>
 
-<p>
-✔ Police & Teacher Jobs
-</p>
+<p>✔ Police & Teacher Jobs</p>
 
 <p>
 ⚠️ Always check the official website before applying.
@@ -519,24 +467,15 @@ JE
 </div>
 
 
-<!-- ================= JOBS ================= -->
+<div id="jobs" class="jobs-container">
 
-<div id="jobs"
-class="jobs-container">
-
-
-<!-- RRB JOBS -->
 
 <div class="job"
 data-qualification="10th 12th degree rrb">
 
 <h2>
 🚆 RRB Jobs
-
-<span class="badge">
-LATEST
-</span>
-
+<span class="badge">LATEST</span>
 </h2>
 
 <p>
@@ -565,18 +504,12 @@ Apply Now → RRB Official Website
 </div>
 
 
-<!-- RRB NTPC -->
-
 <div class="job"
 data-qualification="12th degree rrb ntpc">
 
 <h2>
 🚆 RRB NTPC Jobs
-
-<span class="badge">
-LATEST
-</span>
-
+<span class="badge">LATEST</span>
 </h2>
 
 <p>
@@ -605,22 +538,13 @@ Apply Now → RRB Official Website
 </div>
 
 
-<!-- SSC CHSL -->
-
 <div class="job"
 data-qualification="12th ssc chsl">
 
 <h2>
 🏛️ SSC CHSL 2026
-
-<span class="badge">
-LATEST
-</span>
-
-<span class="new-badge">
-NEW
-</span>
-
+<span class="badge">LATEST</span>
+<span class="new-badge">NEW</span>
 </h2>
 
 <p>
@@ -631,11 +555,6 @@ Combined Higher Secondary Level.
 <p>
 🎓 <b>Qualification:</b>
 12th Pass
-</p>
-
-<p>
-📋 <b>Category:</b>
-SSC CHSL
 </p>
 
 <p class="status">
@@ -654,23 +573,16 @@ Apply Now → SSC Official Website
 </div>
 
 
-<!-- SSC JOBS -->
-
 <div class="job"
 data-qualification="10th 12th degree ssc">
 
 <h2>
 🏛️ SSC Jobs
-
-<span class="badge">
-LATEST
-</span>
-
+<span class="badge">LATEST</span>
 </h2>
 
 <p>
-Staff Selection Commission
-Government Job Notifications.
+Staff Selection Commission Government Job Notifications.
 </p>
 
 <p>
@@ -690,33 +602,21 @@ Apply Now → SSC Official Website
 </div>
 
 
-<!-- BANK JOBS -->
-
 <div class="job"
 data-qualification="degree bank">
 
 <h2>
 🏦 Bank Jobs
-
-<span class="badge">
-LATEST
-</span>
-
+<span class="badge">LATEST</span>
 </h2>
 
 <p>
-Government and Public Sector Bank
-Job Notifications.
+Government and Public Sector Bank Job Notifications.
 </p>
 
 <p>
 🎓 <b>Qualification:</b>
 Degree
-</p>
-
-<p>
-💼 Posts may include Clerk, PO,
-Assistant and other posts.
 </p>
 
 <a
@@ -731,33 +631,21 @@ Apply Now → IBPS Official Website
 </div>
 
 
-<!-- JE JOBS -->
-
 <div class="job"
 data-qualification="diploma degree je">
 
 <h2>
 🛠️ JE Jobs
-
-<span class="badge">
-LATEST
-</span>
-
+<span class="badge">LATEST</span>
 </h2>
 
 <p>
-Junior Engineer Government Job
-Notifications.
+Junior Engineer Government Job Notifications.
 </p>
 
 <p>
 🎓 <b>Qualification:</b>
 Diploma / Degree
-</p>
-
-<p>
-🏗️ Civil / Mechanical / Electrical
-Engineering opportunities.
 </p>
 
 <a
@@ -772,22 +660,13 @@ Apply Now → Official Website
 </div>
 
 
-<!-- TNPSC GROUP IV -->
-
 <div class="job"
 data-qualification="10th 12th tnpsc group4">
 
 <h2>
 🏛️ TNPSC Group IV 2026
-
-<span class="badge">
-LATEST
-</span>
-
-<span class="new-badge">
-NEW
-</span>
-
+<span class="badge">LATEST</span>
+<span class="new-badge">NEW</span>
 </h2>
 
 <p>
@@ -802,11 +681,20 @@ Combined Civil Services Examination IV.
 
 <p>
 📋 <b>Notification:</b>
-TNPSC Group IV
+09/2026
+</p>
+
+<p class="last-date">
+📅 Last Date: 07 November 2026
+</p>
+
+<p>
+📝 <b>Exam Date:</b>
+20 December 2026
 </p>
 
 <p class="status">
-🟢 Check official notification
+🟢 Applications are open
 </p>
 
 <a
@@ -821,18 +709,12 @@ Apply Now → TNPSC Official Website
 </div>
 
 
-<!-- TNPSC JOBS -->
-
 <div class="job"
 data-qualification="10th 12th degree tnpsc">
 
 <h2>
 🏛️ TNPSC Jobs
-
-<span class="badge">
-LATEST
-</span>
-
+<span class="badge">LATEST</span>
 </h2>
 
 <p>
@@ -857,23 +739,16 @@ Apply Now → TNPSC Official Website
 </div>
 
 
-<!-- POLICE JOBS -->
-
 <div class="job"
 data-qualification="10th 12th police">
 
 <h2>
 👮 Police Jobs
-
-<span class="badge">
-LATEST
-</span>
-
+<span class="badge">LATEST</span>
 </h2>
 
 <p>
-Tamil Nadu Police Government
-Job Notifications.
+Tamil Nadu Police Government Job Notifications.
 </p>
 
 <p>
@@ -893,23 +768,16 @@ Apply Now → Police Official Website
 </div>
 
 
-<!-- TEACHER JOBS -->
-
 <div class="job"
 data-qualification="degree teacher">
 
 <h2>
 👨‍🏫 Teacher Jobs
-
-<span class="badge">
-LATEST
-</span>
-
+<span class="badge">LATEST</span>
 </h2>
 
 <p>
-Government Teacher Recruitment
-Notifications.
+Government Teacher Recruitment Notifications.
 </p>
 
 <p>
@@ -932,8 +800,6 @@ Apply Now → TRB Official Website
 </div>
 
 
-<!-- ================= SHARE ================= -->
-
 <div class="share-area">
 
 <button
@@ -955,11 +821,7 @@ onclick="shareWhatsApp()">
 </div>
 
 
-<!-- ================= ABOUT ================= -->
-
-<section
-class="section"
-id="about">
+<section class="section" id="about">
 
 <div class="section-content">
 
@@ -969,21 +831,18 @@ id="about">
 
 <p>
 TN GOVT JOBS is a job information website
-created to help candidates find
-Tamil Nadu and Central Government
-Job Notifications in one place.
+created to help candidates find Tamil Nadu
+and Central Government Job Notifications.
 </p>
 
 <p>
-We provide categories such as
-TNPSC, RRB, SSC, Bank, JE,
-Police and Teacher Jobs.
+We provide categories such as TNPSC, RRB,
+SSC, Bank, JE, Police and Teacher Jobs.
 </p>
 
 <p>
-Candidates should always verify
-the official notification before
-submitting an application.
+Candidates should always verify the official
+notification before applying.
 </p>
 
 </div>
@@ -991,11 +850,7 @@ submitting an application.
 </section>
 
 
-<!-- ================= CONTACT ================= -->
-
-<section
-class="section"
-id="contact">
+<section class="section" id="contact">
 
 <div class="section-content">
 
@@ -1004,13 +859,8 @@ id="contact">
 </h2>
 
 <p>
-For website related queries,
-please contact the website administrator.
-</p>
-
-<p>
-📧 Email:
-tn.govt.jobs@example.com
+For website related queries, please contact
+the website administrator.
 </p>
 
 </div>
@@ -1019,6 +869,7 @@ tn.govt.jobs@example.com
 
 
 <!-- ================= FOOTER ================= -->
+
 <footer>
 
 <p>
@@ -1049,18 +900,25 @@ Contact
 
 </p>
 
+
 <p>
-Privacy Policy | Terms & Conditions
+
+<a href="./privacy.html">
+Privacy Policy
+</a>
+
+&nbsp; | &nbsp;
+
+<a href="./terms.html">
+Terms &amp; Conditions
+</a>
+
 </p>
+
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
-
 <script>
-
-
-/* ================= FILTER JOBS ================= */
 
 function filterJobs(type){
 
@@ -1104,8 +962,6 @@ function filterJobs(type){
 
 }
 
-
-/* ================= SEARCH JOBS ================= */
 
 function searchJobs(){
 
@@ -1152,8 +1008,6 @@ function searchJobs(){
 }
 
 
-/* ================= MOBILE MENU ================= */
-
 function toggleMenu(){
 
     let menu =
@@ -1172,16 +1026,13 @@ function toggleMenu(){
 }
 
 
-/* ================= SHARE ================= */
-
 function shareWebsite(){
 
     if(navigator.share){
 
         navigator.share({
 
-            title:
-            "TN GOVT JOBS",
+            title:"TN GOVT JOBS",
 
             text:
             "Tamil Nadu & Central Government Job Notifications",
@@ -1197,16 +1048,12 @@ function shareWebsite(){
             "https://veeragank5-create.github.io/tn-govt-jobs/"
         );
 
-        alert(
-            "Website link copied!"
-        );
+        alert("Website link copied!");
 
     }
 
 }
 
-
-/* ================= WHATSAPP SHARE ================= */
 
 function shareWhatsApp(){
 
@@ -1225,8 +1072,6 @@ function shareWhatsApp(){
 
 }
 
-
-/* ================= JOB COUNT ================= */
 
 function updateJobCount(){
 
@@ -1257,8 +1102,6 @@ function updateJobCount(){
 
 }
 
-
-/* ================= PAGE LOAD ================= */
 
 document.addEventListener(
     "DOMContentLoaded",
