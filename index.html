@@ -1114,7 +1114,23 @@ document.addEventListener(
 
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+
+const SUPABASE_URL =
+"https://qgqsaqkzqofcejemjrta.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_PVfmRNEvrEq4w1dQ_9QWyQ_KvC6psU2";
+
+const supabaseClient =
+supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+</script>
 </body>
 
 </html>
