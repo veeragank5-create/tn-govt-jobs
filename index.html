@@ -5,7 +5,8 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>TN GOVT JOBS | Tamil Nadu Government Jobs | RRB SSC Bank</title>
 
@@ -17,330 +18,341 @@ content="TN Govt Jobs, Tamil Nadu Government Jobs, RRB Jobs, SSC Jobs, Bank Jobs
 
 <meta name="robots" content="index, follow">
 
-
 <style>
 
+/* ================= GENERAL ================= */
+
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
 
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f4f6f9;
-    color:#222;
+margin:0;
+font-family:Arial, sans-serif;
+background:#f4f7fb;
+color:#222;
 }
 
-
-/* HEADER */
+/* ================= HEADER ================= */
 
 header{
-    background:linear-gradient(135deg,#123c7a,#1769aa);
-    color:white;
-    text-align:center;
-    padding:35px 15px;
+background:linear-gradient(135deg,#06265c,#1769aa);
+color:white;
+padding:25px 15px;
+text-align:center;
 }
 
 header h1{
-    margin:0;
-    font-size:34px;
+margin:0;
+font-size:32px;
 }
 
 header p{
-    margin:10px 0 0;
-    font-size:17px;
+margin:8px 0 0;
+font-size:16px;
 }
 
-
-/* NAVIGATION */
+/* ================= NAV ================= */
 
 nav{
-    background:#08254d;
-    text-align:center;
-    padding:14px;
-    position:sticky;
-    top:0;
-    z-index:1000;
+background:#08254d;
+padding:10px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 12px;
-    font-weight:bold;
+color:white;
+text-decoration:none;
+font-weight:bold;
+margin:0 15px;
+display:inline-block;
+padding:8px;
 }
 
 nav a:hover{
-    text-decoration:underline;
+color:#ffd700;
 }
 
 .menu-btn{
-    display:none;
-    background:#1769aa;
-    color:white;
-    border:none;
-    padding:10px 18px;
-    border-radius:6px;
-    font-weight:bold;
-    font-size:15px;
-    cursor:pointer;
+display:none;
+background:#1769aa;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:6px;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
 }
 
 #menuLinks{
-    display:block;
+display:block;
 }
 
+/* ================= HERO ================= */
 
-/* SEARCH */
+.hero{
+background:white;
+padding:25px 15px;
+text-align:center;
+}
 
-.search{
-    text-align:center;
-    margin:25px 10px 15px;
+.hero h2{
+color:#123c7a;
+margin-bottom:10px;
+}
+
+.hero p{
+max-width:900px;
+margin:10px auto;
+line-height:1.7;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+text-align:center;
+padding:20px 10px;
+background:#eef4fb;
 }
 
 #searchBox{
-    width:90%;
-    max-width:650px;
-    padding:14px;
-    font-size:16px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    outline:none;
+width:90%;
+max-width:600px;
+padding:13px;
+border:2px solid #1769aa;
+border-radius:8px;
+font-size:16px;
+outline:none;
 }
 
-#searchBox:focus{
-    border-color:#123c7a;
-}
-
-
-/* FILTERS */
+/* ================= FILTER ================= */
 
 .filters{
-    text-align:center;
-    padding:5px 10px 20px;
+text-align:center;
+padding:15px 10px;
+background:white;
 }
 
-.filter-btn{
-    background:#123c7a;
-    color:white;
-    border:none;
-    padding:11px 17px;
-    margin:5px;
-    border-radius:6px;
-    cursor:pointer;
-    font-size:14px;
-    font-weight:bold;
+.filters button{
+background:#1769aa;
+color:white;
+border:none;
+padding:10px 15px;
+margin:5px;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
 }
 
-.filter-btn:hover{
-    background:#08254d;
+.filters button:hover{
+background:#08254d;
 }
 
+/* ================= JOB AREA ================= */
 
-/* JOB COUNT */
-
-#jobCount{
-    text-align:center;
-    font-weight:bold;
-    color:#123c7a;
-    margin:10px;
+.jobs-container{
+max-width:1000px;
+margin:auto;
+padding:20px 15px;
 }
-
-
-/* SHARE */
-
-.share-box{
-    text-align:center;
-    margin:5px 10px 25px;
-}
-
-.share-btn{
-    background:#198754;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:7px;
-    font-size:15px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.share-btn:hover{
-    background:#146c43;
-}
-
-
-/* INFO BOX */
 
 .latest-title{
-    text-align:center;
-    color:#123c7a;
-    margin:30px 10px 10px;
+text-align:center;
+color:#123c7a;
 }
 
-.info-box{
-    background:white;
-    width:90%;
-    max-width:900px;
-    margin:25px auto;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.10);
-}
-
-.info-box h2{
-    color:#123c7a;
-}
-
-
-/* JOB CARD */
+/* ================= JOB CARD ================= */
 
 .job{
-    background:white;
-    width:90%;
-    max-width:900px;
-    margin:20px auto;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.10);
+background:white;
+padding:20px;
+margin:18px 0;
+border-radius:10px;
+box-shadow:0 3px 12px rgba(0,0,0,0.10);
+border-left:5px solid #1769aa;
 }
 
 .job h2{
-    margin-top:0;
-    color:#123c7a;
+color:#123c7a;
+margin-top:0;
 }
 
 .job p{
-    line-height:1.6;
+line-height:1.6;
 }
-
-
-/* BADGES */
-
-.badge{
-    display:inline-block;
-    background:#dc3545;
-    color:white;
-    padding:5px 9px;
-    border-radius:5px;
-    font-size:12px;
-    font-weight:bold;
-    margin-left:8px;
-}
-
-.new-badge{
-    display:inline-block;
-    background:#ff9800;
-    color:white;
-    padding:5px 9px;
-    border-radius:5px;
-    font-size:12px;
-    font-weight:bold;
-    margin-left:8px;
-}
-
-
-/* JOB DETAILS */
-
-.last-date{
-    color:#d63333;
-    font-weight:bold;
-}
-
-.status{
-    color:#198754;
-    font-weight:bold;
-}
-
-
-/* APPLY BUTTON */
 
 .apply-btn{
-    display:inline-block;
-    background:#198754;
-    color:white;
-    text-decoration:none;
-    padding:12px 18px;
-    border-radius:7px;
-    font-weight:bold;
-    margin-top:8px;
+display:inline-block;
+background:#087f23;
+color:white;
+text-decoration:none;
+padding:11px 18px;
+border-radius:6px;
+font-weight:bold;
+margin-top:8px;
 }
 
 .apply-btn:hover{
-    background:#146c43;
+background:#055d19;
 }
 
+.badge{
+background:#ff9800;
+color:white;
+padding:4px 8px;
+border-radius:5px;
+font-size:12px;
+}
 
-/* FOOTER */
+.new-badge{
+background:#e53935;
+color:white;
+padding:4px 8px;
+border-radius:5px;
+font-size:12px;
+}
+
+.status{
+color:green;
+font-weight:bold;
+}
+
+.last-date{
+color:#d32f2f;
+font-weight:bold;
+}
+
+/* ================= JOB COUNT ================= */
+
+#jobCount{
+text-align:center;
+font-weight:bold;
+color:#123c7a;
+font-size:17px;
+}
+
+/* ================= LATEST UPDATES ================= */
+
+.updates{
+max-width:900px;
+margin:20px auto;
+background:#fff8df;
+border-left:5px solid #ff9800;
+padding:20px;
+border-radius:8px;
+}
+
+.updates h2{
+margin-top:0;
+color:#9a6500;
+}
+
+/* ================= ABOUT ================= */
+
+.section{
+background:white;
+margin-top:20px;
+padding:35px 15px;
+text-align:center;
+}
+
+.section-content{
+max-width:900px;
+margin:auto;
+line-height:1.7;
+}
+
+/* ================= SHARE ================= */
+
+.share-area{
+text-align:center;
+padding:25px 10px;
+}
+
+.share-btn{
+background:#1769aa;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:7px;
+font-weight:bold;
+cursor:pointer;
+margin:5px;
+}
+
+.whatsapp-btn{
+background:#25D366;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
-    background:#08254d;
-    color:white;
-    text-align:center;
-    padding:25px;
-    margin-top:40px;
+background:#08254d;
+color:white;
+text-align:center;
+padding:25px 15px;
+margin-top:30px;
 }
 
-footer p{
-    margin:6px;
+footer a{
+color:white;
+margin:0 8px;
 }
 
-
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
-    header h1{
-        font-size:25px;
-    }
+header h1{
+font-size:25px;
+}
 
-    header p{
-        font-size:14px;
-    }
+.menu-btn{
+display:inline-block;
+width:90%;
+max-width:300px;
+}
 
-    nav{
-        padding:10px;
-    }
+#menuLinks{
+display:none;
+width:90%;
+max-width:300px;
+margin:10px auto;
+background:#08254d;
+padding:8px;
+border-radius:8px;
+}
 
-    .menu-btn{
-        display:inline-block;
-        width:90%;
-        max-width:300px;
-    }
+#menuLinks a{
+display:block;
+margin:10px;
+}
 
-    #menuLinks{
-        display:none;
-        width:90%;
-        max-width:300px;
-        margin:10px auto;
-        background:#08254d;
-        padding:8px;
-        border-radius:8px;
-    }
+.filters button{
+width:44%;
+}
 
-    #menuLinks a{
-        display:block;
-        margin:10px;
-    }
+.job{
+padding:16px;
+}
 
-    .job{
-        width:94%;
-        padding:20px;
-    }
+.job h2{
+font-size:20px;
+}
 
-    .info-box{
-        width:94%;
-    }
+}
 
-    .filter-btn{
-        padding:9px 12px;
-        font-size:13px;
-    }
+/* ================= DESKTOP ================= */
 
-    .share-btn{
-        width:90%;
-        max-width:300px;
-    }
+@media(min-width:601px){
+
+#menuLinks{
+display:block !important;
+}
 
 }
 
@@ -352,7 +364,7 @@ footer p{
 <body>
 
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header id="home">
 
@@ -365,13 +377,16 @@ Tamil Nadu & Central Government Job Notifications
 </header>
 
 
-
-<!-- NAVIGATION -->
+<!-- ================= NAVIGATION ================= -->
 
 <nav>
 
-<button class="menu-btn" onclick="toggleMenu()">
+<button
+class="menu-btn"
+onclick="toggleMenu()">
+
 ☰ Menu
+
 </button>
 
 <div id="menuLinks">
@@ -389,155 +404,144 @@ Tamil Nadu & Central Government Job Notifications
 </nav>
 
 
+<!-- ================= HERO ================= -->
 
-<!-- SEARCH -->
+<section class="hero">
 
-<div class="search">
+<h2 class="latest-title">
+🇮🇳 Tamil Nadu Government Jobs 2026 – TN Govt Jobs, RRB, SSC, Bank & TNPSC
+</h2>
+
+<p>
+TN Govt Jobs provides Tamil Nadu Government Job Notifications,
+RRB Jobs, SSC Jobs, Bank Jobs, JE Jobs, TNPSC Jobs,
+Police Jobs and Teacher Jobs with official application links.
+</p>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<div class="search-box">
 
 <input
-id="searchBox"
 type="text"
-placeholder="🔎 Search RRB, SSC, Bank, TNPSC..."
+id="searchBox"
+placeholder="🔍 Search Jobs... Example: TNPSC, RRB, SSC"
 onkeyup="searchJobs()">
 
 </div>
 
 
-
-<!-- FILTER BUTTONS -->
+<!-- ================= FILTERS ================= -->
 
 <div class="filters">
 
-<button class="filter-btn"
-onclick="filterJobs('all')">
+<button onclick="filterJobs('all')">
 All Jobs
 </button>
 
-<button class="filter-btn"
-onclick="filterJobs('10th')">
+<button onclick="filterJobs('10th')">
 10th
 </button>
 
-<button class="filter-btn"
-onclick="filterJobs('12th')">
+<button onclick="filterJobs('12th')">
 12th
 </button>
 
-<button class="filter-btn"
-onclick="filterJobs('degree')">
+<button onclick="filterJobs('degree')">
 Degree
 </button>
 
-<button class="filter-btn"
-onclick="filterJobs('rrb')">
+<button onclick="filterJobs('rrb')">
 RRB
 </button>
 
-<button class="filter-btn"
-onclick="filterJobs('ssc')">
+<button onclick="filterJobs('ssc')">
 SSC
 </button>
 
-<button class="filter-btn"
-onclick="filterJobs('bank')">
+<button onclick="filterJobs('bank')">
 Bank
 </button>
 
-<button class="filter-btn"
-onclick="filterJobs('je')">
+<button onclick="filterJobs('je')">
 JE
 </button>
 
 </div>
 
 
-
-<!-- JOB COUNT -->
+<!-- ================= JOB COUNT ================= -->
 
 <p id="jobCount">
 📋 Total Jobs: 0
 </p>
 
 
+<!-- ================= LATEST UPDATES ================= -->
 
-<!-- SHARE -->
+<div class="updates">
 
-<div class="share-box">
-
-<button class="share-btn"
-onclick="shareWebsite()">
-
-📤 Share TN Govt Jobs
-
-</button>
-
-<br>
-<br>
-
-<a
-href="https://wa.me/?text=TN%20GOVT%20JOBS%20-%20Tamil%20Nadu%20%26%20Central%20Government%20Job%20Notifications%20https%3A%2F%2Fveeragank5-create.github.io%2Ftn-govt-jobs%2F"
-target="_blank"
-class="share-btn"
-style="text-decoration:none;display:inline-block;background:#25D366;">
-
-📱 Share on WhatsApp
-
-</a>
-
-</div>
-
-
-
-<!-- LATEST UPDATES -->
-
-<div class="info-box">
-
-<h2>🔔 Latest Job Updates</h2>
-
-<p>
-New Tamil Nadu and Central Government job notifications will be updated here.
-</p>
-
-<p>
-🚆 RRB &nbsp; | &nbsp;
-🏛️ SSC &nbsp; | &nbsp;
-🏦 Bank &nbsp; | &nbsp;
-🏗️ JE &nbsp; | &nbsp;
-🏛️ TNPSC
-</p>
-
-</div>
-
-    <h2 class="latest-title">
-🇮🇳 Tamil Nadu Government Jobs 2026 – TN Govt Jobs, RRB, SSC, Bank & TNPSC
+<h2>
+🔔 Latest Updates
 </h2>
 
-<p style="text-align:center;max-width:900px;margin:10px auto 25px;padding:0 15px;line-height:1.7;">
-TN Govt Jobs provides Tamil Nadu Government Job Notifications,
-RRB Jobs, SSC Jobs, Bank Jobs, JE Jobs, TNPSC Jobs,
-Police Jobs and Teacher Jobs with official application links.
+<p>
+✔ TNPSC Jobs
 </p>
 
+<p>
+✔ RRB Jobs
+</p>
+
+<p>
+✔ SSC Jobs
+</p>
+
+<p>
+✔ Bank Jobs
+</p>
+
+<p>
+✔ JE Jobs
+</p>
+
+<p>
+✔ Police & Teacher Jobs
+</p>
+
+<p>
+⚠️ Always check the official website before applying.
+</p>
+
+</div>
 
 
-<!-- JOBS -->
+<!-- ================= JOBS ================= -->
 
-<div id="jobs">
+<div id="jobs"
+class="jobs-container">
 
 
-
-<!-- RRB -->
+<!-- RRB JOBS -->
 
 <div class="job"
 data-qualification="10th 12th degree rrb">
 
 <h2>
 🚆 RRB Jobs
-<span class="badge">LATEST</span>
+
+<span class="badge">
+LATEST
+</span>
+
 </h2>
 
 <p>
 Railway Recruitment Board Government Jobs
+for eligible candidates.
 </p>
 
 <p>
@@ -545,17 +549,8 @@ Railway Recruitment Board Government Jobs
 10th / 12th / Degree
 </p>
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
-
-<p class="last-date">
-📅 Last Date: Check Official Notification
-</p>
-
 <p class="status">
-🟢 Official recruitment information
+🟢 Check latest notification
 </p>
 
 <a
@@ -568,7 +563,6 @@ Apply Now → RRB Official Website
 </a>
 
 </div>
-
 
 
 <!-- RRB NTPC -->
@@ -578,29 +572,25 @@ data-qualification="12th degree rrb ntpc">
 
 <h2>
 🚆 RRB NTPC Jobs
-<span class="badge">LATEST</span>
+
+<span class="badge">
+LATEST
+</span>
+
 </h2>
 
 <p>
-Railway Recruitment Board – Non-Technical Popular Categories
+Railway NTPC recruitment opportunities
+for eligible candidates.
 </p>
 
 <p>
 🎓 <b>Qualification:</b>
-12th Pass / Degree
-</p>
-
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
-
-<p class="last-date">
-📅 Last Date: Check Official Notification
+12th / Degree
 </p>
 
 <p class="status">
-🟢 Check RRB official recruitment information
+🟢 Check official notification
 </p>
 
 <a
@@ -615,7 +605,6 @@ Apply Now → RRB Official Website
 </div>
 
 
-
 <!-- SSC CHSL -->
 
 <div class="job"
@@ -623,13 +612,20 @@ data-qualification="12th ssc chsl">
 
 <h2>
 🏛️ SSC CHSL 2026
-<span class="badge">LATEST</span>
-<span class="new-badge">NEW</span>
+
+<span class="badge">
+LATEST
+</span>
+
+<span class="new-badge">
+NEW
+</span>
+
 </h2>
 
 <p>
-Staff Selection Commission Combined Higher Secondary
-(10+2) Level Examination
+Staff Selection Commission –
+Combined Higher Secondary Level.
 </p>
 
 <p>
@@ -638,16 +634,12 @@ Staff Selection Commission Combined Higher Secondary
 </p>
 
 <p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
-
-<p class="last-date">
-📅 Last Date: Check Official Notification
+📋 <b>Category:</b>
+SSC CHSL
 </p>
 
 <p class="status">
-🟢 Check SSC official notification
+🟢 Check official notification
 </p>
 
 <a
@@ -662,18 +654,23 @@ Apply Now → SSC Official Website
 </div>
 
 
-
-<!-- SSC -->
+<!-- SSC JOBS -->
 
 <div class="job"
 data-qualification="10th 12th degree ssc">
 
 <h2>
 🏛️ SSC Jobs
+
+<span class="badge">
+LATEST
+</span>
+
 </h2>
 
 <p>
-Staff Selection Commission Government Jobs
+Staff Selection Commission
+Government Job Notifications.
 </p>
 
 <p>
@@ -681,15 +678,6 @@ Staff Selection Commission Government Jobs
 10th / 12th / Degree
 </p>
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
-
-<p class="last-date">
-📅 Last Date: Check Official Notification
-</p>
-
 <a
 class="apply-btn"
 href="https://ssc.gov.in/"
@@ -702,19 +690,23 @@ Apply Now → SSC Official Website
 </div>
 
 
-
-<!-- BANK -->
+<!-- BANK JOBS -->
 
 <div class="job"
 data-qualification="degree bank">
 
 <h2>
 🏦 Bank Jobs
-<span class="badge">LATEST</span>
+
+<span class="badge">
+LATEST
+</span>
+
 </h2>
 
 <p>
-Government & Public Sector Bank Jobs
+Government and Public Sector Bank
+Job Notifications.
 </p>
 
 <p>
@@ -723,12 +715,8 @@ Degree
 </p>
 
 <p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
-
-<p class="last-date">
-📅 Last Date: Check Official Notification
+💼 Posts may include Clerk, PO,
+Assistant and other posts.
 </p>
 
 <a
@@ -743,19 +731,23 @@ Apply Now → IBPS Official Website
 </div>
 
 
-
-<!-- JE -->
+<!-- JE JOBS -->
 
 <div class="job"
 data-qualification="diploma degree je">
 
 <h2>
-🏗️ JE Jobs
-<span class="badge">LATEST</span>
+🛠️ JE Jobs
+
+<span class="badge">
+LATEST
+</span>
+
 </h2>
 
 <p>
-Junior Engineer Government Jobs
+Junior Engineer Government Job
+Notifications.
 </p>
 
 <p>
@@ -764,17 +756,13 @@ Diploma / Degree
 </p>
 
 <p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
-
-<p class="last-date">
-📅 Last Date: Check Official Notification
+🏗️ Civil / Mechanical / Electrical
+Engineering opportunities.
 </p>
 
 <a
 class="apply-btn"
-href="https://ssc.gov.in/"
+href="https://www.tnpsc.gov.in/"
 target="_blank">
 
 Apply Now → Official Website
@@ -784,33 +772,41 @@ Apply Now → Official Website
 </div>
 
 
-
-<!-- TNPSC -->
+<!-- TNPSC GROUP IV -->
 
 <div class="job"
-data-qualification="10th 12th degree tnpsc">
+data-qualification="10th 12th tnpsc group4">
 
 <h2>
-🏛️ TNPSC Jobs
-<span class="badge">TN</span>
+🏛️ TNPSC Group IV 2026
+
+<span class="badge">
+LATEST
+</span>
+
+<span class="new-badge">
+NEW
+</span>
+
 </h2>
 
 <p>
-Tamil Nadu Public Service Commission
+Tamil Nadu Public Service Commission –
+Combined Civil Services Examination IV.
 </p>
 
 <p>
 🎓 <b>Qualification:</b>
-10th / 12th / Degree
+10th Pass / Post-wise eligibility
 </p>
 
 <p>
-📋 <b>Vacancy:</b>
-Check Official Notification
+📋 <b>Notification:</b>
+TNPSC Group IV
 </p>
 
-<p class="last-date">
-📅 Last Date: Check Official Notification
+<p class="status">
+🟢 Check official notification
 </p>
 
 <a
@@ -825,19 +821,59 @@ Apply Now → TNPSC Official Website
 </div>
 
 
+<!-- TNPSC JOBS -->
 
-<!-- POLICE -->
+<div class="job"
+data-qualification="10th 12th degree tnpsc">
+
+<h2>
+🏛️ TNPSC Jobs
+
+<span class="badge">
+LATEST
+</span>
+
+</h2>
+
+<p>
+Tamil Nadu Public Service Commission
+Government Job Notifications.
+</p>
+
+<p>
+🎓 <b>Qualification:</b>
+10th / 12th / Degree
+</p>
+
+<a
+class="apply-btn"
+href="https://www.tnpsc.gov.in/"
+target="_blank">
+
+Apply Now → TNPSC Official Website
+
+</a>
+
+</div>
+
+
+<!-- POLICE JOBS -->
 
 <div class="job"
 data-qualification="10th 12th police">
 
 <h2>
 👮 Police Jobs
-<span class="badge">TN</span>
+
+<span class="badge">
+LATEST
+</span>
+
 </h2>
 
 <p>
-Tamil Nadu Police Recruitment
+Tamil Nadu Police Government
+Job Notifications.
 </p>
 
 <p>
@@ -845,54 +881,40 @@ Tamil Nadu Police Recruitment
 10th / 12th
 </p>
 
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
-
-<p class="last-date">
-📅 Last Date: Check Official Notification
-</p>
-
 <a
 class="apply-btn"
-href="https://www.tnusrb.tn.gov.in/"
+href="https://eservices.tnpolice.gov.in/"
 target="_blank">
 
-Apply Now → TNUSRB Official Website
+Apply Now → Police Official Website
 
 </a>
 
 </div>
 
 
-
-<!-- TEACHER -->
+<!-- TEACHER JOBS -->
 
 <div class="job"
 data-qualification="degree teacher">
 
 <h2>
 👨‍🏫 Teacher Jobs
-<span class="badge">TN</span>
+
+<span class="badge">
+LATEST
+</span>
+
 </h2>
 
 <p>
-Tamil Nadu Government Teacher Recruitment
+Government Teacher Recruitment
+Notifications.
 </p>
 
 <p>
 🎓 <b>Qualification:</b>
-Degree / B.Ed
-</p>
-
-<p>
-📋 <b>Vacancy:</b>
-Check Official Notification
-</p>
-
-<p class="last-date">
-📅 Last Date: Check Official Notification
+Degree / Required Teaching Qualification
 </p>
 
 <a
@@ -910,126 +932,142 @@ Apply Now → TRB Official Website
 </div>
 
 
+<!-- ================= SHARE ================= -->
 
-<!-- ABOUT -->
+<div class="share-area">
 
-<div id="about" class="info-box">
+<button
+class="share-btn"
+onclick="shareWebsite()">
 
-<h2>
-ℹ️ About TN Govt Jobs
-</h2>
+📤 Share Website
 
-<p>
-TN Govt Jobs provides information about Tamil Nadu
-and Central Government job opportunities.
-</p>
+</button>
 
-<p>
-Categories include RRB, SSC, Bank, JE, TNPSC,
-Police and Teacher jobs.
-</p>
+<button
+class="share-btn whatsapp-btn"
+onclick="shareWhatsApp()">
 
-<p>
-⚠️ Always verify the notification, eligibility,
-fee and last date on the official recruitment
-website before applying.
-</p>
+🟢 WhatsApp Share
+
+</button>
 
 </div>
 
 
+<!-- ================= ABOUT ================= -->
 
-<!-- CONTACT -->
+<section
+class="section"
+id="about">
 
-<div id="contact" class="info-box">
+<div class="section-content">
 
 <h2>
-📞 Contact Us
+ℹ️ About TN GOVT JOBS
 </h2>
 
 <p>
-Government Job Updates and Notifications
+TN GOVT JOBS is a job information website
+created to help candidates find
+Tamil Nadu and Central Government
+Job Notifications in one place.
 </p>
 
 <p>
-For official application, always use the official
-recruitment website.
+We provide categories such as
+TNPSC, RRB, SSC, Bank, JE,
+Police and Teacher Jobs.
+</p>
+
+<p>
+Candidates should always verify
+the official notification before
+submitting an application.
 </p>
 
 </div>
 
+</section>
 
 
-<!-- FOOTER -->
+<!-- ================= CONTACT ================= -->
+
+<section
+class="section"
+id="contact">
+
+<div class="section-content">
+
+<h2>
+📞 Contact
+</h2>
+
+<p>
+For website related queries,
+please contact the website administrator.
+</p>
+
+<p>
+📧 Email:
+tn.govt.jobs@example.com
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
 <p>
-🇮🇳 <b>© 2026 TN GOVT JOBS</b>
+© 2026 TN GOVT JOBS
 </p>
 
 <p>
-Tamil Nadu & Central Government Job Notifications
+Tamil Nadu Government Jobs & Central Government Jobs
 </p>
 
 <p>
 
-<a href="#home" style="color:white;">
-🏠 Home
+<a href="#home">
+Home
 </a>
 
-&nbsp; | &nbsp;
-
-<a href="#jobs" style="color:white;">
-📋 Jobs
+<a href="#jobs">
+Jobs
 </a>
 
-&nbsp; | &nbsp;
-
-<a href="#about" style="color:white;">
-ℹ️ About
+<a href="#about">
+About
 </a>
 
-&nbsp; | &nbsp;
-
-<a href="#contact" style="color:white;">
-📞 Contact
-</a>
-
-&nbsp; | &nbsp;
-
-<a href="privacy.html" style="color:white;">
-🔒 Privacy Policy
-</a>
-
-&nbsp; | &nbsp;
-
-<a href="terms.html" style="color:white;">
-📋 Terms & Conditions
+<a href="#contact">
+Contact
 </a>
 
 </p>
 
-<p style="font-size:13px;">
-
-⚠️ Always verify job details on the official recruitment website.
-
+<p>
+Privacy Policy | Terms & Conditions
 </p>
 
 </footer>
 
 
-
-<!-- JAVASCRIPT -->
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
 
-/* FILTER JOBS */
+/* ================= FILTER JOBS ================= */
 
 function filterJobs(type){
 
-    let jobs = document.querySelectorAll("#jobs .job");
+    let jobs =
+        document.querySelectorAll("#jobs .job");
 
     jobs.forEach(function(job){
 
@@ -1041,6 +1079,7 @@ function filterJobs(type){
             job.style.display = "none";
 
             return;
+
         }
 
         qualification =
@@ -1048,7 +1087,9 @@ function filterJobs(type){
 
         if(
             type === "all" ||
-            qualification.includes(type.toLowerCase())
+            qualification.includes(
+                type.toLowerCase()
+            )
         ){
 
             job.style.display = "block";
@@ -1066,13 +1107,17 @@ function filterJobs(type){
 }
 
 
-
-/* SEARCH JOBS */
+/* ================= SEARCH JOBS ================= */
 
 function searchJobs(){
 
+    let searchBox =
+        document.getElementById("searchBox");
+
     let search =
-        document.getElementById("searchBox").value.toLowerCase().trim();
+        searchBox.value
+        .toLowerCase()
+        .trim();
 
     let jobs =
         document.querySelectorAll("#jobs .job");
@@ -1083,11 +1128,15 @@ function searchJobs(){
             job.innerText.toLowerCase();
 
         let qualification =
-            job.getAttribute("data-qualification") || "";
+            job.getAttribute(
+                "data-qualification"
+            ) || "";
 
         if(
             text.includes(search) ||
-            qualification.toLowerCase().includes(search)
+            qualification
+            .toLowerCase()
+            .includes(search)
         ){
 
             job.style.display = "block";
@@ -1101,11 +1150,11 @@ function searchJobs(){
     });
 
     updateJobCount();
+
 }
 
 
-
-/* MOBILE MENU */
+/* ================= MOBILE MENU ================= */
 
 function toggleMenu(){
 
@@ -1125,8 +1174,7 @@ function toggleMenu(){
 }
 
 
-
-/* SHARE WEBSITE */
+/* ================= SHARE ================= */
 
 function shareWebsite(){
 
@@ -1134,7 +1182,8 @@ function shareWebsite(){
 
         navigator.share({
 
-            title:"TN GOVT JOBS",
+            title:
+            "TN GOVT JOBS",
 
             text:
             "Tamil Nadu & Central Government Job Notifications",
@@ -1150,15 +1199,36 @@ function shareWebsite(){
             "https://veeragank5-create.github.io/tn-govt-jobs/"
         );
 
-        alert("Website link copied!");
+        alert(
+            "Website link copied!"
+        );
 
     }
 
 }
 
 
+/* ================= WHATSAPP SHARE ================= */
 
-/* UPDATE JOB COUNT */
+function shareWhatsApp(){
+
+    let url =
+        "https://wa.me/?text=" +
+        encodeURIComponent(
+            "🇮🇳 TN GOVT JOBS\n\n" +
+            "Tamil Nadu & Central Government Job Notifications\n\n" +
+            "https://veeragank5-create.github.io/tn-govt-jobs/"
+        );
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* ================= JOB COUNT ================= */
 
 function updateJobCount(){
 
@@ -1190,8 +1260,7 @@ function updateJobCount(){
 }
 
 
-
-/* PAGE LOAD */
+/* ================= PAGE LOAD ================= */
 
 document.addEventListener(
     "DOMContentLoaded",
