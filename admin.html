@@ -8,266 +8,179 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Admin Dashboard - TN GOVT JOBS</title>
+<title>TN GOVT JOBS - Admin</title>
 
 <style>
 
+*{
+box-sizing:border-box;
+}
+
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f2f6fb;
+margin:0;
+font-family:Arial,sans-serif;
+background:#f1f5f9;
+color:#222;
 }
 
-.header{
-    background:#08254d;
-    color:white;
-    padding:20px;
-    text-align:center;
+header{
+background:linear-gradient(135deg,#08254d,#1769aa);
+color:white;
+padding:25px;
+text-align:center;
 }
 
-.login-box,
-.dashboard{
-    width:90%;
-    max-width:600px;
-    margin:40px auto;
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 4px 15px #ccc;
+header h1{
+margin:0;
+}
+
+.container{
+width:95%;
+max-width:1000px;
+margin:25px auto;
+}
+
+.box{
+background:white;
+padding:25px;
+margin-bottom:20px;
+border-radius:10px;
+box-shadow:0 3px 12px rgba(0,0,0,.10);
 }
 
 input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    box-sizing:border-box;
-    border:1px solid #ccc;
-    border-radius:6px;
+width:100%;
+padding:12px;
+margin:8px 0 15px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:15px;
 }
 
 button{
-    padding:12px 20px;
-    border:none;
-    border-radius:6px;
-    background:#1769aa;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-    margin-top:8px;
+padding:10px 18px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
 }
 
-button:hover{
-    opacity:0.9;
+.login-btn{
+background:#1769aa;
+color:white;
+width:100%;
 }
 
-.dashboard{
-    display:none;
+.save-btn{
+background:#16803c;
+color:white;
 }
 
-.card{
-    background:#f5f8fc;
-    padding:20px;
-    margin:15px 0;
-    border-radius:8px;
+.logout-btn{
+background:#d32f2f;
+color:white;
 }
 
-.form-box{
-    background:#eef5ff;
-    padding:20px;
-    margin-top:15px;
-    border-radius:8px;
-    display:none;
+.delete-btn{
+background:#d32f2f;
+color:white;
+margin-top:10px;
 }
 
-.logout{
-    background:#d32f2f;
+.hidden{
+display:none;
 }
 
-.error{
-    color:red;
-    font-weight:bold;
+.job-item{
+background:#f5f7fa;
+padding:15px;
+margin:10px 0;
+border-radius:8px;
+border-left:5px solid #1769aa;
 }
 
-.success{
-    color:green;
-    font-weight:bold;
+.message{
+font-weight:bold;
+margin-top:10px;
 }
 
-.job-preview{
-    background:white;
-    padding:15px;
-    margin-top:15px;
-    border-radius:8px;
-    border-left:5px solid #1769aa;
+a{
+color:#1769aa;
 }
 
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-    
 
+</head>
 
 <body>
 
-
-<!-- HEADER -->
-
-<div class="header">
+<header>
 
 <h1>🇮🇳 TN GOVT JOBS</h1>
 
-<p>Admin Panel</p>
+<p>Admin Dashboard</p>
 
-</div>
+</header>
+
+
+<div class="container">
 
 
 <!-- LOGIN -->
 
-<div class="login-box" id="loginBox">
+<div id="loginBox" class="box">
 
 <h2>🔐 Admin Login</h2>
+
+<label>Username</label>
 
 <input
 type="text"
 id="username"
-placeholder="Username">
+placeholder="Enter username"
+>
+
+<label>Password</label>
 
 <input
 type="password"
 id="password"
-placeholder="Password">
+placeholder="Enter password"
+>
 
-<button onclick="adminLogin()">
+<button
+class="login-btn"
+onclick="login()">
+
 Login
+
 </button>
 
-<p id="error" class="error"></p>
+<p
+id="loginMessage"
+class="message">
+</p>
 
 </div>
 
 
 <!-- DASHBOARD -->
 
-<div class="dashboard" id="dashboard">
-
-<h2>📊 Admin Dashboard</h2>
-
-
-<!-- TOTAL JOBS -->
-
-<div class="card">
-
-<h3>📋 Total Jobs</h3>
-
-<h1 id="jobCount">0</h1>
-
-</div>
-
-
-<!-- ADD JOB -->
-
-<div class="card">
-
-<h3>➕ Add Job</h3>
-
-<p>
-Add a new government job notification.
-</p>
-
-<button onclick="showAddJob()">
-➕ Add Job
-</button>
-
-
 <div
-class="form-box"
-id="addJobForm">
-
-<h3>📝 New Job Details</h3>
+id="dashboard"
+class="hidden">
 
 
-<input
-type="text"
-id="jobTitle"
-placeholder="Job Title">
+<div class="box">
 
+<h2>📊 Dashboard</h2>
 
-<input
-type="text"
-id="qualification"
-placeholder="Qualification">
-
-
-<input
-type="text"
-id="lastDate"
-placeholder="Last Date">
-
-
-<input
-type="text"
-id="officialLink"
-placeholder="Official Application Link">
-
-
-<button onclick="saveJob()">
-💾 Save Job
-</button>
-
-
-<p
-id="saveMessage"
-class="success">
+<p id="jobCount">
+📋 Total Jobs: 0
 </p>
-
-</div>
-
-</div>
-
-
-<!-- MANAGE JOBS -->
-
-<div class="card">
-
-<h3>✏️ Manage Jobs</h3>
-
-<p>
-Manage existing job notifications.
-</p>
-
-<button onclick="showJobs()">
-View Jobs
-</button>
-
-<div id="jobList"></div>
-
-</div>
-
-
-<!-- LATEST UPDATES -->
-
-<div class="card">
-
-<h3>📢 Latest Updates</h3>
-
-<p>
-Manage latest job updates.
-</p>
-
-<button onclick="showUpdateMessage()">
-Update News
-</button>
-
-<p id="updateMessage"></p>
-
-</div>
-
-
-<br>
-
 
 <button
-class="logout"
+class="logout-btn"
 onclick="logout()">
 
 Logout
@@ -277,30 +190,102 @@ Logout
 </div>
 
 
+<!-- ADD JOB -->
+
+<div class="box">
+
+<h2>➕ Add Job</h2>
+
+<label>Job Title</label>
+
+<input
+type="text"
+id="jobTitle"
+placeholder="Example: TNPSC Group IV 2026"
+>
+
+<label>Qualification</label>
+
+<input
+type="text"
+id="qualification"
+placeholder="Example: 10th Pass"
+>
+
+<label>Last Date</label>
+
+<input
+type="text"
+id="lastDate"
+placeholder="Example: 07 November 2026"
+>
+
+<label>Official Link</label>
+
+<input
+type="url"
+id="officialLink"
+placeholder="https://www.tnpsc.gov.in/"
+>
+
+<button
+class="save-btn"
+onclick="saveJob()">
+
+💾 Save Job
+
+</button>
+
+<p
+id="saveMessage"
+class="message">
+</p>
+
+</div>
+
+
+<!-- MANAGE JOBS -->
+
+<div class="box">
+
+<h2>📋 Manage Jobs</h2>
+
+<div id="manageJobs">
+</div>
+
+</div>
+
+
+<!-- LATEST UPDATES -->
+
+<div class="box">
+
+<h2>📰 Latest Updates</h2>
+
+<p>
+Use this dashboard to add and manage government job notifications.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
 
 <script>
-    const SUPABASE_URL =
-"https://qgqsaqkzqofcejemjrta.supabase.co";
-
-const SUPABASE_KEY =
-"sb_publishable_PVfmRNEvrEq4w1dQ_9QWyQ_KvC6psU2";
-
-const supabaseClient =
-supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
 
 
-/* ADMIN LOGIN */
+/* LOGIN */
 
-function adminLogin(){
+function login(){
 
-    let username =
-        document.getElementById("username").value;
+    const username =
+        document.getElementById("username").value.trim();
 
-    let password =
-        document.getElementById("password").value;
+    const password =
+        document.getElementById("password").value.trim();
 
 
     if(
@@ -308,85 +293,97 @@ function adminLogin(){
         password === "7002"
     ){
 
-        document.getElementById("loginBox")
-        .style.display = "none";
+        localStorage.setItem(
+            "tnAdminLoggedIn",
+            "true"
+        );
 
-
-        document.getElementById("dashboard")
-        .style.display = "block";
-
-
-        updateJobCount();
-
+        showDashboard();
 
     }else{
 
-        document.getElementById("error")
-        .innerText =
-        "❌ Invalid Username or Password";
+        document.getElementById(
+            "loginMessage"
+        ).innerText =
+        "❌ Invalid username or password.";
 
     }
 
 }
 
+
+/* SHOW DASHBOARD */
+
+function showDashboard(){
+
+    document.getElementById(
+        "loginBox"
+    ).classList.add("hidden");
+
+    document.getElementById(
+        "dashboard"
+    ).classList.remove("hidden");
+
+    loadJobs();
+
+}
 
 
 /* LOGOUT */
 
 function logout(){
 
-    document.getElementById("dashboard")
-    .style.display = "none";
+    localStorage.removeItem(
+        "tnAdminLoggedIn"
+    );
 
-
-    document.getElementById("loginBox")
-    .style.display = "block";
-
-
-    document.getElementById("username").value = "";
-
-    document.getElementById("password").value = "";
+    location.reload();
 
 }
 
 
+/* CHECK LOGIN */
 
-/* SHOW ADD JOB */
+function checkLogin(){
 
-function showAddJob(){
+    const loggedIn =
+        localStorage.getItem(
+            "tnAdminLoggedIn"
+        );
 
-    let form =
-        document.getElementById("addJobForm");
+    if(loggedIn === "true"){
 
-
-    if(form.style.display === "block"){
-
-        form.style.display = "none";
-
-    }else{
-
-        form.style.display = "block";
+        showDashboard();
 
     }
 
 }
 
 
-
 /* SAVE JOB */
-    async function saveJob(){
 
-    let title =
-        document.getElementById("jobTitle").value.trim();
+function saveJob(){
 
-    let qualification =
-        document.getElementById("qualification").value.trim();
+    const title =
+        document.getElementById(
+            "jobTitle"
+        ).value.trim();
 
-    let lastDate =
-        document.getElementById("lastDate").value.trim();
+    const qualification =
+        document.getElementById(
+            "qualification"
+        ).value.trim();
 
-    let officialLink =
-        document.getElementById("officialLink").value.trim();
+    const lastDate =
+        document.getElementById(
+            "lastDate"
+        ).value.trim();
+
+    const officialLink =
+        document.getElementById(
+            "officialLink"
+        ).value.trim();
+
 
     if(
         title === "" ||
@@ -395,87 +392,25 @@ function showAddJob(){
         officialLink === ""
     ){
 
-        document.getElementById("saveMessage").innerText =
+        document.getElementById(
+            "saveMessage"
+        ).innerText =
         "❌ Please fill all fields.";
 
         return;
-    }
-
-    const { error } =
-        await supabaseClient
-        .from("jobs")
-        .insert([
-            {
-                title: title,
-                qualification: qualification,
-                last_date: lastDate,
-                official_link: officialLink
-            }
-        ]);
-
-    if(error){
-
-        document.getElementById("saveMessage").innerText =
-        "❌ " + error.message;
-
-        return;
-    }
-
-    document.getElementById("saveMessage").innerText =
-    "✅ Job saved to database!";
-
-    document.getElementById("jobTitle").value = "";
-    document.getElementById("qualification").value = "";
-    document.getElementById("lastDate").value = "";
-    document.getElementById("officialLink").value = "";
-}
-
-
-    const { data, error } =
-        await supabaseClient
-        .from("jobs")
-        .insert([
-            {
-                title: title,
-                qualification: qualification,
-                last_date: lastDate,
-                official_link: officialLink
-            }
-        ]);
-
-
-    if(error){
-
-        document.getElementById("saveMessage").innerText =
-        "❌ Error: " + error.message;
-
-        return;
 
     }
-
-
-    document.getElementById("saveMessage").innerText =
-    "✅ Job saved to database!";
-
-
-    document.getElementById("jobTitle").value = "";
-
-    document.getElementById("qualification").value = "";
-
-    document.getElementById("lastDate").value = "";
-
-    document.getElementById("officialLink").value = "";
-
-}
 
 
     let jobs =
         JSON.parse(
-            localStorage.getItem("tnGovtJobs")
+            localStorage.getItem(
+                "tnGovtJobs"
+            )
         ) || [];
 
 
-    let newJob = {
+    jobs.push({
 
         title:title,
 
@@ -485,10 +420,7 @@ function showAddJob(){
 
         officialLink:officialLink
 
-    };
-
-
-    jobs.push(newJob);
+    });
 
 
     localStorage.setItem(
@@ -497,116 +429,119 @@ function showAddJob(){
     );
 
 
-    document.getElementById("saveMessage")
-    .innerText =
+    document.getElementById(
+        "saveMessage"
+    ).innerText =
     "✅ Job saved successfully!";
 
 
-    document.getElementById("jobTitle").value = "";
+    document.getElementById(
+        "jobTitle"
+    ).value = "";
 
-    document.getElementById("qualification").value = "";
+    document.getElementById(
+        "qualification"
+    ).value = "";
 
-    document.getElementById("lastDate").value = "";
+    document.getElementById(
+        "lastDate"
+    ).value = "";
 
-    document.getElementById("officialLink").value = "";
-
-
-    updateJobCount();
-
-}
-
-
-
-/* UPDATE JOB COUNT */
-
-function updateJobCount(){
-
-    let jobs =
-        JSON.parse(
-            localStorage.getItem("tnGovtJobs")
-        ) || [];
+    document.getElementById(
+        "officialLink"
+    ).value = "";
 
 
-    document.getElementById("jobCount")
-    .innerText = jobs.length;
+    loadJobs();
 
 }
 
 
+/* LOAD JOBS */
 
-/* SHOW JOBS */
-
-function showJobs(){
+function loadJobs(){
 
     let jobs =
         JSON.parse(
-            localStorage.getItem("tnGovtJobs")
+            localStorage.getItem(
+                "tnGovtJobs"
+            )
         ) || [];
 
 
-    let list =
-        document.getElementById("jobList");
+    const container =
+        document.getElementById(
+            "manageJobs"
+        );
 
 
     if(jobs.length === 0){
 
-        list.innerHTML =
+        container.innerHTML =
         "<p>No jobs added yet.</p>";
 
-        return;
+    }else{
+
+        let html = "";
+
+
+        jobs.forEach(function(job,index){
+
+            html += `
+
+            <div class="job-item">
+
+                <h3>
+                    📢 ${job.title}
+                </h3>
+
+                <p>
+                    🎓 <b>Qualification:</b>
+                    ${job.qualification}
+                </p>
+
+                <p>
+                    📅 <b>Last Date:</b>
+                    ${job.lastDate}
+                </p>
+
+                <p>
+                    🔗
+                    <a
+                    href="${job.officialLink}"
+                    target="_blank">
+
+                    Official Link
+
+                    </a>
+                </p>
+
+                <button
+                class="delete-btn"
+                onclick="deleteJob(${index})">
+
+                🗑️ Delete
+
+                </button>
+
+            </div>
+
+            `;
+
+        });
+
+
+        container.innerHTML = html;
 
     }
 
 
-    list.innerHTML = "";
-
-
-    jobs.forEach(function(job,index){
-
-        list.innerHTML += `
-
-        <div class="job-preview">
-
-        <h3>
-        ${job.title}
-        </h3>
-
-        <p>
-        🎓 Qualification:
-        ${job.qualification}
-        </p>
-
-        <p>
-        📅 Last Date:
-        ${job.lastDate}
-        </p>
-
-        <a
-        href="${job.officialLink}"
-        target="_blank">
-
-        Official Link
-
-        </a>
-
-        <br>
-
-        <button
-        onclick="deleteJob(${index})"
-        style="background:#d32f2f;">
-
-        🗑️ Delete
-
-        </button>
-
-        </div>
-
-        `;
-
-    });
+    document.getElementById(
+        "jobCount"
+    ).innerText =
+    "📋 Total Jobs: " + jobs.length;
 
 }
-
 
 
 /* DELETE JOB */
@@ -615,8 +550,21 @@ function deleteJob(index){
 
     let jobs =
         JSON.parse(
-            localStorage.getItem("tnGovtJobs")
+            localStorage.getItem(
+                "tnGovtJobs"
+            )
         ) || [];
+
+
+    if(
+        !confirm(
+            "Are you sure you want to delete this job?"
+        )
+    ){
+
+        return;
+
+    }
 
 
     jobs.splice(index,1);
@@ -628,27 +576,17 @@ function deleteJob(index){
     );
 
 
-    updateJobCount();
-
-    showJobs();
+    loadJobs();
 
 }
 
 
+/* START */
 
-/* UPDATE NEWS */
-
-function showUpdateMessage(){
-
-    document.getElementById("updateMessage")
-    .innerText =
-    "📢 Latest Updates section is ready.";
-
-}
+checkLogin();
 
 
 </script>
-
 
 </body>
 
