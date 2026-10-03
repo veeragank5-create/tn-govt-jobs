@@ -1164,5 +1164,29 @@ loadDatabaseJobs();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
+    <script>
+
+async function loadDatabaseJobs(){
+
+    const { data, error } =
+        await supabaseClient
+        .from("jobs")
+        .select("*")
+        .order("id", { ascending:false });
+
+    if(error){
+
+        console.log("Database Error:", error.message);
+
+        return;
+    }
+
+    console.log("Database Jobs:", data);
+
+}
+
+loadDatabaseJobs();
+
+</script>
 
 </html>
