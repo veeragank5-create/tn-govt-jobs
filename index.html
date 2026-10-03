@@ -1,665 +1,636 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description"
-content="TN Job Alert - Tamil Nadu and Central Government Job Notifications">
-
-<title>TN Job Alert | Tamil Nadu Government Jobs</title>
+<title>TN Job Alert | Government Jobs</title>
 
 <style>
 
-:root{
---navy:#062b63;
---blue:#0757c9;
---blue2:#0b6be6;
---light:#f4f8ff;
---text:#18243a;
---muted:#667085;
---green:#0b8f3c;
---border:#e4eaf3;
---shadow:0 8px 25px rgba(20,52,100,.08);
-}
-
 *{
-box-sizing:border-box;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-color:var(--text);
-background:#f7f9fc;
-line-height:1.55;
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fb;
+    color:#17233b;
 }
 
 a{
-text-decoration:none;
-color:inherit;
+    text-decoration:none;
+    color:inherit;
 }
 
 /* TOP BAR */
 
 .topbar{
-background:var(--navy);
-color:#fff;
-font-size:13px;
-padding:8px 5%;
+    background:#062b63;
+    color:#fff;
+    padding:8px 5%;
+    font-size:13px;
 }
 
-.topbar .wrap{
-display:flex;
-justify-content:space-between;
-gap:15px;
-align-items:center;
+.topbar-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
 }
 
 /* NAVBAR */
 
 .navbar{
-background:#fff;
-border-bottom:1px solid var(--border);
-position:sticky;
-top:0;
-z-index:50;
+    background:#fff;
+    border-bottom:1px solid #e2e7ef;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.navwrap{
-max-width:1180px;
-margin:auto;
-padding:13px 20px;
-display:flex;
-align-items:center;
-gap:25px;
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:12px 20px;
+    display:flex;
+    align-items:center;
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:10px;
-margin-right:auto;
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-right:auto;
 }
 
 .logo{
-width:52px;
-height:52px;
-border:2px solid #d7e2f2;
-border-radius:50%;
-display:grid;
-place-items:center;
-font-size:28px;
-background:#fff;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:2px solid #d8e3f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
 }
 
-.brand strong{
-display:block;
-color:var(--navy);
-font-size:25px;
+.logo-text strong{
+    display:block;
+    font-size:23px;
+    color:#062b63;
 }
 
-.brand small{
-color:#6a7485;
+.logo-text small{
+    color:#68758a;
 }
 
-.navlinks{
-display:flex;
-gap:22px;
-align-items:center;
-font-size:14px;
-font-weight:600;
+/* DESKTOP MENU */
+
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:20px;
 }
 
-.navlinks a:hover,
-.navlinks a.active{
-color:var(--blue);
+.nav-menu a{
+    font-size:14px;
+    font-weight:bold;
+    color:#24324a;
 }
 
-.menuBtn{
-display:none;
-border:0;
-background:var(--blue);
-color:#fff;
-border-radius:8px;
-padding:10px 14px;
-font-size:20px;
+.nav-menu a:hover{
+    color:#0757c9;
+}
+
+/* MOBILE BUTTON */
+
+.menu-button{
+    display:none;
+    background:#0757c9;
+    color:#fff;
+    border:0;
+    border-radius:7px;
+    padding:9px 13px;
+    font-size:21px;
+    cursor:pointer;
 }
 
 /* HERO */
 
 .hero{
-background:linear-gradient(115deg,#0645ad,#086be7);
-color:#fff;
-position:relative;
-overflow:hidden;
+    background:linear-gradient(120deg,#0645ad,#0873e8);
+    color:white;
 }
 
-.hero:after{
-content:"";
-position:absolute;
-width:500px;
-height:500px;
-border-radius:50%;
-right:-170px;
-top:-230px;
-background:rgba(255,255,255,.07);
-}
-
-.hero .wrap{
-max-width:1180px;
-margin:auto;
-padding:48px 20px;
-display:grid;
-grid-template-columns:1.5fr .85fr;
-gap:45px;
-align-items:center;
-position:relative;
-z-index:1;
+.hero-container{
+    max-width:1200px;
+    margin:auto;
+    padding:55px 20px;
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:45px;
+    align-items:center;
 }
 
 .hero h1{
-font-size:48px;
-line-height:1.08;
-margin:5px 0 12px;
+    font-size:48px;
+    margin:8px 0 15px;
 }
 
 .hero h1 span{
-font-weight:800;
+    font-weight:bold;
 }
 
 .hero p{
-font-size:18px;
-max-width:650px;
-margin:0 0 24px;
+    font-size:18px;
+    max-width:650px;
 }
 
 /* SEARCH */
 
-.search{
-display:flex;
-background:#fff;
-border:7px solid rgba(255,255,255,.25);
-border-radius:10px;
-max-width:650px;
-overflow:hidden;
+.search-box{
+    margin-top:25px;
+    max-width:680px;
+    display:flex;
+    background:white;
+    padding:5px;
+    border-radius:9px;
 }
 
-.search input{
-flex:1;
-border:0;
-padding:15px;
-font-size:15px;
-outline:0;
+.search-box input{
+    flex:1;
+    border:0;
+    outline:0;
+    padding:14px;
+    font-size:15px;
 }
 
-.search button{
-border:0;
-background:var(--blue2);
-color:#fff;
-padding:0 25px;
-font-weight:700;
-cursor:pointer;
+.search-box button{
+    border:0;
+    background:#0757c9;
+    color:white;
+    padding:0 24px;
+    border-radius:6px;
+    font-weight:bold;
 }
 
-.tags{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-margin-top:12px;
-font-size:12px;
+/* POPULAR */
+
+.popular{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:13px;
+    font-size:12px;
 }
 
-.tags a{
-background:rgba(255,255,255,.12);
-padding:7px 10px;
-border-radius:5px;
+.popular a{
+    background:rgba(255,255,255,.15);
+    padding:7px 10px;
+    border-radius:5px;
 }
 
-/* WHY CHOOSE */
+/* WHY */
 
-.choose{
-background:#fff;
-color:var(--text);
-border-radius:14px;
-padding:22px;
-box-shadow:0 15px 40px rgba(0,0,0,.12);
+.why{
+    background:white;
+    color:#17233b;
+    border-radius:14px;
+    padding:23px;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
 }
 
-.choose h3{
-margin:0 0 15px;
-color:var(--navy);
+.why h2{
+    color:#062b63;
+    font-size:19px;
 }
 
 .reason{
-display:flex;
-gap:12px;
-margin:14px 0;
+    display:flex;
+    gap:12px;
+    margin:15px 0;
 }
 
-.icon{
-width:38px;
-height:38px;
-border-radius:50%;
-background:#eef5ff;
-display:grid;
-place-items:center;
-color:var(--blue);
-flex:none;
+.reason-icon{
+    width:40px;
+    height:40px;
+    background:#edf4ff;
+    color:#0757c9;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .reason b{
-font-size:14px;
+    font-size:14px;
 }
 
 .reason small{
-display:block;
-color:var(--muted);
-font-size:12px;
+    display:block;
+    color:#69758a;
 }
 
 /* CONTAINER */
 
 .container{
-max-width:1180px;
-margin:auto;
-padding:24px 20px;
+    max-width:1200px;
+    margin:auto;
+    padding:25px 20px;
 }
 
-/* CATEGORIES */
+/* CATEGORY */
 
-.category-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:15px;
+.categories{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
 }
 
-.cat{
-background:#fff;
-border:1px solid var(--border);
-border-radius:12px;
-padding:20px;
-text-align:center;
-box-shadow:var(--shadow);
-transition:.2s;
+.category{
+    background:white;
+    border:1px solid #e2e7ef;
+    border-radius:12px;
+    padding:20px 10px;
+    text-align:center;
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
 }
 
-.cat:hover{
-transform:translateY(-3px);
+.category-icon{
+    font-size:32px;
 }
 
-.cat .big{
-font-size:30px;
+.category h3{
+    color:#062b63;
+    font-size:15px;
 }
 
-.cat h3{
-font-size:14px;
-color:var(--navy);
-margin:7px 0;
+.category p{
+    color:#69758a;
+    font-size:12px;
+    min-height:38px;
 }
 
-.cat p{
-font-size:12px;
-color:var(--muted);
-min-height:38px;
-margin:0;
+.category a{
+    color:#0757c9;
+    font-size:12px;
+    font-weight:bold;
 }
 
-.cat a{
-font-size:12px;
-color:var(--blue);
-font-weight:bold;
-}
-
-/* MAIN */
+/* MAIN GRID */
 
 .main-grid{
-display:grid;
-grid-template-columns:1.8fr 1fr;
-gap:20px;
-margin-top:24px;
+    display:grid;
+    grid-template-columns:1.8fr 1fr;
+    gap:20px;
+    margin-top:25px;
 }
 
 /* CARD */
 
 .card{
-background:#fff;
-border:1px solid var(--border);
-border-radius:12px;
-box-shadow:var(--shadow);
-overflow:hidden;
+    background:white;
+    border:1px solid #e2e7ef;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
 }
 
-.card-head{
-padding:15px 18px;
-border-bottom:1px solid var(--border);
-display:flex;
-justify-content:space-between;
-align-items:center;
+.card-header{
+    padding:16px;
+    border-bottom:1px solid #e2e7ef;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.card-head h2{
-font-size:16px;
-color:var(--navy);
-margin:0;
-}
-
-.card-head a{
-font-size:12px;
-color:var(--blue);
+.card-header h2{
+    color:#062b63;
+    font-size:17px;
+    margin:0;
 }
 
 /* JOB */
 
 .job{
-padding:15px 18px;
-border-bottom:1px solid var(--border);
-display:grid;
-grid-template-columns:42px 1fr auto;
-gap:12px;
-align-items:center;
+    padding:16px;
+    border-bottom:1px solid #e7ebf1;
+    display:grid;
+    grid-template-columns:45px 1fr auto;
+    gap:12px;
+    align-items:center;
 }
 
-.job:last-child{
-border-bottom:0;
-}
-
-.job-logo{
-width:40px;
-height:40px;
-border-radius:50%;
-background:#edf4ff;
-display:grid;
-place-items:center;
-font-size:20px;
+.job-icon{
+    width:42px;
+    height:42px;
+    background:#edf4ff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
 }
 
 .job h3{
-font-size:14px;
-margin:0 0 3px;
-color:#173b72;
+    color:#173b72;
+    font-size:14px;
+    margin:0 0 4px;
 }
 
 .job p{
-font-size:12px;
-color:var(--muted);
-margin:0;
+    color:#69758a;
+    font-size:12px;
+    margin:2px 0;
 }
 
 .job-date{
-text-align:right;
-font-size:11px;
-color:#657084;
+    text-align:right;
+    font-size:11px;
+    color:#657084;
 }
 
-.badge{
-display:inline-block;
-border:1px solid #f1a2a2;
-color:#e44a4a;
-padding:3px 7px;
-border-radius:4px;
-margin-top:5px;
+.apply{
+    display:inline-block;
+    background:#0757c9;
+    color:white;
+    padding:5px 9px;
+    border-radius:5px;
+    margin-top:5px;
+    font-size:11px;
 }
 
 /* EXAMS */
 
 .exam{
-padding:13px 16px;
-border-bottom:1px solid var(--border);
-font-size:12px;
-display:flex;
-justify-content:space-between;
-gap:10px;
+    padding:14px 16px;
+    border-bottom:1px solid #e7ebf1;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    font-size:12px;
 }
 
 .exam small{
-color:var(--muted);
+    color:#69758a;
 }
 
 /* SUBSCRIBE */
 
 .subscribe{
-margin-top:14px;
-background:#edf5ff;
-border:1px solid #d8e6fb;
-padding:18px;
-border-radius:12px;
+    margin-top:15px;
+    background:#edf5ff;
+    padding:18px;
+    border-radius:12px;
 }
 
 .subscribe h3{
-margin:0;
-color:var(--navy);
-font-size:15px;
+    margin-top:0;
+    color:#062b63;
 }
 
 .subscribe p{
-font-size:12px;
-color:var(--muted);
+    color:#69758a;
+    font-size:12px;
 }
 
 .subscribe form{
-display:flex;
+    display:flex;
 }
 
 .subscribe input{
-min-width:0;
-flex:1;
-border:1px solid #ccd8e8;
-padding:10px;
-border-radius:5px 0 0 5px;
+    flex:1;
+    min-width:0;
+    padding:10px;
+    border:1px solid #ccd8e8;
+    border-radius:5px 0 0 5px;
 }
 
 .subscribe button{
-border:0;
-background:var(--blue);
-color:#fff;
-padding:0 14px;
-border-radius:0 5px 5px 0;
-font-weight:bold;
+    background:#0757c9;
+    color:white;
+    border:0;
+    padding:0 13px;
 }
 
-/* THREE BOXES */
+/* THREE CARDS */
 
-.three{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin-top:22px;
+.three-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:25px;
 }
 
 .list-card{
-background:#fff;
-border:1px solid var(--border);
-border-radius:12px;
-box-shadow:var(--shadow);
-padding:18px;
+    background:white;
+    border:1px solid #e2e7ef;
+    border-radius:12px;
+    padding:18px;
 }
 
 .list-card h2{
-font-size:16px;
-color:var(--navy);
-margin:0 0 10px;
+    color:#062b63;
+    font-size:16px;
 }
 
 .list-card a{
-display:block;
-padding:8px 0;
-border-bottom:1px solid var(--border);
-font-size:12px;
-}
-
-.list-card a:last-child{
-border:0;
+    display:block;
+    padding:8px 0;
+    border-bottom:1px solid #e7ebf1;
+    font-size:12px;
 }
 
 .list-card a:hover{
-color:var(--blue);
+    color:#0757c9;
 }
 
 /* FOOTER */
 
-.footer{
-background:#062b63;
-color:#fff;
-margin-top:35px;
+footer{
+    margin-top:35px;
+    background:#062b63;
+    color:white;
 }
 
-.footer .wrap{
-max-width:1180px;
-margin:auto;
-padding:35px 20px;
-display:grid;
-grid-template-columns:1.4fr 1fr 1fr 1.2fr;
-gap:30px;
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    padding:35px 20px;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:30px;
 }
 
-.footer h3{
-font-size:15px;
+footer h3{
+    font-size:15px;
 }
 
-.footer p,
-.footer a{
-font-size:12px;
-color:#dce8fa;
-display:block;
-margin:7px 0;
+footer p,
+footer a{
+    color:#dce8fa;
+    font-size:12px;
+    display:block;
+    margin:7px 0;
 }
 
-.copy{
-border-top:1px solid rgba(255,255,255,.12);
-padding:15px 20px;
-text-align:center;
-font-size:12px;
-color:#dce8fa;
+.copyright{
+    border-top:1px solid rgba(255,255,255,.15);
+    text-align:center;
+    padding:15px;
+    font-size:12px;
 }
 
-.hidden{
-display:none!important;
-}
+/* NO RESULT */
 
 .no-results{
-text-align:center;
-padding:30px;
-color:var(--muted);
+    padding:30px;
+    text-align:center;
+    color:#69758a;
+    display:none;
 }
 
+/* ========================= */
 /* MOBILE */
+/* ========================= */
 
 @media(max-width:900px){
 
-.navlinks{
-display:none;
+    .topbar{
+        display:none;
+    }
+
+    .nav-container{
+        flex-wrap:wrap;
+    }
+
+    .menu-button{
+        display:block;
+    }
+
+    .nav-menu{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        padding:10px 0;
+    }
+
+    .nav-menu.open{
+        display:flex;
+    }
+
+    .nav-menu a{
+        width:100%;
+        padding:12px 5px;
+        border-bottom:1px solid #edf0f5;
+    }
+
+    .hero-container{
+        grid-template-columns:1fr;
+    }
+
+    .why{
+        display:none;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .main-grid{
+        grid-template-columns:1fr;
+    }
+
+    .three-cards{
+        grid-template-columns:1fr;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr 1fr;
+    }
 }
 
-.menuBtn{
-display:block;
-}
 
-.navwrap{
-flex-wrap:wrap;
-}
-
-.navlinks.open{
-display:flex;
-width:100%;
-flex-direction:column;
-align-items:flex-start;
-padding-top:10px;
-}
-
-.hero .wrap{
-grid-template-columns:1fr;
-}
-
-.choose{
-display:none;
-}
-
-.category-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.main-grid,
-.three{
-grid-template-columns:1fr;
-}
-
-.footer .wrap{
-grid-template-columns:1fr 1fr;
-}
-
-}
+/* SMALL PHONE */
 
 @media(max-width:560px){
 
-.topbar{
-display:none;
-}
+    .nav-container{
+        padding:10px 14px;
+    }
 
-.brand strong{
-font-size:20px;
-}
+    .logo{
+        width:43px;
+        height:43px;
+        font-size:21px;
+    }
 
-.brand small{
-font-size:11px;
-}
+    .logo-text strong{
+        font-size:19px;
+    }
 
-.logo{
-width:43px;
-height:43px;
-font-size:22px;
-}
+    .logo-text small{
+        font-size:10px;
+    }
 
-.hero .wrap{
-padding:35px 16px;
-}
+    .hero-container{
+        padding:35px 15px;
+    }
 
-.hero h1{
-font-size:35px;
-}
+    .hero h1{
+        font-size:36px;
+    }
 
-.hero p{
-font-size:15px;
-}
+    .hero p{
+        font-size:15px;
+    }
 
-.search{
-border-width:4px;
-}
+    .search-box{
+        padding:4px;
+    }
 
-.search button{
-padding:0 15px;
-}
+    .search-box input{
+        padding:12px 8px;
+        font-size:13px;
+    }
 
-.category-grid{
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
+    .search-box button{
+        padding:0 14px;
+    }
 
-.cat{
-padding:14px 8px;
-}
+    .container{
+        padding:18px 12px;
+    }
 
-.job{
-grid-template-columns:38px 1fr;
-}
+    .categories{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
 
-.job-date{
-grid-column:2;
-text-align:left;
-}
+    .category{
+        padding:15px 7px;
+    }
 
-.container{
-padding:18px 12px;
-}
+    .job{
+        grid-template-columns:40px 1fr;
+    }
 
-.footer .wrap{
-grid-template-columns:1fr;
-}
+    .job-date{
+        grid-column:2;
+        text-align:left;
+    }
 
+    .footer-container{
+        grid-template-columns:1fr;
+    }
 }
 
 </style>
@@ -673,17 +644,17 @@ grid-template-columns:1fr;
 
 <div class="topbar">
 
-<div class="wrap">
+    <div class="topbar-inner">
 
-<span>
-♛ அரசு வேலை உங்கள் இலட்சியம், நாங்கள் உங்கள் வழிகாட்டி
-</span>
+        <span>
+            அரசு வேலை உங்கள் இலட்சியம், நாங்கள் உங்கள் வழிகாட்டி
+        </span>
 
-<span>
-About Us &nbsp; | &nbsp; Contact Us &nbsp; ● ● ●
-</span>
+        <span>
+            About Us | Contact Us
+        </span>
 
-</div>
+    </div>
 
 </div>
 
@@ -692,79 +663,82 @@ About Us &nbsp; | &nbsp; Contact Us &nbsp; ● ● ●
 
 <nav class="navbar">
 
-<div class="navwrap">
+    <div class="nav-container">
 
-<a class="brand" href="#home">
+        <a href="#home" class="logo-area">
 
-<div class="logo">
-🏛️
-</div>
+            <div class="logo">
+                🏛️
+            </div>
 
-<div>
+            <div class="logo-text">
 
-<strong>
-TN Job Alert
-</strong>
+                <strong>
+                    TN Job Alert
+                </strong>
 
-<small>
-Tamil Nadu Government Jobs
-</small>
+                <small>
+                    Tamil Nadu Government Jobs
+                </small>
 
-</div>
+            </div>
 
-</a>
-
-
-<button
-class="menuBtn"
-onclick="toggleMenu()">
-
-☰
-
-</button>
+        </a>
 
 
-<div
-class="navlinks"
-id="navlinks">
+        <!-- MOBILE MENU BUTTON -->
 
-<a
-class="active"
-href="#home">
-Home
-</a>
+        <button
+            type="button"
+            class="menu-button"
+            id="menuButton">
 
-<a href="#latest">
-Latest Jobs
-</a>
+            ☰
 
-<a href="#categories">
-TNPSC Jobs
-</a>
+        </button>
 
-<a href="#categories">
-Railway Jobs
-</a>
 
-<a href="#categories">
-Bank Jobs
-</a>
+        <!-- MENU -->
 
-<a href="#exams">
-Exams
-</a>
+        <div
+            class="nav-menu"
+            id="navMenu">
 
-<a href="#materials">
-Study Materials
-</a>
+            <a href="#home">
+                Home
+            </a>
 
-<a href="#pyq">
-PYQ
-</a>
+            <a href="#latest">
+                Latest Jobs
+            </a>
 
-</div>
+            <a href="#categories">
+                TNPSC Jobs
+            </a>
 
-</div>
+            <a href="#categories">
+                Railway Jobs
+            </a>
+
+            <a href="#categories">
+                Bank Jobs
+            </a>
+
+            <a href="#exams">
+                Exams
+            </a>
+
+            <a href="#materials">
+                Study Materials
+            </a>
+
+            <a href="#pyq">
+                PYQ
+            </a>
+
+        </div>
+
+    </div>
 
 </nav>
 
@@ -772,181 +746,174 @@ PYQ
 <!-- HERO -->
 
 <section
-class="hero"
-id="home">
+    class="hero"
+    id="home">
 
-<div class="wrap">
+    <div class="hero-container">
 
-<div>
+        <div>
 
-<div>
-Find Your Dream
-</div>
+            <div>
+                Find Your Dream
+            </div>
 
-<h1>
-Government
-<span>Job</span>
-</h1>
+            <h1>
+                Government <span>Job</span>
+            </h1>
 
-<p>
-Latest updates on TNPSC, Railway, Bank & All Tamil Nadu Government Jobs
-</p>
-
-
-<!-- SEARCH -->
-
-<div class="search">
-
-<input
-id="searchInput"
-placeholder="Search for jobs, exams, topics..."
-oninput="filterJobs()">
-
-<button>
-Search
-</button>
-
-</div>
+            <p>
+                Latest updates on TNPSC, Railway, Bank & All Tamil Nadu Government Jobs
+            </p>
 
 
-<!-- POPULAR SEARCH -->
+            <!-- SEARCH -->
 
-<div class="tags">
+            <div class="search-box">
 
-<b>
-Popular Searches:
-</b>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for jobs..."
+                >
 
-<a
-href="#"
-onclick="quick('TNPSC')">
-TNPSC Group 4
-</a>
+                <button
+                    type="button"
+                    onclick="searchJobs()">
 
-<a
-href="#"
-onclick="quick('RRB NTPC')">
-RRB NTPC
-</a>
+                    Search
 
-<a
-href="#"
-onclick="quick('IBPS')">
-IBPS PO
-</a>
+                </button>
 
-<a
-href="#"
-onclick="quick('TNEB')">
-TNEB
-</a>
-
-<a
-href="#"
-onclick="quick('Police')">
-Police Jobs
-</a>
-
-</div>
-
-</div>
+            </div>
 
 
-<!-- WHY CHOOSE -->
+            <!-- POPULAR -->
 
-<div class="choose">
+            <div class="popular">
 
-<h3>
-Why Choose TN Job Alert?
-</h3>
+                <b>
+                    Popular Searches:
+                </b>
 
+                <a href="#latest"
+                   onclick="quickSearch('TNPSC')">
+                    TNPSC Group 4
+                </a>
 
-<div class="reason">
+                <a href="#latest"
+                   onclick="quickSearch('RRB')">
+                    RRB NTPC
+                </a>
 
-<div class="icon">
-◷
-</div>
+                <a href="#latest"
+                   onclick="quickSearch('IBPS')">
+                    IBPS PO
+                </a>
 
-<div>
+                <a href="#latest"
+                   onclick="quickSearch('Police')">
+                    Police Jobs
+                </a>
 
-<b>
-Daily Job Updates
-</b>
+            </div>
 
-<small>
-Get the latest job notifications
-</small>
-
-</div>
-
-</div>
-
-
-<div class="reason">
-
-<div class="icon">
-♧
-</div>
-
-<div>
-
-<b>
-Official Links
-</b>
-
-<small>
-Verify notifications before applying
-</small>
-
-</div>
-
-</div>
+        </div>
 
 
-<div class="reason">
+        <!-- WHY -->
 
-<div class="icon">
-▣
-</div>
+        <div class="why">
 
-<div>
+            <h2>
+                Why Choose TN Job Alert?
+            </h2>
 
-<b>
-Exam Calendar
-</b>
+            <div class="reason">
 
-<small>
-Never miss an important exam
-</small>
+                <div class="reason-icon">
+                    ◷
+                </div>
 
-</div>
+                <div>
 
-</div>
+                    <b>
+                        Daily Job Updates
+                    </b>
+
+                    <small>
+                        Latest government job notifications
+                    </small>
+
+                </div>
+
+            </div>
 
 
-<div class="reason">
+            <div class="reason">
 
-<div class="icon">
-✎
-</div>
+                <div class="reason-icon">
+                    🔗
+                </div>
 
-<div>
+                <div>
 
-<b>
-Study Materials
-</b>
+                    <b>
+                        Official Links
+                    </b>
 
-<small>
-Resources for exam preparation
-</small>
+                    <small>
+                        Apply through official websites
+                    </small>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</div>
 
-</div>
+            <div class="reason">
+
+                <div class="reason-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <b>
+                        Exam Calendar
+                    </b>
+
+                    <small>
+                        Important exam dates
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="reason">
+
+                <div class="reason-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <b>
+                        Study Materials
+                    </b>
+
+                    <small>
+                        Preparation resources
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -956,356 +923,148 @@ Resources for exam preparation
 <main class="container">
 
 
-<!-- CATEGORY -->
+<!-- CATEGORIES -->
 
 <section
-id="categories"
-class="category-grid">
+    class="categories"
+    id="categories">
 
 
-<div class="cat">
+    <div class="category">
 
-<div class="big">
-👥
-</div>
+        <div class="category-icon">
+            👥
+        </div>
 
-<h3>
-TNPSC Jobs
-</h3>
+        <h3>
+            TNPSC Jobs
+        </h3>
 
-<p>
-Latest TNPSC Notifications & Updates
-</p>
+        <p>
+            Latest TNPSC Notifications
+        </p>
 
-<a href="#latest">
-View Jobs →
-</a>
+        <a href="#latest">
+            View Jobs →
+        </a>
 
-</div>
-
-
-<div class="cat">
-
-<div class="big">
-🚆
-</div>
-
-<h3>
-Railway Jobs
-</h3>
-
-<p>
-RRB, RRC & Other Railway Notifications
-</p>
-
-<a href="#latest">
-View Jobs →
-</a>
-
-</div>
+    </div>
 
 
-<div class="cat">
+    <div class="category">
 
-<div class="big">
-🏦
-</div>
+        <div class="category-icon">
+            🚆
+        </div>
 
-<h3>
-Bank Jobs
-</h3>
+        <h3>
+            Railway Jobs
+        </h3>
 
-<p>
-IBPS, SBI, RBI & Banking Jobs
-</p>
+        <p>
+            RRB & Railway Recruitment
+        </p>
 
-<a href="#latest">
-View Jobs →
-</a>
+        <a href="#latest">
+            View Jobs →
+        </a>
 
-</div>
-
-
-<div class="cat">
-
-<div class="big">
-💼
-</div>
-
-<h3>
-Other Jobs
-</h3>
-
-<p>
-All Tamil Nadu Government Jobs
-</p>
-
-<a href="#latest">
-View Jobs →
-</a>
-
-</div>
+    </div>
 
 
-<div class="cat">
+    <div class="category">
 
-<div class="big">
-📅
-</div>
+        <div class="category-icon">
+            🏦
+        </div>
 
-<h3>
-Upcoming Exams
-</h3>
+        <h3>
+            Bank Jobs
+        </h3>
 
-<p>
-Exam Calendar & Important Dates
-</p>
+        <p>
+            IBPS, SBI & Banking Jobs
+        </p>
 
-<a href="#exams">
-View Calendar →
-</a>
+        <a href="#latest">
+            View Jobs →
+        </a>
 
-</div>
+    </div>
+
+
+    <div class="category">
+
+        <div class="category-icon">
+            💼
+        </div>
+
+        <h3>
+            Other Jobs
+        </h3>
+
+        <p>
+            All Government Jobs
+        </p>
+
+        <a href="#latest">
+            View Jobs →
+        </a>
+
+    </div>
+
+
+    <div class="category">
+
+        <div class="category-icon">
+            📅
+        </div>
+
+        <h3>
+            Upcoming Exams
+        </h3>
+
+        <p>
+            Exam Calendar
+        </p>
+
+        <a href="#exams">
+            View Calendar →
+        </a>
+
+    </div>
 
 
 </section>
 
 
-<!-- JOBS + EXAMS -->
+<!-- JOBS -->
 
 <section
-class="main-grid"
-id="latest">
+    class="main-grid"
+    id="latest">
 
 
-<!-- JOB LIST -->
+    <div class="card">
 
-<div class="card">
+        <div class="card-header">
 
-<div class="card-head">
+            <h2>
+                🔥 Latest Government Jobs
+            </h2>
 
-<h2>
-🔥 Latest Government Jobs
-</h2>
+        </div>
 
-<a href="#latest">
-View All Jobs →
-</a>
 
-</div>
+        <div id="jobList">
 
 
-<div id="jobs">
+            <!-- JOB 1 -->
 
-<!-- DEFAULT JOBS -->
+            <div
+                class="job"
+                data-search="TNPSC Group 4 TNPSC 10th">
 
-<div
-class="job"
-data-search="TNPSC Group 4 TNPSC 10th Tamil Nadu">
-
-<div class="job-logo">
-🏛️
-</div>
-
-<div>
-
-<h3>
-TNPSC Group 4 2026
-</h3>
-
-<p>
-Tamil Nadu Public Service Commission
-</p>
-
-</div>
-
-<div class="job-date">
-
-07 Nov 2026
-
-<br>
-
-<span class="badge">
-New
-</span>
-
-</div>
-
-</div>
-
-
-<div
-class="job"
-data-search="RRB NTPC Railway 12th Degree">
-
-<div class="job-logo">
-🚆
-</div>
-
-<div>
-
-<h3>
-RRB NTPC Jobs
-</h3>
-
-<p>
-Railway Recruitment Board
-</p>
-
-</div>
-
-<div class="job-date">
-
-Check notification
-
-<br>
-
-<span class="badge">
-New
-</span>
-
-</div>
-
-</div>
-
-
-<div
-class="job"
-data-search="IBPS PO MT Bank Degree">
-
-<div class="job-logo">
-🏦
-</div>
-
-<div>
-
-<h3>
-IBPS PO / MT Recruitment
-</h3>
-
-<p>
-Institute of Banking Personnel Selection
-</p>
-
-</div>
-
-<div class="job-date">
-
-Check notification
-
-<br>
-
-<span class="badge">
-New
-</span>
-
-</div>
-
-</div>
-
-
-<div
-class="job"
-data-search="SSC CHSL SSC 12th">
-
-<div class="job-logo">
-🏛️
-</div>
-
-<div>
-
-<h3>
-SSC CHSL 2026
-</h3>
-
-<p>
-Staff Selection Commission
-</p>
-
-</div>
-
-<div class="job-date">
-
-Check notification
-
-<br>
-
-<span class="badge">
-New
-</span>
-
-</div>
-
-</div>
-
-
-<div
-class="job"
-data-search="Police Tamil Nadu 10th 12th">
-
-<div class="job-logo">
-👮
-</div>
-
-<div>
-
-<h3>
-Tamil Nadu Police Jobs
-</h3>
-
-<p>
-Tamil Nadu Police Recruitment
-</p>
-
-</div>
-
-<div class="job-date">
-
-Check notification
-
-<br>
-
-<span class="badge">
-New
-</span>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<div
-id="noResults"
-class="no-results hidden">
-
-No matching jobs found.
-
-</div>
-
-</div>
-
-
-<!-- EXAMS -->
-
-<aside>
-
-<div
-class="card"
-id="exams">
-
-<div class="card-head">
-
-<h2>
-📅 Upcoming Exams Calendar
-</h2>
-
-</div>
-
-
-<div class="exam">
-
-<span>
-TNPSC Group 4 Exam 202
+                <div class="job-icon">
+                    🏛️
+                </
