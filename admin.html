@@ -1,569 +1,1056 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>TN GOVT JOBS - Admin</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TN Job Alert - Admin Panel</title>
 
 <style>
-
 *{
-box-sizing:border-box;
+  box-sizing:border-box;
 }
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f1f5f9;
-color:#222;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f7fb;
+  color:#17233b;
 }
 
 header{
-background:linear-gradient(135deg,#08254d,#1769aa);
-color:white;
-padding:25px;
-text-align:center;
+  background:#062b63;
+  color:white;
+  padding:16px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-header h1{
-margin:0;
+header b{
+  font-size:20px;
 }
 
 .container{
-width:95%;
-max-width:1000px;
-margin:25px auto;
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
 }
 
-.box{
-background:white;
-padding:25px;
-margin-bottom:20px;
-border-radius:10px;
-box-shadow:0 3px 12px rgba(0,0,0,.10);
+.card{
+  background:white;
+  border:1px solid #e1e7f0;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 5px 18px rgba(0,0,0,.06);
+  margin-bottom:20px;
 }
 
-input{
-width:100%;
-padding:12px;
-margin:8px 0 15px;
-border:1px solid #ccc;
-border-radius:6px;
-font-size:15px;
+.login{
+  max-width:400px;
+  margin:70px auto;
+}
+
+h2{
+  color:#062b63;
+  font-size:19px;
+}
+
+label{
+  display:block;
+  margin-top:12px;
+  margin-bottom:5px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:11px;
+  border:1px solid #ccd6e5;
+  border-radius:7px;
+  font-size:14px;
+}
+
+textarea{
+  min-height:80px;
 }
 
 button{
-padding:10px 18px;
-border:none;
-border-radius:6px;
-cursor:pointer;
-font-weight:bold;
+  border:0;
+  border-radius:7px;
+  padding:11px 16px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
-.login-btn{
-background:#1769aa;
-color:white;
-width:100%;
+.primary{
+  background:#0757c9;
+  color:white;
 }
 
-.save-btn{
-background:#16803c;
-color:white;
+.danger{
+  background:#e54848;
+  color:white;
 }
 
-.logout-btn{
-background:#d32f2f;
-color:white;
+.edit{
+  background:#edf4ff;
+  color:#0757c9;
 }
 
-.delete-btn{
-background:#d32f2f;
-color:white;
-margin-top:10px;
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:16px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.stat{
+  background:white;
+  border:1px solid #e1e7f0;
+  border-radius:10px;
+  padding:15px;
+}
+
+.stat b{
+  display:block;
+  font-size:25px;
+  color:#0757c9;
+  margin-top:5px;
+}
+
+.job{
+  border:1px solid #e1e7f0;
+  border-radius:9px;
+  padding:14px;
+  margin-top:10px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.job h3{
+  margin:0 0 5px;
+  font-size:15px;
+  color:#173b72;
+}
+
+.job p{
+  margin:3px 0;
+  color:#68758a;
+  font-size:12px;
+}
+
+.note{
+  background:#fff8e6;
+  border:1px solid #f2df9a;
+  padding:10px;
+  border-radius:7px;
+  font-size:12px;
+  margin-top:12px;
 }
 
 .hidden{
-display:none;
+  display:none !important;
 }
 
-.job-item{
-background:#f5f7fa;
-padding:15px;
-margin:10px 0;
-border-radius:8px;
-border-left:5px solid #1769aa;
-}
+@media(max-width:700px){
 
-.message{
-font-weight:bold;
-margin-top:10px;
-}
+  .stats{
+    grid-template-columns:1fr;
+  }
 
-a{
-color:#1769aa;
-}
+  .job{
+    flex-direction:column;
+  }
 
+  header{
+    gap:10px;
+  }
+
+  header b{
+    font-size:16px;
+  }
+
+  .container{
+    padding:12px;
+  }
+}
 </style>
-
 </head>
 
 <body>
 
 <header>
 
-<h1>🇮🇳 TN GOVT JOBS</h1>
+  <b>🏛️ TN Job Alert - Admin Panel</b>
 
-<p>Admin Dashboard</p>
+  <button
+    class="danger"
+    onclick="logout()">
+    Logout
+  </button>
 
 </header>
 
-<div class="container">
 
 <!-- LOGIN -->
 
-<div id="loginBox" class="box">
+<div id="loginBox" class="login card">
 
-<h2>🔐 Admin Login</h2>
+  <h2>🔐 Admin Login</h2>
 
-<label>Username</label>
+  <label>Username</label>
 
-<input
-type="text"
-id="username"
-placeholder="Enter username"
->
-
-<label>Password</label>
-
-<input
-type="password"
-id="password"
-placeholder="Enter password"
->
-
-<button
-class="login-btn"
-onclick="login()">
-
-Login
-
-</button>
-
-<p
-id="loginMessage"
-class="message">
-</p>
-
-</div>
+  <input
+    id="username"
+    type="text"
+    placeholder="Enter username">
 
 
-<!-- DASHBOARD -->
+  <label>Password</label>
 
-<div id="dashboard" class="hidden">
+  <input
+    id="password"
+    type="password"
+    placeholder="Enter password">
 
-<!-- DASHBOARD -->
 
-<div class="box">
+  <div class="actions">
 
-<h2>📊 Dashboard</h2>
+    <button
+      class="primary"
+      onclick="login()">
 
-<p id="jobCount">
-📋 Total Jobs: 0
-</p>
+      Login
 
-<button
-class="logout-btn"
-onclick="logout()">
+    </button>
 
-Logout
+  </div>
 
-</button>
+
+  <div class="note">
+
+    Demo Login<br><br>
+
+    Username: <b>veeragank</b><br>
+
+    Password: <b>7002</b>
+
+  </div>
 
 </div>
 
 
-<!-- ADD JOB -->
+<!-- ADMIN PANEL -->
 
-<div class="box">
-
-<h2>➕ Add Job</h2>
-
-<label>Job Title</label>
-
-<input
-type="text"
-id="jobTitle"
-placeholder="Example: TNPSC Group IV 2026"
->
-
-<label>Qualification</label>
-
-<input
-type="text"
-id="qualification"
-placeholder="Example: 10th Pass"
->
-
-<label>Last Date</label>
-
-<input
-type="text"
-id="lastDate"
-placeholder="Example: 07 November 2026"
->
-
-<label>Official Link</label>
-
-<input
-type="url"
-id="officialLink"
-placeholder="https://www.tnpsc.gov.in/"
->
-
-<button
-class="save-btn"
-onclick="saveJob()">
-
-💾 Save Job
-
-</button>
-
-<p
-id="saveMessage"
-class="message">
-</p>
-
-</div>
+<div id="adminPanel" class="container hidden">
 
 
-<!-- MANAGE JOBS -->
+  <!-- STATS -->
 
-<div class="box">
+  <div class="stats">
 
-<h2>📋 Manage Jobs</h2>
+    <div class="stat">
 
-<div id="manageJobs">
+      Total Jobs
 
-No jobs added yet.
+      <b id="totalJobs">0</b>
 
-</div>
+    </div>
 
-</div>
 
-</div>
+    <div class="stat">
+
+      Latest Jobs
+
+      <b id="latestJobs">0</b>
+
+    </div>
+
+
+    <div class="stat">
+
+      Categories
+
+      <b>5</b>
+
+    </div>
+
+  </div>
+
+
+  <!-- ADD JOB -->
+
+  <div class="card">
+
+    <h2 id="formTitle">
+      ➕ Add New Government Job
+    </h2>
+
+
+    <input
+      id="editId"
+      type="hidden">
+
+
+    <label>
+      Job Title *
+    </label>
+
+    <input
+      id="title"
+      type="text"
+      placeholder="Example: TNPSC Group 4">
+
+
+    <label>
+      Department
+    </label>
+
+    <input
+      id="department"
+      type="text"
+      placeholder="Example: TNPSC">
+
+
+    <label>
+      Category
+    </label>
+
+    <select id="category">
+
+      <option value="TNPSC">
+        TNPSC
+      </option>
+
+      <option value="Railway">
+        Railway
+      </option>
+
+      <option value="Bank">
+        Bank
+      </option>
+
+      <option value="SSC">
+        SSC
+      </option>
+
+      <option value="Other">
+        Other
+      </option>
+
+    </select>
+
+
+    <label>
+      Qualification
+    </label>
+
+    <input
+      id="qualification"
+      type="text"
+      placeholder="10th / 12th / Degree">
+
+
+    <label>
+      Vacancies
+    </label>
+
+    <input
+      id="vacancy"
+      type="text"
+      placeholder="1000">
+
+
+    <label>
+      Salary
+    </label>
+
+    <input
+      id="salary"
+      type="text"
+      placeholder="₹18,000 - ₹75,000">
+
+
+    <label>
+      Last Date
+    </label>
+
+    <input
+      id="lastDate"
+      type="date">
+
+
+    <label>
+      Apply Link
+    </label>
+
+    <input
+      id="applyLink"
+      type="url"
+      placeholder="https://official-website.com">
+
+
+    <label>
+      Job Description
+    </label>
+
+    <textarea
+      id="description"
+      placeholder="Enter important job details">
+    </textarea>
+
+
+    <div class="actions">
+
+      <button
+        class="primary"
+        onclick="saveJob()">
+
+        💾 Save Job
+
+      </button>
+
+
+      <button
+        class="edit"
+        onclick="clearForm()">
+
+        Clear
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- JOB LIST -->
+
+  <div class="card">
+
+    <h2>
+      📋 Manage Government Jobs
+    </h2>
+
+
+    <input
+      id="searchJob"
+      type="text"
+      placeholder="🔍 Search jobs..."
+      oninput="showJobs()">
+
+
+    <div id="jobList"></div>
+
+  </div>
 
 </div>
 
 
 <script>
 
-/* LOGIN */
+/* =========================
+   DATABASE
+========================= */
+
+const STORAGE_KEY = "tn_job_alert_jobs";
+
+let jobs =
+  JSON.parse(
+    localStorage.getItem(STORAGE_KEY)
+  ) || [];
+
+
+/* =========================
+   DEFAULT JOBS
+========================= */
+
+if(jobs.length === 0){
+
+  jobs = [
+
+    {
+      id: Date.now(),
+
+      title:"TNPSC Group 4 2026",
+
+      department:
+      "Tamil Nadu Public Service Commission",
+
+      category:"TNPSC",
+
+      qualification:"10th",
+
+      vacancy:"1000+",
+
+      salary:"As per notification",
+
+      lastDate:"",
+
+      applyLink:
+      "https://www.tnpsc.gov.in/",
+
+      description:
+      "Check official TNPSC notification before applying."
+
+    }
+
+  ];
+
+  saveDatabase();
+
+}
+
+
+/* =========================
+   DATABASE SAVE
+========================= */
+
+function saveDatabase(){
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(jobs)
+  );
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
 
 function login(){
 
-    var username =
-        document.getElementById("username")
-        .value
-        .trim();
+  const username =
+    document.getElementById("username").value;
 
-    var password =
-        document.getElementById("password")
-        .value
-        .trim();
+  const password =
+    document.getElementById("password").value;
 
-    if(
-        username === "veeragank" &&
-        password === "7002"
-    ){
 
-        localStorage.setItem(
-            "tnAdminLoggedIn",
-            "true"
-        );
+  if(
+    username === "admin" &&
+    password === "admin123"
+  ){
 
-        showDashboard();
+    localStorage.setItem(
+      "tn_admin_login",
+      "true"
+    );
 
-    }
-    else{
+    showAdmin();
 
-        document.getElementById(
-            "loginMessage"
-        ).innerText =
-        "❌ Invalid username or password.";
+  }
 
-    }
+  else{
+
+    alert(
+      "Wrong username or password"
+    );
+
+  }
 
 }
 
 
-/* SHOW DASHBOARD */
+/* =========================
+   SHOW ADMIN
+========================= */
 
-function showDashboard(){
+function showAdmin(){
 
-    document.getElementById(
-        "loginBox"
-    ).style.display = "none";
+  document
+    .getElementById("loginBox")
+    .classList.add("hidden");
 
-    document.getElementById(
-        "dashboard"
-    ).classList.remove("hidden");
+  document
+    .getElementById("adminPanel")
+    .classList.remove("hidden");
 
-    loadJobs();
+  showJobs();
 
 }
 
 
-/* LOGOUT */
+/* =========================
+   LOGOUT
+========================= */
 
 function logout(){
 
-    localStorage.removeItem(
-        "tnAdminLoggedIn"
-    );
+  localStorage.removeItem(
+    "tn_admin_login"
+  );
 
-    location.reload();
-
-}
-
-
-/* CHECK LOGIN */
-
-function checkLogin(){
-
-    var loggedIn =
-        localStorage.getItem(
-            "tnAdminLoggedIn"
-        );
-
-    if(loggedIn === "true"){
-
-        showDashboard();
-
-    }
+  location.reload();
 
 }
 
 
-/* SAVE JOB */
+/* =========================
+   SAVE JOB
+========================= */
 
 function saveJob(){
 
-    var title =
-        document.getElementById(
-            "jobTitle"
-        ).value.trim();
+  const title =
+    document.getElementById("title").value.trim();
 
-    var qualification =
-        document.getElementById(
-            "qualification"
-        ).value.trim();
 
-    var lastDate =
-        document.getElementById(
-            "lastDate"
-        ).value.trim();
+  if(title === ""){
 
-    var officialLink =
-        document.getElementById(
-            "officialLink"
-        ).value.trim();
+    alert(
+      "Please enter Job Title"
+    );
 
-    if(
-        title === "" ||
-        qualification === "" ||
-        lastDate === "" ||
-        officialLink === ""
-    ){
+    return;
 
-        document.getElementById(
-            "saveMessage"
-        ).innerText =
-        "❌ Please fill all fields.";
+  }
 
-        return;
 
-    }
+  const editId =
+    document.getElementById("editId").value;
 
-    var jobs =
-        JSON.parse(
-            localStorage.getItem(
-                "tnGovtJobs"
-            )
-        ) || [];
 
-    jobs.push({
+  const job = {
 
-        title: title,
+    id:
+      editId
+      ? Number(editId)
+      : Date.now(),
 
-        qualification: qualification,
+    title:title,
 
-        lastDate: lastDate,
+    department:
+      document.getElementById(
+        "department"
+      ).value,
 
-        officialLink: officialLink
+    category:
+      document.getElementById(
+        "category"
+      ).value,
+
+    qualification:
+      document.getElementById(
+        "qualification"
+      ).value,
+
+    vacancy:
+      document.getElementById(
+        "vacancy"
+      ).value,
+
+    salary:
+      document.getElementById(
+        "salary"
+      ).value,
+
+    lastDate:
+      document.getElementById(
+        "lastDate"
+      ).value,
+
+    applyLink:
+      document.getElementById(
+        "applyLink"
+      ).value,
+
+    description:
+      document.getElementById(
+        "description"
+      ).value
+
+  };
+
+
+  if(editId){
+
+    jobs =
+      jobs.map(function(item){
+
+        return item.id === Number(editId)
+          ? job
+          : item;
+
+      });
+
+    alert(
+      "Job updated successfully!"
+    );
+
+  }
+
+  else{
+
+    jobs.unshift(job);
+
+    alert(
+      "New job added successfully!"
+    );
+
+  }
+
+
+  saveDatabase();
+
+  clearForm();
+
+  showJobs();
+
+}
+
+
+/* =========================
+   CLEAR FORM
+========================= */
+
+function clearForm(){
+
+  document.getElementById(
+    "editId"
+  ).value = "";
+
+  document.getElementById(
+    "title"
+  ).value = "";
+
+  document.getElementById(
+    "department"
+  ).value = "";
+
+  document.getElementById(
+    "category"
+  ).value = "TNPSC";
+
+  document.getElementById(
+    "qualification"
+  ).value = "";
+
+  document.getElementById(
+    "vacancy"
+  ).value = "";
+
+  document.getElementById(
+    "salary"
+  ).value = "";
+
+  document.getElementById(
+    "lastDate"
+  ).value = "";
+
+  document.getElementById(
+    "applyLink"
+  ).value = "";
+
+  document.getElementById(
+    "description"
+  ).value = "";
+
+
+  document.getElementById(
+    "formTitle"
+  ).innerText =
+    "➕ Add New Government Job";
+
+}
+
+
+/* =========================
+   EDIT JOB
+========================= */
+
+function editJob(id){
+
+  const job =
+    jobs.find(function(item){
+
+      return item.id === id;
 
     });
 
-    localStorage.setItem(
-        "tnGovtJobs",
-        JSON.stringify(jobs)
+
+  if(!job) return;
+
+
+  document.getElementById(
+    "editId"
+  ).value = job.id;
+
+
+  document.getElementById(
+    "title"
+  ).value = job.title;
+
+
+  document.getElementById(
+    "department"
+  ).value = job.department;
+
+
+  document.getElementById(
+    "category"
+  ).value = job.category;
+
+
+  document.getElementById(
+    "qualification"
+  ).value =
+    job.qualification;
+
+
+  document.getElementById(
+    "vacancy"
+  ).value = job.vacancy;
+
+
+  document.getElementById(
+    "salary"
+  ).value = job.salary;
+
+
+  document.getElementById(
+    "lastDate"
+  ).value = job.lastDate;
+
+
+  document.getElementById(
+    "applyLink"
+  ).value = job.applyLink;
+
+
+  document.getElementById(
+    "description"
+  ).value =
+    job.description;
+
+
+  document.getElementById(
+    "formTitle"
+  ).innerText =
+    "✏️ Edit Government Job";
+
+
+  window.scrollTo(
+    0,
+    0
+  );
+
+}
+
+
+/* =========================
+   DELETE JOB
+========================= */
+
+function deleteJob(id){
+
+  const confirmDelete =
+    confirm(
+      "இந்த job-ஐ delete செய்ய வேண்டுமா?"
     );
 
-    document.getElementById(
-        "saveMessage"
-    ).innerText =
-    "✅ Job saved successfully!";
 
-    document.getElementById(
-        "jobTitle"
-    ).value = "";
+  if(!confirmDelete) return;
 
-    document.getElementById(
-        "qualification"
-    ).value = "";
 
-    document.getElementById(
-        "lastDate"
-    ).value = "";
+  jobs =
+    jobs.filter(function(item){
 
-    document.getElementById(
-        "officialLink"
-    ).value = "";
+      return item.id !== id;
 
-    loadJobs();
+    });
+
+
+  saveDatabase();
+
+  showJobs();
 
 }
 
 
-/* LOAD JOBS */
+/* =========================
+   SHOW JOBS
+========================= */
 
-function loadJobs(){
+function showJobs(){
 
-    var jobs =
-        JSON.parse(
-            localStorage.getItem(
-                "tnGovtJobs"
-            )
-        ) || [];
+  const search =
+    document
+      .getElementById(
+        "searchJob"
+      )
+      .value
+      .toLowerCase();
 
-    var container =
-        document.getElementById(
-            "manageJobs"
-        );
 
-    if(jobs.length === 0){
+  const list =
+    jobs.filter(function(job){
 
-        container.innerHTML =
-        "<p>No jobs added yet.</p>";
+      return (
 
-    }
-    else{
+        job.title +
+        " " +
+        job.department +
+        " " +
+        job.category
 
-        var html = "";
+      )
+      .toLowerCase()
+      .includes(search);
 
-        jobs.forEach(
-            function(job,index){
+    });
 
-                html += `
 
-                <div class="job-item">
-
-                    <h3>
-                        📢 ${job.title}
-                    </h3>
-
-                    <p>
-                        🎓
-                        <b>Qualification:</b>
-                        ${job.qualification}
-                    </p>
-
-                    <p>
-                        📅
-                        <b>Last Date:</b>
-                        ${job.lastDate}
-                    </p>
-
-                    <p>
-                        🔗
-                        <a
-                        href="${job.officialLink}"
-                        target="_blank">
-
-                        Official Link
-
-                        </a>
-                    </p>
-
-                    <button
-                    class="delete-btn"
-                    onclick="deleteJob(${index})">
-
-                    🗑️ Delete
-
-                    </button>
-
-                </div>
-
-                `;
-
-            }
-        );
-
-        container.innerHTML = html;
-
-    }
-
+  const container =
     document.getElementById(
-        "jobCount"
-    ).innerText =
-    "📋 Total Jobs: " + jobs.length;
-
-}
-
-
-/* DELETE JOB */
-
-function deleteJob(index){
-
-    var jobs =
-        JSON.parse(
-            localStorage.getItem(
-                "tnGovtJobs"
-            )
-        ) || [];
-
-    if(
-        !confirm(
-            "Are you sure you want to delete this job?"
-        )
-    ){
-
-        return;
-
-    }
-
-    jobs.splice(index,1);
-
-    localStorage.setItem(
-        "tnGovtJobs",
-        JSON.stringify(jobs)
+      "jobList"
     );
 
-    loadJobs();
+
+  container.innerHTML = "";
+
+
+  list.forEach(function(job){
+
+    const div =
+      document.createElement(
+        "div"
+      );
+
+    div.className = "job";
+
+
+    div.innerHTML = `
+
+      <div>
+
+        <h3>
+          ${escapeHTML(job.title)}
+        </h3>
+
+        <p>
+          🏢 ${escapeHTML(job.department)}
+        </p>
+
+        <p>
+          📂 ${escapeHTML(job.category)}
+          |
+          🎓 ${escapeHTML(job.qualification)}
+        </p>
+
+        <p>
+          👥 Vacancy:
+          ${escapeHTML(job.vacancy)}
+          |
+          💰 Salary:
+          ${escapeHTML(job.salary)}
+        </p>
+
+        <p>
+          📅 Last Date:
+          ${job.lastDate || "Not set"}
+        </p>
+
+      </div>
+
+      <div>
+
+        <button
+          class="edit"
+          onclick="editJob(${job.id})">
+
+          ✏️ Edit
+
+        </button>
+
+        <button
+          class="danger"
+          onclick="deleteJob(${job.id})">
+
+          🗑️ Delete
+
+        </button>
+
+      </div>
+
+    `;
+
+
+    container.appendChild(div);
+
+  });
+
+
+  document.getElementById(
+    "totalJobs"
+  ).innerText =
+    jobs.length;
+
+
+  document.getElementById(
+    "latestJobs"
+  ).innerText =
+    Math.min(
+      jobs.length,
+      5
+    );
 
 }
 
 
-/* START */
+/* =========================
+   SECURITY
+========================= */
 
-checkLogin();
+function escapeHTML(value){
+
+  return String(value || "")
+    .replace(
+      /[&<>"']/g,
+      function(char){
+
+        return {
+
+          "&":"&amp;",
+          "<":"&lt;",
+          ">":"&gt;",
+          '"':"&quot;",
+          "'":"&#039;"
+
+        }[char];
+
+      }
+    );
+
+}
+
+
+/* =========================
+   AUTO LOGIN
+========================= */
+
+if(
+  localStorage.getItem(
+    "tn_admin_login"
+  ) === "true"
+){
+
+  showAdmin();
+
+}
 
 </script>
 
 </body>
-
 </html>
