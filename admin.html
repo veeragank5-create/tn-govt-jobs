@@ -1,10 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>TN GOVT JOBS - Admin</title>
@@ -22,8 +22,6 @@ body{
     color:#17233b;
 }
 
-/* HEADER */
-
 header{
     background:#062b63;
     color:white;
@@ -37,15 +35,11 @@ header b{
     font-size:20px;
 }
 
-/* CONTAINER */
-
 .container{
     max-width:1100px;
     margin:auto;
     padding:20px;
 }
-
-/* CARD */
 
 .card{
     background:white;
@@ -55,8 +49,6 @@ header b{
     box-shadow:0 5px 18px rgba(0,0,0,.06);
     margin-bottom:20px;
 }
-
-/* LOGIN */
 
 .login{
     max-width:400px;
@@ -203,311 +195,239 @@ button{
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
 
-    <b>🏛️ TN GOVT JOBS - Admin Panel</b>
+```
+<b>🏛️ TN GOVT JOBS - Admin Panel</b>
 
-    <button
-        id="logoutButton"
-        class="danger hidden"
-        onclick="logout()">
+<button
+    id="logoutButton"
+    class="danger hidden"
+    onclick="logout()">
 
-        Logout
+    Logout
 
-    </button>
+</button>
+```
 
 </header>
 
-
 <!-- LOGIN -->
 
-<div
-    id="loginBox"
-    class="login card">
+<div id="loginBox" class="login card">
 
-    <h2>🔐 Admin Login</h2>
+```
+<h2>🔐 Admin Login</h2>
 
-    <label>
-        Username
-    </label>
+<label>Username</label>
+
+<input
+    id="username"
+    type="text"
+    placeholder="Enter username"
+    autocomplete="username">
+
+
+<label>Password</label>
+
+<input
+    id="password"
+    type="password"
+    placeholder="Enter password"
+    autocomplete="current-password">
+
+
+<div class="actions">
+
+    <button
+        type="button"
+        class="primary"
+        onclick="login()">
+
+        Login
+
+    </button>
+
+</div>
+
+<p id="loginMessage" class="error"></p>
+```
+
+</div>
+
+<!-- ADMIN PANEL -->
+
+<div id="adminPanel" class="container hidden">
+
+```
+<div class="stats">
+
+    <div class="stat">
+        Total Jobs
+        <b id="totalJobs">0</b>
+    </div>
+
+    <div class="stat">
+        Latest Jobs
+        <b id="latestJobs">0</b>
+    </div>
+
+    <div class="stat">
+        Categories
+        <b>10</b>
+    </div>
+
+</div>
+
+
+<!-- ADD JOB -->
+
+<div class="card">
+
+    <h2 id="formTitle">
+        ➕ Add New Government Job
+    </h2>
+
+    <input id="editId" type="hidden">
+
+    <label>Job Title *</label>
 
     <input
-        id="username"
+        id="title"
         type="text"
-        placeholder="Enter username"
-        autocomplete="username">
+        placeholder="Example: TNPSC Group 4">
 
 
-    <label>
-        Password
-    </label>
+    <label>Department</label>
 
     <input
-        id="password"
-        type="password"
-        placeholder="Enter password"
-        autocomplete="current-password">
+        id="department"
+        type="text"
+        placeholder="Example: TNPSC">
+
+
+    <label>Category</label>
+
+    <select id="category">
+
+        <option value="TNPSC">TNPSC</option>
+        <option value="RRB">RRB</option>
+        <option value="SSC">SSC</option>
+        <option value="Bank">Bank</option>
+        <option value="JE">JE</option>
+        <option value="Police">Police</option>
+        <option value="Teacher">Teacher</option>
+        <option value="Other">Other</option>
+
+    </select>
+
+
+    <label>Qualification</label>
+
+    <input
+        id="qualification"
+        type="text"
+        placeholder="10th / 12th / Degree">
+
+
+    <label>Vacancies</label>
+
+    <input
+        id="vacancy"
+        type="text"
+        placeholder="1000">
+
+
+    <label>Salary</label>
+
+    <input
+        id="salary"
+        type="text"
+        placeholder="₹18,000 - ₹75,000">
+
+
+    <label>Last Date</label>
+
+    <input
+        id="lastDate"
+        type="date">
+
+
+    <label>Apply Link</label>
+
+    <input
+        id="applyLink"
+        type="url"
+        placeholder="https://official-website.com">
+
+
+    <label>Job Description</label>
+
+    <textarea
+        id="description"
+        placeholder="Enter important job details">
+    </textarea>
 
 
     <div class="actions">
 
         <button
+            type="button"
             class="primary"
-            onclick="login()">
+            onclick="saveJob()">
 
-            Login
+            💾 Save Job
+
+        </button>
+
+        <button
+            type="button"
+            class="edit"
+            onclick="clearForm()">
+
+            Clear
 
         </button>
 
     </div>
 
-
-    <p
-        id="loginMessage"
-        class="error">
-    </p>
+    <p id="saveMessage" class="success"></p>
 
 </div>
 
 
-<!-- ADMIN PANEL -->
+<!-- MANAGE JOBS -->
 
-<div
-    id="adminPanel"
-    class="container hidden">
+<div class="card">
 
+    <h2>📋 Manage Government Jobs</h2>
 
-    <!-- STATS -->
+    <input
+        id="searchJob"
+        type="text"
+        placeholder="🔍 Search jobs..."
+        oninput="showJobs()">
 
-    <div class="stats">
+    <div id="jobList"></div>
 
-        <div class="stat">
-
-            Total Jobs
-
-            <b id="totalJobs">0</b>
-
-        </div>
-
-
-        <div class="stat">
-
-            Latest Jobs
-
-            <b id="latestJobs">0</b>
-
-        </div>
-
-
-        <div class="stat">
-
-            Categories
-
-            <b>10</b>
-
-        </div>
-
-    </div>
-
-
-    <!-- ADD JOB -->
-
-    <div class="card">
-
-        <h2 id="formTitle">
-            ➕ Add New Government Job
-        </h2>
-
-
-        <input
-            id="editId"
-            type="hidden">
-
-
-        <label>
-            Job Title *
-        </label>
-
-        <input
-            id="title"
-            type="text"
-            placeholder="Example: TNPSC Group 4">
-
-
-        <label>
-            Department
-        </label>
-
-        <input
-            id="department"
-            type="text"
-            placeholder="Example: TNPSC">
-
-
-        <label>
-            Category
-        </label>
-
-        <select id="category">
-
-            <option value="TNPSC">
-                TNPSC
-            </option>
-
-            <option value="RRB">
-                RRB
-            </option>
-
-            <option value="SSC">
-                SSC
-            </option>
-
-            <option value="Bank">
-                Bank
-            </option>
-
-            <option value="JE">
-                JE
-            </option>
-
-            <option value="Police">
-                Police
-            </option>
-
-            <option value="Teacher">
-                Teacher
-            </option>
-
-            <option value="Other">
-                Other
-            </option>
-
-        </select>
-
-
-        <label>
-            Qualification
-        </label>
-
-        <input
-            id="qualification"
-            type="text"
-            placeholder="10th / 12th / Degree">
-
-
-        <label>
-            Vacancies
-        </label>
-
-        <input
-            id="vacancy"
-            type="text"
-            placeholder="1000">
-
-
-        <label>
-            Salary
-        </label>
-
-        <input
-            id="salary"
-            type="text"
-            placeholder="₹18,000 - ₹75,000">
-
-
-        <label>
-            Last Date
-        </label>
-
-        <input
-            id="lastDate"
-            type="date">
-
-
-        <label>
-            Apply Link
-        </label>
-
-        <input
-            id="applyLink"
-            type="url"
-            placeholder="https://official-website.com">
-
-
-        <label>
-            Job Description
-        </label>
-
-        <textarea
-            id="description"
-            placeholder="Enter important job details">
-        </textarea>
-
-
-        <div class="actions">
-
-            <button
-                class="primary"
-                onclick="saveJob()">
-
-                💾 Save Job
-
-            </button>
-
-
-            <button
-                class="edit"
-                onclick="clearForm()">
-
-                Clear
-
-            </button>
-
-        </div>
-
-
-        <p
-            id="saveMessage"
-            class="success">
-        </p>
-
-    </div>
-
-
-    <!-- MANAGE JOBS -->
-
-    <div class="card">
-
-        <h2>
-            📋 Manage Government Jobs
-        </h2>
-
-
-        <input
-            id="searchJob"
-            type="text"
-            placeholder="🔍 Search jobs..."
-            oninput="showJobs()">
-
-
-        <div id="jobList"></div>
-
-    </div>
+</div>
+```
 
 </div>
 
+<!-- SUPABASE -->
 
-<script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 
 const SUPABASE_URL =
 "https://qgqsaqkzqofcejemjrta.supabase.co";
 
+
 const SUPABASE_KEY =
 "sb_publishable_PVfmRNEvrEq4w1dQ_9QWyQ_KvC6psU2";
+
 
 const supabaseClient =
 supabase.createClient(
@@ -517,12 +437,6 @@ supabase.createClient(
 
 
 /* LOGIN */
-
-function login(){
-
-/* =========================
-   LOGIN
-========================= */
 
 function login(){
 
@@ -548,11 +462,9 @@ function login(){
             "true"
         );
 
-
         document
         .getElementById("loginMessage")
         .innerText = "";
-
 
         showAdmin();
 
@@ -570,9 +482,7 @@ function login(){
 }
 
 
-/* =========================
-   SHOW ADMIN
-========================= */
+/* SHOW ADMIN */
 
 function showAdmin(){
 
@@ -599,9 +509,7 @@ function showAdmin(){
 }
 
 
-/* =========================
-   LOGOUT
-========================= */
+/* LOGOUT */
 
 function logout(){
 
@@ -614,9 +522,7 @@ function logout(){
 }
 
 
-/* =========================
-   DATABASE
-========================= */
+/* LOCAL STORAGE */
 
 const STORAGE_KEY =
 "tn_job_alert_jobs";
@@ -630,10 +536,6 @@ JSON.parse(
 ) || [];
 
 
-/* =========================
-   SAVE DATABASE
-========================= */
-
 function saveDatabase(){
 
     localStorage.setItem(
@@ -644,26 +546,27 @@ function saveDatabase(){
 }
 
 
-/* =========================
-   SAVE JOB
-========================= */
+/* SAVE JOB */
 
 async function saveJob(){
 
     const title =
-        document.getElementById("title").value.trim();
+        document
+        .getElementById("title")
+        .value
+        .trim();
+
 
     if(title === ""){
 
-        document.getElementById("saveMessage").innerText =
+        document
+        .getElementById("saveMessage")
+        .innerText =
         "❌ Please enter Job Title.";
 
         return;
+
     }
-
-
-    const editId =
-        document.getElementById("editId").value;
 
 
     const job = {
@@ -671,18 +574,24 @@ async function saveJob(){
         title: title,
 
         qualification:
-        document.getElementById("qualification").value.trim(),
+        document
+        .getElementById("qualification")
+        .value
+        .trim(),
 
         last_date:
-        document.getElementById("lastDate").value,
+        document
+        .getElementById("lastDate")
+        .value,
 
         official_link:
-        document.getElementById("applyLink").value.trim()
+        document
+        .getElementById("applyLink")
+        .value
+        .trim()
 
     };
 
-
-    /* SUPABASE SAVE */
 
     const { data, error } =
         await supabaseClient
@@ -693,39 +602,25 @@ async function saveJob(){
 
     if(error){
 
-        document.getElementById("saveMessage").innerText =
+        document
+        .getElementById("saveMessage")
+        .innerText =
         "❌ " + error.message;
 
         console.log(error);
 
         return;
+
     }
 
 
-    document.getElementById("saveMessage").innerText =
+    document
+    .getElementById("saveMessage")
+    .innerText =
     "✅ Job saved to database!";
 
 
-    /* CLEAR FORM */
-
-    document.getElementById("editId").value = "";
-
-    document.getElementById("title").value = "";
-
-    document.getElementById("department").value = "";
-
-    document.getElementById("qualification").value = "";
-
-    document.getElementById("vacancy").value = "";
-
-    document.getElementById("salary").value = "";
-
-    document.getElementById("lastDate").value = "";
-
-    document.getElementById("applyLink").value = "";
-
-    document.getElementById("description").value = "";
-
+    clearForm();
 
     console.log(
         "Saved Job:",
@@ -735,114 +630,7 @@ async function saveJob(){
 }
 
 
-    const editId =
-        document
-        .getElementById("editId")
-        .value;
-
-
-    const job = {
-
-        id:
-        editId
-        ? Number(editId)
-        : Date.now(),
-
-        title:title,
-
-        department:
-        document
-        .getElementById("department")
-        .value
-        .trim(),
-
-        category:
-        document
-        .getElementById("category")
-        .value,
-
-        qualification:
-        document
-        .getElementById("qualification")
-        .value
-        .trim(),
-
-        vacancy:
-        document
-        .getElementById("vacancy")
-        .value
-        .trim(),
-
-        salary:
-        document
-        .getElementById("salary")
-        .value
-        .trim(),
-
-        lastDate:
-        document
-        .getElementById("lastDate")
-        .value,
-
-        applyLink:
-        document
-        .getElementById("applyLink")
-        .value
-        .trim(),
-
-        description:
-        document
-        .getElementById("description")
-        .value
-        .trim()
-
-    };
-
-
-    if(editId){
-
-        jobs =
-        jobs.map(function(item){
-
-            return item.id === Number(editId)
-                ? job
-                : item;
-
-        });
-
-
-        document
-        .getElementById("saveMessage")
-        .innerText =
-        "✅ Job updated successfully!";
-
-    }
-
-    else{
-
-        jobs.unshift(job);
-
-
-        document
-        .getElementById("saveMessage")
-        .innerText =
-        "✅ Job added successfully!";
-
-    }
-
-
-    saveDatabase();
-
-    clearForm();
-
-    showJobs();
-
-}
-
-
-/* =========================
-   CLEAR FORM
-========================= */
+/* CLEAR FORM */
 
 function clearForm(){
 
@@ -850,51 +638,41 @@ function clearForm(){
     .getElementById("editId")
     .value = "";
 
-
     document
     .getElementById("title")
     .value = "";
-
 
     document
     .getElementById("department")
     .value = "";
 
-
     document
     .getElementById("category")
     .value = "TNPSC";
-
 
     document
     .getElementById("qualification")
     .value = "";
 
-
     document
     .getElementById("vacancy")
     .value = "";
-
 
     document
     .getElementById("salary")
     .value = "";
 
-
     document
     .getElementById("lastDate")
     .value = "";
-
 
     document
     .getElementById("applyLink")
     .value = "";
 
-
     document
     .getElementById("description")
     .value = "";
-
 
     document
     .getElementById("formTitle")
@@ -904,125 +682,7 @@ function clearForm(){
 }
 
 
-/* =========================
-   EDIT JOB
-========================= */
-
-function editJob(id){
-
-    const job =
-        jobs.find(function(item){
-
-            return item.id === id;
-
-        });
-
-
-    if(!job) return;
-
-
-    document
-    .getElementById("editId")
-    .value = job.id;
-
-
-    document
-    .getElementById("title")
-    .value = job.title;
-
-
-    document
-    .getElementById("department")
-    .value = job.department;
-
-
-    document
-    .getElementById("category")
-    .value = job.category;
-
-
-    document
-    .getElementById("qualification")
-    .value =
-    job.qualification;
-
-
-    document
-    .getElementById("vacancy")
-    .value =
-    job.vacancy;
-
-
-    document
-    .getElementById("salary")
-    .value =
-    job.salary;
-
-
-    document
-    .getElementById("lastDate")
-    .value =
-    job.lastDate;
-
-
-    document
-    .getElementById("applyLink")
-    .value =
-    job.applyLink;
-
-
-    document
-    .getElementById("description")
-    .value =
-    job.description;
-
-
-    document
-    .getElementById("formTitle")
-    .innerText =
-    "✏️ Edit Government Job";
-
-
-    window.scrollTo(0,0);
-
-}
-
-
-/* =========================
-   DELETE JOB
-========================= */
-
-function deleteJob(id){
-
-    if(
-        !confirm(
-            "இந்த job-ஐ delete செய்ய வேண்டுமா?"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    jobs =
-    jobs.filter(function(item){
-
-        return item.id !== id;
-
-    });
-
-
-    saveDatabase();
-
-    showJobs();
-
-}
-
-
-/* =========================
-   SHOW JOBS
-========================= */
+/* SHOW JOBS */
 
 function showJobs(){
 
@@ -1056,7 +716,6 @@ function showJobs(){
                 )
                 .toLowerCase();
 
-
             return text.includes(search);
 
         });
@@ -1067,9 +726,7 @@ function showJobs(){
         const div =
             document.createElement("div");
 
-
         div.className = "job";
-
 
         div.innerHTML = `
 
@@ -1103,28 +760,7 @@ function showJobs(){
 
             </div>
 
-            <div>
-
-                <button
-                    class="edit"
-                    onclick="editJob(${job.id})">
-
-                    ✏️ Edit
-
-                </button>
-
-                <button
-                    class="danger"
-                    onclick="deleteJob(${job.id})">
-
-                    🗑️ Delete
-
-                </button>
-
-            </div>
-
         `;
-
 
         container.appendChild(div);
 
@@ -1140,17 +776,12 @@ function showJobs(){
     document
     .getElementById("latestJobs")
     .innerText =
-    Math.min(
-        jobs.length,
-        5
-    );
+    Math.min(jobs.length,5);
 
 }
 
 
-/* =========================
-   HTML SECURITY
-========================= */
+/* HTML SECURITY */
 
 function escapeHTML(value){
 
@@ -1175,9 +806,7 @@ function escapeHTML(value){
 }
 
 
-/* =========================
-   AUTO LOGIN
-========================= */
+/* AUTO LOGIN */
 
 if(
     localStorage.getItem(
@@ -1190,7 +819,7 @@ if(
 }
 
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 </body>
 
 </html>
