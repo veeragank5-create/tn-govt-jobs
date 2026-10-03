@@ -388,7 +388,6 @@ function showAddJob(){
     let officialLink =
         document.getElementById("officialLink").value.trim();
 
-
     if(
         title === "" ||
         qualification === "" ||
@@ -400,8 +399,36 @@ function showAddJob(){
         "❌ Please fill all fields.";
 
         return;
-
     }
+
+    const { error } =
+        await supabaseClient
+        .from("jobs")
+        .insert([
+            {
+                title: title,
+                qualification: qualification,
+                last_date: lastDate,
+                official_link: officialLink
+            }
+        ]);
+
+    if(error){
+
+        document.getElementById("saveMessage").innerText =
+        "❌ " + error.message;
+
+        return;
+    }
+
+    document.getElementById("saveMessage").innerText =
+    "✅ Job saved to database!";
+
+    document.getElementById("jobTitle").value = "";
+    document.getElementById("qualification").value = "";
+    document.getElementById("lastDate").value = "";
+    document.getElementById("officialLink").value = "";
+}
 
 
     const { data, error } =
