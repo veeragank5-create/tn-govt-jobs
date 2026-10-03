@@ -409,3 +409,320 @@ onkeyup="searchJobs()">
 <button onclick="filterJobs('rrb')">RRB</button>
 
 <button
+<button onclick="filterJobs('all')">All Jobs</button>
+
+<button onclick="filterJobs('10th')">10th</button>
+
+<button onclick="filterJobs('12th')">12th</button>
+
+<button onclick="filterJobs('degree')">Degree</button>
+
+<button onclick="filterJobs('rrb')">RRB</button>
+
+<button onclick="filterJobs('tnpsc')">TNPSC</button>
+
+<button onclick="filterJobs('bank')">Bank</button>
+
+<button onclick="filterJobs('police')">Police</button>
+
+</div>
+
+<div id="jobsList">
+
+<div class="job" data-category="10th">
+<div class="job-icon">📋</div>
+
+<div>
+<h3>10th Pass Government Jobs</h3>
+<p>Various Government Departments</p>
+<p>10th Qualification</p>
+<a href="#" class="apply">View Details</a>
+</div>
+
+<div class="job-date">
+Latest
+</div>
+</div>
+
+<div class="job" data-category="12th">
+<div class="job-icon">📚</div>
+
+<div>
+<h3>12th Pass Government Jobs</h3>
+<p>Government Departments</p>
+<p>12th Qualification</p>
+<a href="#" class="apply">View Details</a>
+</div>
+
+<div class="job-date">
+Latest
+</div>
+</div>
+
+<div class="job" data-category="degree">
+<div class="job-icon">🎓</div>
+
+<div>
+<h3>Degree Government Jobs</h3>
+<p>Central & Tamil Nadu Government</p>
+<p>Any Degree Qualification</p>
+<a href="#" class="apply">View Details</a>
+</div>
+
+<div class="job-date">
+Latest
+</div>
+</div>
+
+<div class="job" data-category="rrb">
+<div class="job-icon">🚆</div>
+
+<div>
+<h3>RRB NTPC Recruitment</h3>
+<p>Railway Recruitment Board</p>
+<p>10th / 12th / Degree</p>
+<a href="#" class="apply">View Details</a>
+</div>
+
+<div class="job-date">
+Latest
+</div>
+</div>
+
+<div class="job" data-category="tnpsc">
+<div class="job-icon">🏛️</div>
+
+<div>
+<h3>TNPSC Recruitment</h3>
+<p>Tamil Nadu Public Service Commission</p>
+<p>Various Posts</p>
+<a href="#" class="apply">View Details</a>
+</div>
+
+<div class="job-date">
+Latest
+</div>
+</div>
+
+<div class="job" data-category="bank">
+<div class="job-icon">🏦</div>
+
+<div>
+<h3>Bank Government Jobs</h3>
+<p>IBPS / SBI</p>
+<p>Clerk / PO</p>
+<a href="#" class="apply">View Details</a>
+</div>
+
+<div class="job-date">
+Latest
+</div>
+</div>
+
+<div class="job" data-category="police">
+<div class="job-icon">👮</div>
+
+<div>
+<h3>Police Recruitment</h3>
+<p>Tamil Nadu Police</p>
+<p>Various Posts</p>
+<a href="#" class="apply">View Details</a>
+</div>
+
+<div class="job-date">
+Latest
+</div>
+</div>
+
+</div>
+<!-- THREE CARDS -->
+<section class="container">
+
+<div class="three-cards">
+
+<div class="list-card" id="materials">
+<h2>📚 Study Materials</h2>
+
+<a href="#">TNPSC Study Materials</a>
+<a href="#">RRB Study Materials</a>
+<a href="#">SSC Study Materials</a>
+<a href="#">Bank Exam Materials</a>
+<a href="#">General Knowledge</a>
+
+</div>
+
+
+<div class="list-card" id="pyq">
+<h2>📝 Previous Year Papers</h2>
+
+<a href="#">TNPSC Previous Year Papers</a>
+<a href="#">RRB Previous Year Papers</a>
+<a href="#">SSC Previous Year Papers</a>
+<a href="#">Bank Exam Papers</a>
+<a href="#">Police Exam Papers</a>
+
+</div>
+
+
+<div class="list-card">
+<h2>🔗 Useful Links</h2>
+
+<a href="#">TNPSC Official Website</a>
+<a href="#">Railway Recruitment</a>
+<a href="#">SSC Official Website</a>
+<a href="#">IBPS Official Website</a>
+<a href="#">Tamil Nadu Government</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-container">
+
+<div>
+<h3>TN Job Alert</h3>
+
+<p>
+Latest Tamil Nadu Government Jobs,
+TNPSC, Railway, Bank and other
+government job updates.
+</p>
+</div>
+
+
+<div>
+<h3>Quick Links</h3>
+
+<a href="#home">Home</a>
+<a href="#latest">Latest Jobs</a>
+<a href="#categories">Categories</a>
+<a href="#exams">Exams</a>
+</div>
+
+
+<div>
+<h3>Resources</h3>
+
+<a href="#materials">Study Materials</a>
+<a href="#pyq">Previous Year Papers</a>
+<a href="#latest">Job Alerts</a>
+</div>
+
+
+<div>
+<h3>Contact</h3>
+
+<p>📧 Email: info@tnjobalert.com</p>
+<p>📍 Tamil Nadu, India</p>
+</div>
+
+</div>
+
+
+<div class="copyright">
+© 2026 TN Job Alert. All Rights Reserved.
+</div>
+
+</footer>
+<script>
+/* MOBILE MENU */
+const menuButton = document.getElementById("menuButton");
+const navMenu = document.getElementById("navMenu");
+
+menuButton.addEventListener("click", function(){
+    navMenu.classList.toggle("open");
+});
+
+
+/* SEARCH JOBS */
+function searchJobs(){
+
+    const searchText =
+        document.getElementById("searchInput").value.toLowerCase();
+
+    const jobs =
+        document.querySelectorAll("#jobsList .job");
+
+    let found = false;
+
+    jobs.forEach(function(job){
+
+        const text = job.innerText.toLowerCase();
+
+        if(text.includes(searchText)){
+            job.style.display = "grid";
+            found = true;
+        }else{
+            job.style.display = "none";
+        }
+
+    });
+
+    document.getElementById("noResults").style.display =
+        found ? "none" : "block";
+}
+
+
+/* QUICK SEARCH */
+function quickSearch(keyword){
+
+    document.getElementById("searchInput").value = keyword;
+
+    searchJobs();
+}
+  </script>
+  <script>
+
+/* FILTER JOBS */
+function filterJobs(category){
+
+    const jobs =
+        document.querySelectorAll("#jobsList .job");
+
+    let found = false;
+
+    jobs.forEach(function(job){
+
+        const jobCategory =
+            job.getAttribute("data-category");
+
+        if(category === "all" || jobCategory === category){
+
+            job.style.display = "grid";
+            found = true;
+
+        }else{
+
+            job.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("noResults").style.display =
+        found ? "none" : "block";
+}
+
+
+/* CLOSE MOBILE MENU AFTER CLICK */
+document.querySelectorAll("#navMenu a").forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        navMenu.classList.remove("open");
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+  
