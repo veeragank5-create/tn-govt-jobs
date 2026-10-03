@@ -648,25 +648,91 @@ function saveDatabase(){
    SAVE JOB
 ========================= */
 
-function saveJob(){
+async function saveJob(){
 
     const title =
-        document
-        .getElementById("title")
-        .value
-        .trim();
-
+        document.getElementById("title").value.trim();
 
     if(title === ""){
 
-        document
-        .getElementById("saveMessage")
-        .innerText =
+        document.getElementById("saveMessage").innerText =
         "❌ Please enter Job Title.";
 
         return;
-
     }
+
+
+    const editId =
+        document.getElementById("editId").value;
+
+
+    const job = {
+
+        title: title,
+
+        qualification:
+        document.getElementById("qualification").value.trim(),
+
+        last_date:
+        document.getElementById("lastDate").value,
+
+        official_link:
+        document.getElementById("applyLink").value.trim()
+
+    };
+
+
+    /* SUPABASE SAVE */
+
+    const { data, error } =
+        await supabaseClient
+        .from("jobs")
+        .insert([job])
+        .select();
+
+
+    if(error){
+
+        document.getElementById("saveMessage").innerText =
+        "❌ " + error.message;
+
+        console.log(error);
+
+        return;
+    }
+
+
+    document.getElementById("saveMessage").innerText =
+    "✅ Job saved to database!";
+
+
+    /* CLEAR FORM */
+
+    document.getElementById("editId").value = "";
+
+    document.getElementById("title").value = "";
+
+    document.getElementById("department").value = "";
+
+    document.getElementById("qualification").value = "";
+
+    document.getElementById("vacancy").value = "";
+
+    document.getElementById("salary").value = "";
+
+    document.getElementById("lastDate").value = "";
+
+    document.getElementById("applyLink").value = "";
+
+    document.getElementById("description").value = "";
+
+
+    console.log(
+        "Saved Job:",
+        data
+    );
+
+}
 
 
     const editId =
