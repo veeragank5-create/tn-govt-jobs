@@ -1143,19 +1143,59 @@ async function loadDatabaseJobs(){
 
     if(error){
 
-        console.log(
-            "Database Error:",
-            error.message
-        );
+        console.log("Database Error:", error.message);
 
         return;
-
     }
 
-    console.log(
-        "Database Jobs:",
-        data
-    );
+    const jobsContainer =
+        document.getElementById("jobs");
+
+    data.forEach(function(job){
+
+        const jobCard =
+            document.createElement("div");
+
+        jobCard.className = "job";
+
+        jobCard.setAttribute(
+            "data-qualification",
+            job.qualification || ""
+        );
+
+        jobCard.innerHTML = `
+
+            <h2>
+                📢 ${job.title}
+                <span class="new-badge">NEW</span>
+            </h2>
+
+            <p>
+                🎓 <b>Qualification:</b>
+                ${job.qualification || "Not specified"}
+            </p>
+
+            <p class="last-date">
+                📅 <b>Last Date:</b>
+                ${job.last_date || "Not specified"}
+            </p>
+
+            <a
+                class="apply-btn"
+                href="${job.official_link}"
+                target="_blank">
+
+                Apply Now → Official Website
+
+            </a>
+
+        `;
+
+        jobsContainer.appendChild(jobCard);
+
+    });
+
+    updateJobCount();
 
 }
 
