@@ -501,7 +501,24 @@ button{
 
 
 <script>
+<script>
 
+const SUPABASE_URL =
+"https://qgqsaqkzqofcejemjrta.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_PVfmRNEvrEq4w1dQ_9QWyQ_KvC6psU2";
+
+const supabaseClient =
+supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+/* LOGIN */
+
+function login(){
 
 /* =========================
    LOGIN
