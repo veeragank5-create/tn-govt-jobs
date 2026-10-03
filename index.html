@@ -145,11 +145,6 @@ margin:auto;
 padding:20px 15px;
 }
 
-.latest-title{
-text-align:center;
-color:#123c7a;
-}
-
 .job{
 background:white;
 padding:20px;
@@ -159,7 +154,8 @@ box-shadow:0 3px 12px rgba(0,0,0,0.10);
 border-left:5px solid #1769aa;
 }
 
-.job h2{
+.job h2,
+.job h3{
 color:#123c7a;
 margin-top:0;
 }
@@ -168,7 +164,8 @@ margin-top:0;
 line-height:1.6;
 }
 
-.apply-btn{
+.apply-btn,
+.apply{
 display:inline-block;
 background:#087f23;
 color:white;
@@ -179,7 +176,8 @@ font-weight:bold;
 margin-top:8px;
 }
 
-.apply-btn:hover{
+.apply-btn:hover,
+.apply:hover{
 background:#055d19;
 }
 
@@ -214,6 +212,14 @@ text-align:center;
 font-weight:bold;
 color:#123c7a;
 font-size:17px;
+}
+
+#noResults{
+display:none;
+text-align:center;
+font-weight:bold;
+color:#d32f2f;
+padding:20px;
 }
 
 .updates{
@@ -263,6 +269,42 @@ margin:5px;
 background:#25D366;
 }
 
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px 15px;
+}
+
+.three-cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.list-card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 3px 12px rgba(0,0,0,0.10);
+}
+
+.list-card h2{
+color:#123c7a;
+font-size:20px;
+}
+
+.list-card a{
+display:block;
+color:#1769aa;
+text-decoration:none;
+padding:8px 0;
+font-weight:bold;
+}
+
+.list-card a:hover{
+color:#e53935;
+}
+
 footer{
 background:#08254d;
 color:white;
@@ -271,14 +313,32 @@ padding:25px 15px;
 margin-top:30px;
 }
 
+.footer-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+text-align:left;
+}
+
 footer a{
 color:white;
 margin:0 8px;
 text-decoration:none;
+display:block;
+padding:5px 0;
 }
 
 footer a:hover{
 color:#ffd700;
+}
+
+.copyright{
+text-align:center;
+margin-top:25px;
+border-top:1px solid rgba(255,255,255,0.3);
+padding-top:15px;
 }
 
 @media(max-width:600px){
@@ -316,8 +376,18 @@ width:44%;
 padding:16px;
 }
 
-.job h2{
+.job h2,
+.job h3{
 font-size:20px;
+}
+
+.three-cards{
+grid-template-columns:1fr;
+}
+
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
 }
 
 }
@@ -346,6 +416,7 @@ Tamil Nadu & Central Government Job Notifications
 
 </header>
 
+
 <nav>
 
 <button
@@ -372,9 +443,10 @@ onclick="toggleMenu()">
 
 </nav>
 
+
 <section class="hero">
 
-<h2 class="latest-title">
+<h2>
 🇮🇳 Tamil Nadu Government Jobs 2026 – TN Govt Jobs, RRB, SSC, Bank & TNPSC
 </h2>
 
@@ -386,6 +458,7 @@ Police Jobs and Teacher Jobs with official application links.
 
 </section>
 
+
 <div class="search-box">
 
 <input
@@ -396,19 +469,9 @@ onkeyup="searchJobs()">
 
 </div>
 
+
 <div class="filters">
 
-<button onclick="filterJobs('all')">All Jobs</button>
-
-<button onclick="filterJobs('10th')">10th</button>
-
-<button onclick="filterJobs('12th')">12th</button>
-
-<button onclick="filterJobs('degree')">Degree</button>
-
-<button onclick="filterJobs('rrb')">RRB</button>
-
-<button
 <button onclick="filterJobs('all')">All Jobs</button>
 
 <button onclick="filterJobs('10th')">10th</button>
@@ -427,302 +490,610 @@ onkeyup="searchJobs()">
 
 </div>
 
-<div id="jobsList">
 
-<div class="job" data-category="10th">
-<div class="job-icon">📋</div>
+<div class="jobs-container">
 
-<div>
-<h3>10th Pass Government Jobs</h3>
-<p>Various Government Departments</p>
-<p>10th Qualification</p>
-<a href="#" class="apply">View Details</a>
-</div>
+<p id="jobCount">
+📋 Total Jobs: 0
+</p>
 
-<div class="job-date">
-Latest
-</div>
-</div>
+<p id="noResults">
+❌ No jobs found.
+</p>
 
-<div class="job" data-category="12th">
-<div class="job-icon">📚</div>
 
-<div>
-<h3>12th Pass Government Jobs</h3>
-<p>Government Departments</p>
-<p>12th Qualification</p>
-<a href="#" class="apply">View Details</a>
-</div>
+<div id="jobs">
 
-<div class="job-date">
-Latest
-</div>
-</div>
 
-<div class="job" data-category="degree">
-<div class="job-icon">🎓</div>
+<!-- EXISTING JOBS -->
 
-<div>
-<h3>Degree Government Jobs</h3>
-<p>Central & Tamil Nadu Government</p>
-<p>Any Degree Qualification</p>
-<a href="#" class="apply">View Details</a>
-</div>
+<div class="job" data-qualification="10th 12th degree">
 
-<div class="job-date">
-Latest
-</div>
-</div>
+<h2>
+📋 10th Pass Government Jobs
+<span class="new-badge">NEW</span>
+</h2>
 
-<div class="job" data-category="rrb">
-<div class="job-icon">🚆</div>
+<p>
+Various Government Departments
+</p>
 
-<div>
-<h3>RRB NTPC Recruitment</h3>
-<p>Railway Recruitment Board</p>
-<p>10th / 12th / Degree</p>
-<a href="#" class="apply">View Details</a>
-</div>
+<p>
+🎓 <b>Qualification:</b> 10th Pass
+</p>
 
-<div class="job-date">
-Latest
-</div>
-</div>
-
-<div class="job" data-category="tnpsc">
-<div class="job-icon">🏛️</div>
-
-<div>
-<h3>TNPSC Recruitment</h3>
-<p>Tamil Nadu Public Service Commission</p>
-<p>Various Posts</p>
-<a href="#" class="apply">View Details</a>
-</div>
-
-<div class="job-date">
-Latest
-</div>
-</div>
-
-<div class="job" data-category="bank">
-<div class="job-icon">🏦</div>
-
-<div>
-<h3>Bank Government Jobs</h3>
-<p>IBPS / SBI</p>
-<p>Clerk / PO</p>
-<a href="#" class="apply">View Details</a>
-</div>
-
-<div class="job-date">
-Latest
-</div>
-</div>
-
-<div class="job" data-category="police">
-<div class="job-icon">👮</div>
-
-<div>
-<h3>Police Recruitment</h3>
-<p>Tamil Nadu Police</p>
-<p>Various Posts</p>
-<a href="#" class="apply">View Details</a>
-</div>
-
-<div class="job-date">
-Latest
-</div>
-</div>
+<a href="#" class="apply">
+View Details
+</a>
 
 </div>
-<!-- THREE CARDS -->
+
+
+<div class="job" data-qualification="12th">
+
+<h2>
+📚 12th Pass Government Jobs
+<span class="new-badge">NEW</span>
+</h2>
+
+<p>
+Government Departments
+</p>
+
+<p>
+🎓 <b>Qualification:</b> 12th Pass
+</p>
+
+<a href="#" class="apply">
+View Details
+</a>
+
+</div>
+
+
+<div class="job" data-qualification="degree">
+
+<h2>
+🎓 Degree Government Jobs
+<span class="new-badge">NEW</span>
+</h2>
+
+<p>
+Central & Tamil Nadu Government
+</p>
+
+<p>
+🎓 <b>Qualification:</b> Any Degree
+</p>
+
+<a href="#" class="apply">
+View Details
+</a>
+
+</div>
+
+
+<div class="job" data-qualification="rrb 10th 12th degree">
+
+<h2>
+🚆 RRB NTPC Recruitment
+<span class="badge">RRB</span>
+</h2>
+
+<p>
+Railway Recruitment Board
+</p>
+
+<p>
+🎓 <b>Qualification:</b> 10th / 12th / Degree
+</p>
+
+<a href="#" class="apply">
+View Details
+</a>
+
+</div>
+
+
+<div class="job" data-qualification="tnpsc degree">
+
+<h2>
+🏛️ TNPSC Recruitment
+<span class="badge">TNPSC</span>
+</h2>
+
+<p>
+Tamil Nadu Public Service Commission
+</p>
+
+<p>
+🎓 <b>Qualification:</b> Various Posts
+</p>
+
+<a href="https://www.tnpsc.gov.in/"
+target="_blank"
+class="apply-btn">
+
+Official TNPSC Website
+
+</a>
+
+</div>
+
+
+<div class="job" data-qualification="bank degree">
+
+<h2>
+🏦 Bank Government Jobs
+<span class="badge">BANK</span>
+</h2>
+
+<p>
+IBPS / SBI
+</p>
+
+<p>
+🎓 <b>Qualification:</b> Clerk / PO
+</p>
+
+<a href="#" class="apply">
+View Details
+</a>
+
+</div>
+
+
+<div class="job" data-qualification="police 10th 12th">
+
+<h2>
+👮 Police Recruitment
+<span class="badge">POLICE</span>
+</h2>
+
+<p>
+Tamil Nadu Police
+</p>
+
+<p>
+🎓 <b>Qualification:</b> Various Posts
+</p>
+
+<a href="#" class="apply">
+View Details
+</a>
+
+</div>
+
+
+</div>
+
+
+<!-- DATABASE JOBS WILL BE ADDED HERE -->
+
+</div>
+
+
 <section class="container">
 
 <div class="three-cards">
 
+
 <div class="list-card" id="materials">
+
 <h2>📚 Study Materials</h2>
 
 <a href="#">TNPSC Study Materials</a>
+
 <a href="#">RRB Study Materials</a>
+
 <a href="#">SSC Study Materials</a>
+
 <a href="#">Bank Exam Materials</a>
+
 <a href="#">General Knowledge</a>
 
 </div>
 
 
 <div class="list-card" id="pyq">
+
 <h2>📝 Previous Year Papers</h2>
 
 <a href="#">TNPSC Previous Year Papers</a>
+
 <a href="#">RRB Previous Year Papers</a>
+
 <a href="#">SSC Previous Year Papers</a>
+
 <a href="#">Bank Exam Papers</a>
+
 <a href="#">Police Exam Papers</a>
 
 </div>
 
 
 <div class="list-card">
+
 <h2>🔗 Useful Links</h2>
 
-<a href="#">TNPSC Official Website</a>
-<a href="#">Railway Recruitment</a>
-<a href="#">SSC Official Website</a>
-<a href="#">IBPS Official Website</a>
-<a href="#">Tamil Nadu Government</a>
+<a href="https://www.tnpsc.gov.in/"
+target="_blank">
+
+TNPSC Official Website
+
+</a>
+
+<a href="#">
+Railway Recruitment
+</a>
+
+<a href="#">
+SSC Official Website
+</a>
+
+<a href="#">
+IBPS Official Website
+</a>
+
+<a href="#">
+Tamil Nadu Government
+</a>
 
 </div>
+
 
 </div>
 
 </section>
 
 
-<!-- FOOTER -->
 <footer>
 
 <div class="footer-container">
 
+
 <div>
-<h3>TN Job Alert</h3>
+
+<h3>TN GOVT JOBS</h3>
 
 <p>
 Latest Tamil Nadu Government Jobs,
 TNPSC, Railway, Bank and other
 government job updates.
 </p>
+
 </div>
 
 
 <div>
+
 <h3>Quick Links</h3>
 
 <a href="#home">Home</a>
-<a href="#latest">Latest Jobs</a>
-<a href="#categories">Categories</a>
-<a href="#exams">Exams</a>
+
+<a href="#jobs">Latest Jobs</a>
+
+<a href="#materials">Categories</a>
+
+<a href="#pyq">Exams</a>
+
 </div>
 
 
 <div>
+
 <h3>Resources</h3>
 
-<a href="#materials">Study Materials</a>
-<a href="#pyq">Previous Year Papers</a>
-<a href="#latest">Job Alerts</a>
+<a href="#materials">
+Study Materials
+</a>
+
+<a href="#pyq">
+Previous Year Papers
+</a>
+
+<a href="#jobs">
+Job Alerts
+</a>
+
 </div>
 
 
-<div>
+<div id="contact">
+
 <h3>Contact</h3>
 
-<p>📧 Email: info@tnjobalert.com</p>
-<p>📍 Tamil Nadu, India</p>
+<p>
+📧 Email: info@tnjobalert.com
+</p>
+
+<p>
+📍 Tamil Nadu, India
+</p>
+
 </div>
+
 
 </div>
 
 
 <div class="copyright">
-© 2026 TN Job Alert. All Rights Reserved.
+
+© 2026 TN GOVT JOBS. All Rights Reserved.
+
+<br><br>
+
+<a href="privacy.html">
+Privacy Policy
+</a>
+
+<a href="terms.html">
+Terms & Conditions
+</a>
+
 </div>
 
 </footer>
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
 <script>
+
+const SUPABASE_URL =
+"https://qgqsaqkzqofcejemjrta.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_PVfmRNEvrEq4w1dQ_9QWyQ_KvC6psU2";
+
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
 /* MOBILE MENU */
-const menuButton = document.getElementById("menuButton");
-const navMenu = document.getElementById("navMenu");
 
-menuButton.addEventListener("click", function(){
-    navMenu.classList.toggle("open");
-});
+function toggleMenu(){
+
+const menu =
+document.getElementById("menuLinks");
+
+if(menu.style.display === "block"){
+
+menu.style.display = "none";
+
+}else{
+
+menu.style.display = "block";
+
+}
+
+}
 
 
-/* SEARCH JOBS */
+/* SEARCH */
+
 function searchJobs(){
 
-    const searchText =
-        document.getElementById("searchInput").value.toLowerCase();
+const search =
+document
+.getElementById("searchBox")
+.value
+.toLowerCase()
+.trim();
 
-    const jobs =
-        document.querySelectorAll("#jobsList .job");
+const jobs =
+document.querySelectorAll("#jobs .job");
 
-    let found = false;
+let found = 0;
 
-    jobs.forEach(function(job){
+jobs.forEach(function(job){
 
-        const text = job.innerText.toLowerCase();
+const text =
+job.innerText.toLowerCase();
 
-        if(text.includes(searchText)){
-            job.style.display = "grid";
-            found = true;
-        }else{
-            job.style.display = "none";
-        }
+const qualification =
+job.getAttribute(
+"data-qualification"
+) || "";
 
-    });
+if(
+text.includes(search) ||
+qualification.includes(search)
+){
 
-    document.getElementById("noResults").style.display =
-        found ? "none" : "block";
+job.style.display = "block";
+
+found++;
+
+}else{
+
+job.style.display = "none";
+
 }
-
-
-/* QUICK SEARCH */
-function quickSearch(keyword){
-
-    document.getElementById("searchInput").value = keyword;
-
-    searchJobs();
-}
-  </script>
-  <script>
-
-/* FILTER JOBS */
-function filterJobs(category){
-
-    const jobs =
-        document.querySelectorAll("#jobsList .job");
-
-    let found = false;
-
-    jobs.forEach(function(job){
-
-        const jobCategory =
-            job.getAttribute("data-category");
-
-        if(category === "all" || jobCategory === category){
-
-            job.style.display = "grid";
-            found = true;
-
-        }else{
-
-            job.style.display = "none";
-
-        }
-
-    });
-
-    document.getElementById("noResults").style.display =
-        found ? "none" : "block";
-}
-
-
-/* CLOSE MOBILE MENU AFTER CLICK */
-document.querySelectorAll("#navMenu a").forEach(function(link){
-
-    link.addEventListener("click", function(){
-
-        navMenu.classList.remove("open");
-
-    });
 
 });
+
+document.getElementById("jobCount").innerText =
+"📋 Total Jobs: " + found;
+
+document.getElementById("noResults").style.display =
+found === 0 ? "block" : "none";
+
+}
+
+
+/* FILTER */
+
+function filterJobs(type){
+
+const jobs =
+document.querySelectorAll("#jobs .job");
+
+let found = 0;
+
+jobs.forEach(function(job){
+
+const qualification =
+job.getAttribute(
+"data-qualification"
+) || "";
+
+if(
+type === "all" ||
+qualification
+.toLowerCase()
+.includes(type.toLowerCase())
+){
+
+job.style.display = "block";
+
+found++;
+
+}else{
+
+job.style.display = "none";
+
+}
+
+});
+
+document.getElementById("jobCount").innerText =
+"📋 Total Jobs: " + found;
+
+document.getElementById("noResults").style.display =
+found === 0 ? "block" : "none";
+
+}
+
+
+/* LOAD DATABASE JOBS */
+
+async function loadDatabaseJobs(){
+
+const { data, error } =
+await supabaseClient
+.from("jobs")
+.select("*")
+.order("id", {
+ascending:false
+});
+
+
+if(error){
+
+console.log(
+"Database Error:",
+error.message
+);
+
+return;
+
+}
+
+
+const jobsContainer =
+document.getElementById("jobs");
+
+
+data.forEach(function(job){
+
+const jobCard =
+document.createElement("div");
+
+jobCard.className = "job";
+
+
+jobCard.setAttribute(
+"data-qualification",
+job.qualification || ""
+);
+
+
+jobCard.innerHTML = `
+
+<h2>
+
+📢 ${job.title}
+
+<span class="new-badge">
+NEW
+</span>
+
+</h2>
+
+<p>
+🎓 <b>Qualification:</b>
+${job.qualification || "Not specified"}
+</p>
+
+<p class="last-date">
+
+📅 <b>Last Date:</b>
+${job.last_date || "Not specified"}
+
+</p>
+
+<a
+class="apply-btn"
+href="${job.official_link}"
+target="_blank">
+
+Apply Now → Official Website
+
+</a>
+
+`;
+
+
+jobsContainer.appendChild(jobCard);
+
+});
+
+
+updateJobCount();
+
+}
+
+
+/* UPDATE COUNT */
+
+function updateJobCount(){
+
+const jobs =
+document.querySelectorAll("#jobs .job");
+
+let count = 0;
+
+jobs.forEach(function(job){
+
+if(job.style.display !== "none"){
+
+count++;
+
+}
+
+});
+
+
+document.getElementById("jobCount").innerText =
+"📋 Total Jobs: " + count;
+
+}
+
+
+/* START */
+
+loadDatabaseJobs();
 
 </script>
 
+
 </body>
+
 </html>
-  
