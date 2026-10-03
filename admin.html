@@ -168,6 +168,8 @@ class="message">
 <div id="dashboard" class="hidden">
 
 
+<!-- DASHBOARD BOX -->
+
 <div class="box">
 
 <h2>📊 Dashboard</h2>
@@ -264,22 +266,28 @@ No jobs added yet.
 <script>
 
 
-/* LOGIN */
+/* =========================
+   LOGIN
+========================= */
 
 function login(){
 
     var username =
-        document.getElementById("username").value.trim();
+        document.getElementById("username")
+        .value
+        .trim();
 
     var password =
-        document.getElementById("password").value.trim();
+        document.getElementById("password")
+        .value
+        .trim();
 
 
     if(
         username === "veeragank" &&
         password === "7002"
     ){
-showDashboard();
+
         localStorage.setItem(
             "tnAdminLoggedIn",
             "true"
@@ -300,7 +308,9 @@ showDashboard();
 }
 
 
-/* SHOW DASHBOARD */
+/* =========================
+   SHOW DASHBOARD
+========================= */
 
 function showDashboard(){
 
@@ -308,23 +318,20 @@ function showDashboard(){
         "loginBox"
     ).style.display = "none";
 
+
     document.getElementById(
         "dashboard"
     ).classList.remove("hidden");
 
-    loadJobs();
-
-}
-    function showDashboard(){
-
-    // existing code...
 
     loadJobs();
 
 }
 
 
-/* LOGOUT */
+/* =========================
+   LOGOUT
+========================= */
 
 function logout(){
 
@@ -332,12 +339,15 @@ function logout(){
         "tnAdminLoggedIn"
     );
 
+
     location.reload();
 
 }
 
 
-/* CHECK LOGIN */
+/* =========================
+   CHECK LOGIN
+========================= */
 
 function checkLogin(){
 
@@ -345,6 +355,7 @@ function checkLogin(){
         localStorage.getItem(
             "tnAdminLoggedIn"
         );
+
 
     if(loggedIn === "true"){
 
@@ -355,7 +366,9 @@ function checkLogin(){
 }
 
 
-/* SAVE JOB */
+/* =========================
+   SAVE JOB
+========================= */
 
 function saveJob(){
 
@@ -364,15 +377,18 @@ function saveJob(){
             "jobTitle"
         ).value.trim();
 
+
     var qualification =
         document.getElementById(
             "qualification"
         ).value.trim();
 
+
     var lastDate =
         document.getElementById(
             "lastDate"
         ).value.trim();
+
 
     var officialLink =
         document.getElementById(
@@ -434,13 +450,16 @@ function saveJob(){
         "jobTitle"
     ).value = "";
 
+
     document.getElementById(
         "qualification"
     ).value = "";
 
+
     document.getElementById(
         "lastDate"
     ).value = "";
+
 
     document.getElementById(
         "officialLink"
@@ -452,7 +471,9 @@ function saveJob(){
 }
 
 
-/* LOAD JOBS */
+/* =========================
+   LOAD JOBS
+========================= */
 
 function loadJobs(){
 
@@ -481,9 +502,10 @@ function loadJobs(){
         var html = "";
 
 
-        jobs.forEach(function(job,index){
+        jobs.forEach(
+            function(job,index){
 
-            html += `
+                html += `
 
                 <div class="job-item">
 
@@ -492,12 +514,14 @@ function loadJobs(){
                     </h3>
 
                     <p>
-                        🎓 <b>Qualification:</b>
+                        🎓
+                        <b>Qualification:</b>
                         ${job.qualification}
                     </p>
 
                     <p>
-                        📅 <b>Last Date:</b>
+                        📅
+                        <b>Last Date:</b>
                         ${job.lastDate}
                     </p>
 
@@ -522,9 +546,10 @@ function loadJobs(){
 
                 </div>
 
-            `;
+                `;
 
-        });
+            }
+        );
 
 
         container.innerHTML = html;
@@ -540,7 +565,9 @@ function loadJobs(){
 }
 
 
-/* DELETE JOB */
+/* =========================
+   DELETE JOB
+========================= */
 
 function deleteJob(index){
 
@@ -577,7 +604,9 @@ function deleteJob(index){
 }
 
 
-/* START */
+/* =========================
+   START
+========================= */
 
 checkLogin();
 
