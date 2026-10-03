@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -52,6 +53,11 @@ button{
     color:white;
     font-weight:bold;
     cursor:pointer;
+    margin-top:8px;
+}
+
+button:hover{
+    opacity:0.9;
 }
 
 .dashboard{
@@ -65,6 +71,14 @@ button{
     border-radius:8px;
 }
 
+.form-box{
+    background:#eef5ff;
+    padding:20px;
+    margin-top:15px;
+    border-radius:8px;
+    display:none;
+}
+
 .logout{
     background:#d32f2f;
 }
@@ -74,11 +88,28 @@ button{
     font-weight:bold;
 }
 
+.success{
+    color:green;
+    font-weight:bold;
+}
+
+.job-preview{
+    background:white;
+    padding:15px;
+    margin-top:15px;
+    border-radius:8px;
+    border-left:5px solid #1769aa;
+}
+
 </style>
 
 </head>
 
+
 <body>
+
+
+<!-- HEADER -->
 
 <div class="header">
 
@@ -120,51 +151,119 @@ Login
 
 <h2>📊 Admin Dashboard</h2>
 
+
+<!-- TOTAL JOBS -->
+
 <div class="card">
 
 <h3>📋 Total Jobs</h3>
 
-<h1 id="jobCount">10</h1>
+<h1 id="jobCount">0</h1>
 
 </div>
+
+
+<!-- ADD JOB -->
 
 <div class="card">
 
 <h3>➕ Add Job</h3>
 
-<p>Add new government job notifications.</p>
+<p>
+Add a new government job notification.
+</p>
 
-<button>
-Add Job
+<button onclick="showAddJob()">
+➕ Add Job
 </button>
 
+
+<div
+class="form-box"
+id="addJobForm">
+
+<h3>📝 New Job Details</h3>
+
+
+<input
+type="text"
+id="jobTitle"
+placeholder="Job Title">
+
+
+<input
+type="text"
+id="qualification"
+placeholder="Qualification">
+
+
+<input
+type="text"
+id="lastDate"
+placeholder="Last Date">
+
+
+<input
+type="text"
+id="officialLink"
+placeholder="Official Application Link">
+
+
+<button onclick="saveJob()">
+💾 Save Job
+</button>
+
+
+<p
+id="saveMessage"
+class="success">
+</p>
+
 </div>
+
+</div>
+
+
+<!-- MANAGE JOBS -->
 
 <div class="card">
 
 <h3>✏️ Manage Jobs</h3>
 
-<p>Edit or manage existing job notifications.</p>
+<p>
+Manage existing job notifications.
+</p>
 
-<button>
-Manage Jobs
+<button onclick="showJobs()">
+View Jobs
 </button>
 
+<div id="jobList"></div>
+
 </div>
+
+
+<!-- LATEST UPDATES -->
 
 <div class="card">
 
 <h3>📢 Latest Updates</h3>
 
-<p>Manage latest job updates.</p>
+<p>
+Manage latest job updates.
+</p>
 
-<button>
+<button onclick="showUpdateMessage()">
 Update News
 </button>
 
+<p id="updateMessage"></p>
+
 </div>
 
+
 <br>
+
 
 <button
 class="logout"
@@ -177,7 +276,11 @@ Logout
 </div>
 
 
+
 <script>
+
+
+/* ADMIN LOGIN */
 
 function adminLogin(){
 
@@ -187,16 +290,22 @@ function adminLogin(){
     let password =
         document.getElementById("password").value;
 
+
     if(
-        username === "admin" &&
-        password === "12345"
+        username === "veeragank" &&
+        password === "7002"
     ){
 
         document.getElementById("loginBox")
         .style.display = "none";
 
+
         document.getElementById("dashboard")
         .style.display = "block";
+
+
+        updateJobCount();
+
 
     }else{
 
@@ -209,17 +318,265 @@ function adminLogin(){
 }
 
 
+
+/* LOGOUT */
+
 function logout(){
 
     document.getElementById("dashboard")
     .style.display = "none";
 
+
     document.getElementById("loginBox")
     .style.display = "block";
 
+
+    document.getElementById("username").value = "";
+
+    document.getElementById("password").value = "";
+
 }
 
+
+
+/* SHOW ADD JOB */
+
+function showAddJob(){
+
+    let form =
+        document.getElementById("addJobForm");
+
+
+    if(form.style.display === "block"){
+
+        form.style.display = "none";
+
+    }else{
+
+        form.style.display = "block";
+
+    }
+
+}
+
+
+
+/* SAVE JOB */
+
+function saveJob(){
+
+    let title =
+        document.getElementById("jobTitle").value.trim();
+
+
+    let qualification =
+        document.getElementById("qualification").value.trim();
+
+
+    let lastDate =
+        document.getElementById("lastDate").value.trim();
+
+
+    let officialLink =
+        document.getElementById("officialLink").value.trim();
+
+
+    if(
+        title === "" ||
+        qualification === "" ||
+        lastDate === "" ||
+        officialLink === ""
+    ){
+
+        document.getElementById("saveMessage")
+        .innerText =
+        "❌ Please fill all fields.";
+
+        return;
+
+    }
+
+
+    let jobs =
+        JSON.parse(
+            localStorage.getItem("tnGovtJobs")
+        ) || [];
+
+
+    let newJob = {
+
+        title:title,
+
+        qualification:qualification,
+
+        lastDate:lastDate,
+
+        officialLink:officialLink
+
+    };
+
+
+    jobs.push(newJob);
+
+
+    localStorage.setItem(
+        "tnGovtJobs",
+        JSON.stringify(jobs)
+    );
+
+
+    document.getElementById("saveMessage")
+    .innerText =
+    "✅ Job saved successfully!";
+
+
+    document.getElementById("jobTitle").value = "";
+
+    document.getElementById("qualification").value = "";
+
+    document.getElementById("lastDate").value = "";
+
+    document.getElementById("officialLink").value = "";
+
+
+    updateJobCount();
+
+}
+
+
+
+/* UPDATE JOB COUNT */
+
+function updateJobCount(){
+
+    let jobs =
+        JSON.parse(
+            localStorage.getItem("tnGovtJobs")
+        ) || [];
+
+
+    document.getElementById("jobCount")
+    .innerText = jobs.length;
+
+}
+
+
+
+/* SHOW JOBS */
+
+function showJobs(){
+
+    let jobs =
+        JSON.parse(
+            localStorage.getItem("tnGovtJobs")
+        ) || [];
+
+
+    let list =
+        document.getElementById("jobList");
+
+
+    if(jobs.length === 0){
+
+        list.innerHTML =
+        "<p>No jobs added yet.</p>";
+
+        return;
+
+    }
+
+
+    list.innerHTML = "";
+
+
+    jobs.forEach(function(job,index){
+
+        list.innerHTML += `
+
+        <div class="job-preview">
+
+        <h3>
+        ${job.title}
+        </h3>
+
+        <p>
+        🎓 Qualification:
+        ${job.qualification}
+        </p>
+
+        <p>
+        📅 Last Date:
+        ${job.lastDate}
+        </p>
+
+        <a
+        href="${job.officialLink}"
+        target="_blank">
+
+        Official Link
+
+        </a>
+
+        <br>
+
+        <button
+        onclick="deleteJob(${index})"
+        style="background:#d32f2f;">
+
+        🗑️ Delete
+
+        </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+
+/* DELETE JOB */
+
+function deleteJob(index){
+
+    let jobs =
+        JSON.parse(
+            localStorage.getItem("tnGovtJobs")
+        ) || [];
+
+
+    jobs.splice(index,1);
+
+
+    localStorage.setItem(
+        "tnGovtJobs",
+        JSON.stringify(jobs)
+    );
+
+
+    updateJobCount();
+
+    showJobs();
+
+}
+
+
+
+/* UPDATE NEWS */
+
+function showUpdateMessage(){
+
+    document.getElementById("updateMessage")
+    .innerText =
+    "📢 Latest Updates section is ready.";
+
+}
+
+
 </script>
+
 
 </body>
 
