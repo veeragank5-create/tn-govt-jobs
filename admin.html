@@ -374,20 +374,16 @@ function showAddJob(){
 
 
 /* SAVE JOB */
-
-function saveJob(){
+    async function saveJob(){
 
     let title =
         document.getElementById("jobTitle").value.trim();
 
-
     let qualification =
         document.getElementById("qualification").value.trim();
 
-
     let lastDate =
         document.getElementById("lastDate").value.trim();
-
 
     let officialLink =
         document.getElementById("officialLink").value.trim();
@@ -400,13 +396,50 @@ function saveJob(){
         officialLink === ""
     ){
 
-        document.getElementById("saveMessage")
-        .innerText =
+        document.getElementById("saveMessage").innerText =
         "❌ Please fill all fields.";
 
         return;
 
     }
+
+
+    const { data, error } =
+        await supabaseClient
+        .from("jobs")
+        .insert([
+            {
+                title: title,
+                qualification: qualification,
+                last_date: lastDate,
+                official_link: officialLink
+            }
+        ]);
+
+
+    if(error){
+
+        document.getElementById("saveMessage").innerText =
+        "❌ Error: " + error.message;
+
+        return;
+
+    }
+
+
+    document.getElementById("saveMessage").innerText =
+    "✅ Job saved to database!";
+
+
+    document.getElementById("jobTitle").value = "";
+
+    document.getElementById("qualification").value = "";
+
+    document.getElementById("lastDate").value = "";
+
+    document.getElementById("officialLink").value = "";
+
+}
 
 
     let jobs =
