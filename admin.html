@@ -684,7 +684,7 @@ function clearForm(){
 
 /* SHOW JOBS */
 
-function showJobs(){
+async function showJobs(){
 
     const search =
         document
@@ -692,27 +692,42 @@ function showJobs(){
         .value
         .toLowerCase();
 
-
     const container =
-        document
-        .getElementById("jobList");
+        document.getElementById("jobList");
+
+    container.innerHTML =
+        "Loading jobs...";
+
+
+    const { data, error } =
+        await supabaseClient
+        .from("jobs")
+        .select("*")
+        .order("id", { ascending:false });
+
+
+    if(error){
+
+        container.innerHTML =
+            "❌ " + error.message;
+
+        console.log(error);
+
+        return;
+    }
 
 
     container.innerHTML = "";
 
 
     const filteredJobs =
-        jobs.filter(function(job){
+        data.filter(function(job){
 
             const text =
                 (
                     job.title +
                     " " +
-                    job.department +
-                    " " +
-                    job.category +
-                    " " +
-                    job.qualification
+                    (job.qualification || "")
                 )
                 .toLowerCase();
 
@@ -737,25 +752,13 @@ function showJobs(){
                 </h3>
 
                 <p>
-                    🏢 ${escapeHTML(job.department)}
-                </p>
-
-                <p>
-                    📂 ${escapeHTML(job.category)}
-                </p>
-
-                <p>
-                    🎓 ${escapeHTML(job.qualification)}
-                </p>
-
-                <p>
-                    👥 Vacancy:
-                    ${escapeHTML(job.vacancy)}
+                    🎓 Qualification:
+                    ${escapeHTML(job.qualification)}
                 </p>
 
                 <p>
                     📅 Last Date:
-                    ${job.lastDate || "Not set"}
+                    ${job.last_date || "Not set"}
                 </p>
 
             </div>
@@ -770,13 +773,13 @@ function showJobs(){
     document
     .getElementById("totalJobs")
     .innerText =
-    jobs.length;
+    data.length;
 
 
     document
     .getElementById("latestJobs")
     .innerText =
-    Math.min(jobs.length,5);
+    Math.min(data.length,5);
 
 }
 
