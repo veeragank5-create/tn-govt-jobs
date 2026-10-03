@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard - TN GOVT JOBS</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f2f6fb;
+}
+
+.header{
+    background:#08254d;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.login-box,
+.dashboard{
+    width:90%;
+    max-width:600px;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 15px #ccc;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:6px;
+    background:#1769aa;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.dashboard{
+    display:none;
+}
+
+.card{
+    background:#f5f8fc;
+    padding:20px;
+    margin:15px 0;
+    border-radius:8px;
+}
+
+.logout{
+    background:#d32f2f;
+}
+
+.error{
+    color:red;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>🇮🇳 TN GOVT JOBS</h1>
+
+<p>Admin Panel</p>
+
+</div>
+
+
+<!-- LOGIN -->
+
+<div class="login-box" id="loginBox">
+
+<h2>🔐 Admin Login</h2>
+
+<input
+type="text"
+id="username"
+placeholder="Username">
+
+<input
+type="password"
+id="password"
+placeholder="Password">
+
+<button onclick="adminLogin()">
+Login
+</button>
+
+<p id="error" class="error"></p>
+
+</div>
+
+
+<!-- DASHBOARD -->
+
+<div class="dashboard" id="dashboard">
+
+<h2>📊 Admin Dashboard</h2>
+
+<div class="card">
+
+<h3>📋 Total Jobs</h3>
+
+<h1 id="jobCount">10</h1>
+
+</div>
+
+<div class="card">
+
+<h3>➕ Add Job</h3>
+
+<p>Add new government job notifications.</p>
+
+<button>
+Add Job
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>✏️ Manage Jobs</h3>
+
+<p>Edit or manage existing job notifications.</p>
+
+<button>
+Manage Jobs
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>📢 Latest Updates</h3>
+
+<p>Manage latest job updates.</p>
+
+<button>
+Update News
+</button>
+
+</div>
+
+<br>
+
+<button
+class="logout"
+onclick="logout()">
+
+Logout
+
+</button>
+
+</div>
+
+
+<script>
+
+function adminLogin(){
+
+    let username =
+        document.getElementById("username").value;
+
+    let password =
+        document.getElementById("password").value;
+
+    if(
+        username === "admin" &&
+        password === "12345"
+    ){
+
+        document.getElementById("loginBox")
+        .style.display = "none";
+
+        document.getElementById("dashboard")
+        .style.display = "block";
+
+    }else{
+
+        document.getElementById("error")
+        .innerText =
+        "❌ Invalid Username or Password";
+
+    }
+
+}
+
+
+function logout(){
+
+    document.getElementById("dashboard")
+    .style.display = "none";
+
+    document.getElementById("loginBox")
+    .style.display = "block";
+
+}
+
+</script>
+
+</body>
+
+</html>
