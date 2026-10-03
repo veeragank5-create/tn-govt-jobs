@@ -108,7 +108,7 @@ color:#1769aa;
 }
 
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 </head>
 
 <body>
@@ -121,9 +121,7 @@ color:#1769aa;
 
 </header>
 
-
 <div class="container">
-
 
 <!-- LOGIN -->
 
@@ -167,8 +165,7 @@ class="message">
 
 <div id="dashboard" class="hidden">
 
-
-<!-- DASHBOARD BOX -->
+<!-- DASHBOARD -->
 
 <div class="box">
 
@@ -257,28 +254,14 @@ No jobs added yet.
 
 </div>
 
-
 </div>
 
 </div>
 
 
 <script>
-const SUPABASE_URL =
-"https://qgqsaqkzqofcejemjrta.supabase.co";
 
-const SUPABASE_KEY =
-"sb_publishable_PVfmRNEvrEq4w1dQ_9QWyQ_KvC6psU2";
-
-const supabaseClient =
-supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
-
-/* =========================
-   LOGIN
-========================= */
+/* LOGIN */
 
 function login(){
 
@@ -291,7 +274,6 @@ function login(){
         document.getElementById("password")
         .value
         .trim();
-
 
     if(
         username === "veeragank" &&
@@ -318,9 +300,7 @@ function login(){
 }
 
 
-/* =========================
-   SHOW DASHBOARD
-========================= */
+/* SHOW DASHBOARD */
 
 function showDashboard(){
 
@@ -328,20 +308,16 @@ function showDashboard(){
         "loginBox"
     ).style.display = "none";
 
-
     document.getElementById(
         "dashboard"
     ).classList.remove("hidden");
-
 
     loadJobs();
 
 }
 
 
-/* =========================
-   LOGOUT
-========================= */
+/* LOGOUT */
 
 function logout(){
 
@@ -349,15 +325,12 @@ function logout(){
         "tnAdminLoggedIn"
     );
 
-
     location.reload();
 
 }
 
 
-/* =========================
-   CHECK LOGIN
-========================= */
+/* CHECK LOGIN */
 
 function checkLogin(){
 
@@ -365,7 +338,6 @@ function checkLogin(){
         localStorage.getItem(
             "tnAdminLoggedIn"
         );
-
 
     if(loggedIn === "true"){
 
@@ -376,9 +348,7 @@ function checkLogin(){
 }
 
 
-/* =========================
-   SAVE JOB
-========================= */
+/* SAVE JOB */
 
 function saveJob(){
 
@@ -387,24 +357,20 @@ function saveJob(){
             "jobTitle"
         ).value.trim();
 
-
     var qualification =
         document.getElementById(
             "qualification"
         ).value.trim();
-
 
     var lastDate =
         document.getElementById(
             "lastDate"
         ).value.trim();
 
-
     var officialLink =
         document.getElementById(
             "officialLink"
         ).value.trim();
-
 
     if(
         title === "" ||
@@ -422,14 +388,12 @@ function saveJob(){
 
     }
 
-
     var jobs =
         JSON.parse(
             localStorage.getItem(
                 "tnGovtJobs"
             )
         ) || [];
-
 
     jobs.push({
 
@@ -443,47 +407,38 @@ function saveJob(){
 
     });
 
-
     localStorage.setItem(
         "tnGovtJobs",
         JSON.stringify(jobs)
     );
-
 
     document.getElementById(
         "saveMessage"
     ).innerText =
     "✅ Job saved successfully!";
 
-
     document.getElementById(
         "jobTitle"
     ).value = "";
-
 
     document.getElementById(
         "qualification"
     ).value = "";
 
-
     document.getElementById(
         "lastDate"
     ).value = "";
 
-
     document.getElementById(
         "officialLink"
     ).value = "";
-
 
     loadJobs();
 
 }
 
 
-/* =========================
-   LOAD JOBS
-========================= */
+/* LOAD JOBS */
 
 function loadJobs(){
 
@@ -494,12 +449,10 @@ function loadJobs(){
             )
         ) || [];
 
-
     var container =
         document.getElementById(
             "manageJobs"
         );
-
 
     if(jobs.length === 0){
 
@@ -510,7 +463,6 @@ function loadJobs(){
     else{
 
         var html = "";
-
 
         jobs.forEach(
             function(job,index){
@@ -561,11 +513,9 @@ function loadJobs(){
             }
         );
 
-
         container.innerHTML = html;
 
     }
-
 
     document.getElementById(
         "jobCount"
@@ -575,9 +525,7 @@ function loadJobs(){
 }
 
 
-/* =========================
-   DELETE JOB
-========================= */
+/* DELETE JOB */
 
 function deleteJob(index){
 
@@ -587,7 +535,6 @@ function deleteJob(index){
                 "tnGovtJobs"
             )
         ) || [];
-
 
     if(
         !confirm(
@@ -599,27 +546,21 @@ function deleteJob(index){
 
     }
 
-
     jobs.splice(index,1);
-
 
     localStorage.setItem(
         "tnGovtJobs",
         JSON.stringify(jobs)
     );
 
-
     loadJobs();
 
 }
 
 
-/* =========================
-   START
-========================= */
-document.getElementById("loginBox").style.display = "block";
-document.getElementById("dashboard").classList.add("hidden");
+/* START */
 
+checkLogin();
 
 </script>
 
