@@ -362,27 +362,19 @@ function checkLogin(){
 
 /* SAVE JOB */
 
-function saveJob(){
+async function saveJob(){
 
     const title =
-        document.getElementById(
-            "jobTitle"
-        ).value.trim();
+        document.getElementById("jobTitle").value.trim();
 
     const qualification =
-        document.getElementById(
-            "qualification"
-        ).value.trim();
+        document.getElementById("qualification").value.trim();
 
     const lastDate =
-        document.getElementById(
-            "lastDate"
-        ).value.trim();
+        document.getElementById("lastDate").value.trim();
 
     const officialLink =
-        document.getElementById(
-            "officialLink"
-        ).value.trim();
+        document.getElementById("officialLink").value.trim();
 
 
     if(
@@ -392,14 +384,55 @@ function saveJob(){
         officialLink === ""
     ){
 
-        document.getElementById(
-            "saveMessage"
-        ).innerText =
+        document.getElementById("saveMessage").innerText =
         "❌ Please fill all fields.";
 
         return;
 
     }
+
+
+    const { error } =
+        await supabaseClient
+        .from("jobs")
+        .insert({
+
+            title: title,
+
+            qualification: qualification,
+
+            last_date: lastDate,
+
+            official_link: officialLink
+
+        });
+
+
+    if(error){
+
+        document.getElementById("saveMessage").innerText =
+        "❌ " + error.message;
+
+        return;
+
+    }
+
+
+    document.getElementById("saveMessage").innerText =
+    "✅ Job saved to database!";
+
+
+    document.getElementById("jobTitle").value = "";
+
+    document.getElementById("qualification").value = "";
+
+    document.getElementById("lastDate").value = "";
+
+    document.getElementById("officialLink").value = "";
+
+}
+
+        document
 
 
     let jobs =
