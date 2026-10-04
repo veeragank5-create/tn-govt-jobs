@@ -998,34 +998,47 @@ async function loadJobs(){
             combined
         );
 
+jobCard.innerHTML = `
 
-        jobCard.innerHTML = `
+    <h2>
+        📢 ${job.title}
+        <span class="badge">NEW</span>
+    </h2>
 
-            <h2>
-                📢 ${job.title}
-                <span class="badge">NEW</span>
-            </h2>
+    <p>
+        🎓 <b>Qualification:</b>
+        ${job.qualification || "As per post"}
+    </p>
 
-            <p>
-                🎓 <b>Qualification:</b>
-                ${job.qualification || "As per post"}
-            </p>
+    <p>
+        📅 <b>Last Date:</b>
+        ${job.last_date || "Check Official Website"}
+    </p>
 
-            <p>
-                📅 <b>Last Date:</b>
-                ${job.last_date || "Check Official Website"}
-            </p>
+    <p>
+        👥 <b>Vacancies:</b>
+        ${job.vacancies || "As per Notification"}
+    </p>
 
-            <a
-                href="${job.official_link}"
-                target="_blank"
-                class="apply-btn">
+    <p>
+        💰 <b>Salary:</b>
+        ${job.salary || "As per Post"}
+    </p>
 
-                Apply / Official Website
+    <p>
+        📝 <b>Job Description:</b>
+        $[job.job_description || "Check Official Notification"]
+    </p>
 
-            </a>
+    <a
+        href="job.official_link"
+        target="_blank"
+        class="apply-btn">
 
-        `;
+        Apply / Official Website
+
+    </a>
+`;
 
 
         jobsContainer.appendChild(jobCard);
