@@ -796,29 +796,26 @@ async function showJobs(){
     Math.min(data.length,5);
 async function deleteJob(id){
 
-    const confirmDelete =
-        confirm("Are you sure you want to delete this job?");
+    console.log("Delete ID:", id);
 
-    if(!confirmDelete){
-        return;
-    }
-
-    const { error } =
+    const { data, error } =
         await supabaseClient
         .from("jobs")
         .delete()
-        .eq("id", id);
+        .eq("id", id)
+        .select();
+
+    console.log("Delete result:", data);
+    console.log("Delete error:", error);
 
     if(error){
 
-        alert("❌ Delete failed");
-
-        console.log(error);
+        alert("❌ " + error.message);
 
         return;
     }
 
-    alert("✅ Job deleted!");
+    alert("✅ Job deleted successfully!");
 
     showJobs();
 }
