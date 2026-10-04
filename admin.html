@@ -547,85 +547,93 @@ function saveDatabase(){
 
 
 /* SAVE JOB */
+let editingJobId = null;
 
 async function saveJob(){
 
     const title =
-        document
-        .getElementById("title")
-        .value
-        .trim();
-
+        document.getElementById("title").value.trim();
 
     if(title === ""){
 
-        document
-        .getElementById("saveMessage")
-        .innerText =
+        document.getElementById("saveMessage").innerText =
         "❌ Please enter Job Title.";
 
         return;
-
     }
-
 
     const job = {
 
         title: title,
 
         qualification:
-        document
-        .getElementById("qualification")
-        .value
-        .trim(),
+        document.getElementById("qualification").value.trim(),
 
         last_date:
-        document
-        .getElementById("lastDate")
-        .value,
+        document.getElementById("lastDate").value,
 
         official_link:
-        document
-        .getElementById("applyLink")
-        .value
-        .trim()
-
+        document.getElementById("applyLink").value.trim()
     };
 
 
-    const { data, error } =
-        await supabaseClient
-        .from("jobs")
-        .insert([job])
-        .select();
+    let result;
+
+
+    if(editingJobId){
+
+        result =
+            await supabaseClient
+            .from("jobs")
+            .update(job)
+            .eq("id", editingJobId)
+            .select();
+
+    }else{
+
+        result =
+            await supabaseClient
+            .from("jobs")
+            .insert([job])
+            .select();
+
+    }
+
+
+    const { data, error } = result;
 
 
     if(error){
 
-        document
-        .getElementById("saveMessage")
-        .innerText =
+        document.getElementById("saveMessage").innerText =
         "❌ " + error.message;
 
         console.log(error);
 
         return;
+    }
+
+
+    if(editingJobId){
+
+        document.getElementById("saveMessage").innerText =
+        "✅ Job updated successfully!";
+
+    }else{
+
+        document.getElementById("saveMessage").innerText =
+        "✅ Job saved to database!";
 
     }
 
 
-    document
-    .getElementById("saveMessage")
-    .innerText =
-    "✅ Job saved to database!";
-
+    editingJobId = null;
 
     clearForm();
 
-    console.log(
-        "Saved Job:",
-        data
-    );
+    showJobs();
+
+    console.log("Saved/Updated Job:", data);
 
 }
 
@@ -873,7 +881,7 @@ if(
 
 }
 window.editJob = async function(id){
-
+editingJobId = id;
     const { data, error } = await supabaseClient
         .from("jobs")
         .select("*")
