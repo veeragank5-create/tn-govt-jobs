@@ -872,7 +872,34 @@ if(
     showAdmin();
 
 }
+window.editJob = async function(id){
 
+    const { data, error } = await supabaseClient
+        .from("jobs")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+    if(error){
+        alert("❌ " + error.message);
+        console.log(error);
+        return;
+    }
+
+    document.getElementById("title").value =
+        data.title || "";
+
+    document.getElementById("qualification").value =
+        data.qualification || "";
+
+    document.getElementById("lastDate").value =
+        data.last_date || "";
+
+    document.getElementById("applyLink").value =
+        data.official_link || "";
+
+    alert("✏️ Job loaded. Edit the details and save.");
+};
 </script>
 <script>
 window.deleteJob = async function(id){
