@@ -964,6 +964,45 @@ window.login = function(){
 };
 
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const btn = document.querySelector(
+        'button[onclick="login()"]'
+    );
+
+    if(btn){
+        btn.onclick = function(){
+
+            const username =
+                document.getElementById("username").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            if(username === "veeragank" && password === "7002"){
+
+                localStorage.setItem(
+                    "tn_admin_login",
+                    "true"
+                );
+
+                document.getElementById("loginMessage").innerText = "";
+
+                if(typeof showAdmin === "function"){
+                    showAdmin();
+                }
+
+            }else{
+
+                document.getElementById("loginMessage").innerText =
+                    "❌ Invalid Username or Password";
+            }
+        };
+    }
+
+});
+</script>
 </body>
 
 </html>
