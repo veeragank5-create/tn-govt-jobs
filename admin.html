@@ -935,35 +935,7 @@ window.deleteJob = async function(id){
 
     showJobs();
 };
-</script>
-<script>
 
-window.login = function(){
-
-    const username =
-        document.getElementById("username").value.trim();
-
-    const password =
-        document.getElementById("password").value;
-
-    if(username === "veeragank" && password === "7002"){
-
-        localStorage.setItem("tn_admin_login", "true");
-
-        document.getElementById("loginMessage").innerText = "";
-
-        showAdmin();
-
-    }else{
-
-        document.getElementById("loginMessage").innerText =
-        "❌ Invalid Username or Password";
-
-    }
-
-};
-
-</script>
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
