@@ -920,46 +920,41 @@ function toggleMenu(){
 
 }
 
-
 /* SEARCH */
+function searchJobs() {
+    const input = document.getElementById("searchBox");
 
-function searchJobs(){
+    if (!input) return;
 
-    const search =
-    document.getElementById("searchBox")
-    .value
-    .toLowerCase();
-
-    const jobs =
-    document.querySelectorAll(".job");
+    const search = input.value.toLowerCase().trim();
+    const jobs = document.querySelectorAll(".job");
 
     let visible = 0;
 
-    jobs.forEach(function(job){
+    jobs.forEach(function(job) {
+        const text = job.innerText.toLowerCase();
 
-        const text =
-        job.innerText.toLowerCase();
-
-        if(text.includes(search)){
-
-            job.style.display = "block";
-
+        if (text.includes(search)) {
+            job.style.display = "";
             visible++;
-
-        }else{
-
+        } else {
             job.style.display = "none";
-
         }
-
     });
 
-    document.getElementById("noResults")
-    .style.display =
-    visible === 0 ? "block" : "none";
+    const noResults = document.getElementById("noResults");
 
-    updateJobCount();
-showLatestJobs();
+    if (noResults) {
+        noResults.style.display = visible === 0 ? "block" : "none";
+    }
+
+    if (typeof updateJobCount === "function") {
+        updateJobCount();
+    }
+
+    if (typeof showLatestJobs === "function") {
+        showLatestJobs();
+    }
 }
 
 
