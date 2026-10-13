@@ -957,28 +957,23 @@ function searchJobs() {
     }
 }
 
-/* FILTER */
-function filterJobs(category) {
-    const jobs = document.querySelectorAll(".job");
+
+/* FILTER JOBS */
+window.filterJobs = function(category) {
+    const jobs = document.querySelectorAll("#jobs .job");
     const noResults = document.getElementById("noResults");
     let visible = 0;
 
     jobs.forEach(function(job) {
-        const qualification = (
-            job.getAttribute("data-qualification") || ""
-        ).toLowerCase();
+        const qualification =
+            (job.getAttribute("data-qualification") || "")
+            .toLowerCase();
 
-        const categories = (
-            job.getAttribute("data-category") || ""
-        ).toLowerCase();
-
-        const text = job.innerText.toLowerCase();
+        const selected = category.toLowerCase();
 
         const show =
-            category === "all" ||
-            qualification.includes(category.toLowerCase()) ||
-            categories.includes(category.toLowerCase()) ||
-            text.includes(category.toLowerCase());
+            selected === "all" ||
+            qualification.split(/\s+/).includes(selected);
 
         job.style.display = show ? "" : "none";
 
@@ -993,7 +988,8 @@ function filterJobs(category) {
     if (typeof updateJobCount === "function") {
         updateJobCount();
     }
-}
+};
+
 
 
 function filterJobs(category) {
