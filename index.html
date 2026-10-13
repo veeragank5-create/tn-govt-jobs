@@ -371,6 +371,33 @@ footer a{
     }
 
 }
+@media (max-width: 900px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
+
+  .menu-button {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 12px;
+  }
+}
 </style>
 </style>
 
@@ -1228,6 +1255,16 @@ async function showLatestJobs(){
 </div>
 
 </section>
+<script>
+const menuButton = document.getElementById("menuButton");
+const navMenu = document.getElementById("navMenu");
+
+if (menuButton && navMenu) {
+  menuButton.onclick = function () {
+    navMenu.classList.toggle("open");
+  };
+}
+</script>
 </body>
 
 </html>
