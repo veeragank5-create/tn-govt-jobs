@@ -957,47 +957,45 @@ function searchJobs() {
     }
 }
 
-
 /* FILTER */
-
-function filterJobs(category){
-
-    const jobs =
-    document.querySelectorAll(".job");
-
+function filterJobs(category) {
+    const jobs = document.querySelectorAll(".job");
+    const noResults = document.getElementById("noResults");
     let visible = 0;
 
-    jobs.forEach(function(job){
+    jobs.forEach(function(job) {
+        const qualification = (
+            job.getAttribute("data-qualification") || ""
+        ).toLowerCase();
 
-        const data =
-        job.getAttribute("data-qualification")
-        .toLowerCase();
+        const categories = (
+            job.getAttribute("data-category") || ""
+        ).toLowerCase();
 
-        if(
+        const text = job.innerText.toLowerCase();
+
+        const show =
             category === "all" ||
-            data.includes(category)
-        ){
+            qualification.includes(category.toLowerCase()) ||
+            categories.includes(category.toLowerCase()) ||
+            text.includes(category.toLowerCase());
 
-            job.style.display = "block";
+        job.style.display = show ? "" : "none";
 
-            visible++;
-
-        }else{
-
-            job.style.display = "none";
-
-        }
-
+        if (show) visible++;
     });
 
-    document.getElementById("noResults")
-    .style.display =
-    visible === 0 ? "block" : "none";
+    if (noResults) {
+        noResults.style.display =
+            visible === 0 ? "block" : "none";
+    }
 
-    updateJobCount();
-
+    if (typeof updateJobCount === "function") {
+        updateJobCount();
+    }
 }
-```javascript
+
+
 function filterJobs(category) {
     const jobs = document.querySelectorAll(".job");
     const noResults = document.getElementById("noResults");
@@ -1022,7 +1020,7 @@ function filterJobs(category) {
             visible === 0 ? "block" : "none";
     }
 }
-```
+
 
 /* JOB COUNT */
 
