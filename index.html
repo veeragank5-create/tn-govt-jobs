@@ -1260,6 +1260,38 @@ if (menuButton && navMenu) {
   };
 }
 </script>
+<script>
+function searchJobs() {
+    const input = document.querySelector(
+        '#searchBox, #searchInput'
+    );
+
+    if (!input) {
+        alert("Search box not found");
+        return;
+    }
+
+    const keyword = input.value.toLowerCase().trim();
+    const jobs = document.querySelectorAll(".job");
+    let count = 0;
+
+    jobs.forEach(function(job) {
+        const match = job.innerText
+            .toLowerCase()
+            .includes(keyword);
+
+        job.style.display = match ? "" : "none";
+
+        if (match) count++;
+    });
+
+    const result = document.getElementById("noResults");
+
+    if (result) {
+        result.style.display = count ? "none" : "block";
+    }
+}
+</script>
 </body>
 
 </html>
