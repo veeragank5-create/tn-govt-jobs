@@ -997,7 +997,32 @@ function filterJobs(category){
     updateJobCount();
 
 }
+```javascript
+function filterJobs(category) {
+    const jobs = document.querySelectorAll(".job");
+    const noResults = document.getElementById("noResults");
+    let visible = 0;
 
+    jobs.forEach(function(job) {
+        const jobCategory = (
+            job.dataset.category || ""
+        ).toLowerCase();
+
+        const show =
+            category === "all" ||
+            jobCategory === category.toLowerCase();
+
+        job.style.display = show ? "" : "none";
+
+        if (show) visible++;
+    });
+
+    if (noResults) {
+        noResults.style.display =
+            visible === 0 ? "block" : "none";
+    }
+}
+```
 
 /* JOB COUNT */
 
